@@ -1,0 +1,10 @@
+body{
+    background-image: url("./background.jpg");
+    background-size: 90%
+  }
+
+  #navside{
+    display: flex;
+    justify-content: center;
+    
+  }
