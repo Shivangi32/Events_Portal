@@ -2,6 +2,7 @@ import React from 'react';
 import "./header.css"
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa"
+import Heading from './Heading';
 export default function Header() {
     return (
         <div>
@@ -31,6 +32,10 @@ export default function Header() {
                     </div>
                 </div>
             </nav>
+            <div>
+                <Heading/>
+            </div>
+
         </div>
     )
 }
