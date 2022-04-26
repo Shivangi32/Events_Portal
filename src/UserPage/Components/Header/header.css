@@ -93,3 +93,9 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 
   }
+
+  #navside button,span{
+    border: none;
+    background: none;
+    color: white;
+  }

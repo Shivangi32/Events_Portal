@@ -1,4 +1,4 @@
-import {React} from 'react';
+import React from 'react';
 import './Card.css';
 import  data  from './data';
 
@@ -28,7 +28,7 @@ const Event = ({event:{society,eventname,date,time}}) =>{
   )
 }
 
-export default function Card(){
+const Card=()=>{
   return(
   <div className="events">
     {data.events.map((event)=>
@@ -37,3 +37,4 @@ export default function Card(){
   )
 }
 
+export default Card;
