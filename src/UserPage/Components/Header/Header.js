@@ -44,9 +44,9 @@ export default function Header() {
                         <div>
                             <Heading />
                         </div>
-                        {/* <div>
+                        <div>
                             <Card />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>

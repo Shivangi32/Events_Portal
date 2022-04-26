@@ -1,6 +1,23 @@
 import React from 'react';
 import './Card.css';
-import  data  from './data';
+// import data from '../../constants';
+
+const data =[
+  {
+      society : 'INSTINCT',
+      eventname: 'Resume Review Session',
+      date: '12 April,22',
+      time: '6:30 pm',
+      id:1,
+  },
+  {
+      society : 'INSTINCT',
+      eventname: 'Resume Review Session',
+      date: '12 April,22',
+      time: '6:30 pm',
+      id:2,  
+  }
+]
 
 const Event = ({event:{society,eventname,date,time}}) =>{
   return(
@@ -31,8 +48,9 @@ const Event = ({event:{society,eventname,date,time}}) =>{
 const Card=()=>{
   return(
   <div className="events">
-    {data.events.map((event)=>
-    <Event event={event} key={event.id}/>)}
+    {data.map((event)=>
+    <Event event={event} />
+    )}
   </div>
   )
 }
