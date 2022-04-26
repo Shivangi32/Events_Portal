@@ -34,6 +34,9 @@
 
    */
 
+   body{
+    font-family: "'Overlock', cursive";
+   }
    .stars, .twinkling, .clouds {
     position:absolute;
     display:block;

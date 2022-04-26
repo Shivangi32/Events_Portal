@@ -12,7 +12,7 @@ export default function Header() {
             <div className='stars'>
                 <div className="twinkling">
                     <div className="clouds">
-                        <div className="navbar">
+                        <nav className="navbar navbar-expand-lg">
                             <div className="container-fluid">
                                 <a href="/" className="navbar-brand"><h2>Home</h2></a>
                                 <button className="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@ export default function Header() {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </div>
