@@ -34,6 +34,9 @@
 
    */
 
+   body{
+    font-family: "'Overlock', cursive";
+   }
    .stars, .twinkling, .clouds {
     position:absolute;
     display:block;
@@ -69,6 +72,9 @@
     to {background-position:10000px 0;}
   }
 
+  .navbar-toggler{
+    background-color: white;
+  }
   .navbar{
     padding: 25px;
   }
