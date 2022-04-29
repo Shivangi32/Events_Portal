@@ -1,6 +1,5 @@
 import React from 'react';
 import './Card.css';
-// import data from '../../constants';
 
 const data =[
   {
