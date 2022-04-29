@@ -30,11 +30,11 @@ const Event = ({event:{society,eventname,date,time}}) =>{
           <span>{eventname}</span>
         </div>
         <div className="event_date">
-          <span>Date</span>
+          <span>Date : </span>
           <span className="date">{date}</span>
         </div>
         <div className="event_time">
-          <span>Time</span>
+          <span>Time : </span>
           <span className="time">{time}</span>
         </div>
         <div className="event_register">
