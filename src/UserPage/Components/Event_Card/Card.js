@@ -32,8 +32,12 @@ const Card=()=>{
   return(
   <div className="events">
     {data.events.map((event)=>
+<<<<<<< HEAD
     <Event event={event} key={event.id}/>
     )}
+=======
+    <Event event={event} key={event.id}/>)}
+>>>>>>> 0dbfaad5d2073c058906aea0343396825e787844
   </div>
   )
 }

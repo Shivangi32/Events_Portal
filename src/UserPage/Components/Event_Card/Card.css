@@ -1,0 +1,29 @@
+.events{
+    margin-left: 70px;
+    margin-right:50px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    flex: 1;
+    background-color: aliceblue;
+  }
+
+  .event{
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68) ;
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    margin: 2rem;
+    width: 250px;
+    border-radius: 10%;
+    background-color: aliceblue;
+  }
+
+
+  .eventwrapper{
+    padding: 10px;
+    padding-top: 10px;
+  }
