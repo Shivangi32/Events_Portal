@@ -7,7 +7,6 @@
     flex-wrap:wrap;
     flex-direction: row;
     flex: 1;
-    background-color: aliceblue;
   }
 
   .event{
@@ -17,13 +16,46 @@
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68) ;
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     margin: 2rem;
-    width: 250px;
+    width: 200px;
     border-radius: 10%;
-    background-color: aliceblue;
+    background:radial-gradient(94.84% 94.84% at 50% 50%, rgba(196, 196, 196, 0.28) 0%, rgba(196, 196, 196, 0.13) 100%);;
   }
 
 
-  .eventwrapper{
+  .event_wrapper{
     padding: 10px;
     padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .event_society{
+    display: flex;
+    align-items: center;
+    padding: 10px 50px;
+  }
+
+  .society_name{
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .event_name, .event_date, .event_time{
+    padding: 10px;
+  }
+
+  .event_register{
+    padding:  0 20px;
+  }
+
+  .event_register button{
+    border-radius: 8px;
+    background-color: black;
+    border-color: black;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+
+  .register{
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }

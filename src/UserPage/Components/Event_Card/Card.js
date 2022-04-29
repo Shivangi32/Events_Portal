@@ -1,6 +1,22 @@
 import React from 'react';
 import './Card.css';
-import  data  from './data';
+
+const data =[
+  {
+      society : 'INSTINCT',
+      eventname: 'Resume Review Session',
+      date: '12 April,22',
+      time: '6:30 pm',
+      id:1,
+  },
+  {
+      society : 'INSTINCT',
+      eventname: 'Resume Review Session',
+      date: '12 April,22',
+      time: '6:30 pm',
+      id:2,  
+  }
+]
 
 const Event = ({event:{society,eventname,date,time}}) =>{
   return(
@@ -13,11 +29,11 @@ const Event = ({event:{society,eventname,date,time}}) =>{
           <span>{eventname}</span>
         </div>
         <div className="event_date">
-          <span>Date</span>
+          <span>Date : </span>
           <span className="date">{date}</span>
         </div>
         <div className="event_time">
-          <span>Time</span>
+          <span>Time : </span>
           <span className="time">{time}</span>
         </div>
         <div className="event_register">
@@ -31,8 +47,9 @@ const Event = ({event:{society,eventname,date,time}}) =>{
 const Card=()=>{
   return(
   <div className="events">
-    {data.events.map((event)=>
-    <Event event={event} key={event.id}/>)}
+    {data.map((event)=>
+    <Event event={event} />
+    )}
   </div>
   )
 }
