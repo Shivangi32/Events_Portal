@@ -5,7 +5,7 @@ let heading_style={
     margin: "auto",
     width: "50%",
     color: "white",
-    fontSize: "5vw",
+    fontSize: "4vw",
     textAlign: "center"
 }
 export default function Heading() {
