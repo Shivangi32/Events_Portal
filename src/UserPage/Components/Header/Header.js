@@ -4,7 +4,7 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa"
 import Heading from './Heading';
 import '../Event_Card/Card';
-import Card from '../Event_Card/Card';
+import Card from '../Event_Card/Card.js';
 
 export default function Header() {
     return (
@@ -16,7 +16,7 @@ export default function Header() {
                             <div className="container-fluid">
 
                             <a className="navbar-brand" href="/">Home</a>
-                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button className="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,9 +45,9 @@ export default function Header() {
                         <div>
                             <Heading />
                         </div>
-                        {/* <div>
+                        <div>
                             <Card />
-                        </div> */}
+                        </div> 
 
                     
                     </div>

@@ -5,6 +5,13 @@ const events =[
         date: '12 April,22',
         time: '6:30 pm',
         id:1,
+    },
+    {
+        society : 'MINERVA',
+        eventname: 'Microsoft Engage Session',
+        date: '22 April,22',
+        time: '6:00 pm',
+        id:2,
     }
 ]
 

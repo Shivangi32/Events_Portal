@@ -1,5 +1,4 @@
-/* body{
-    background-image: url("../../assets/background.jpg");
+/* body{\
     background-size: 90%
   }
 
@@ -35,7 +34,8 @@
    */
 
    body{
-    font-family: "'Overlock', cursive";
+    font-family: 'Overlock', cursive;
+    max-width: 500px;
    }
    .stars, .twinkling, .clouds {
     position:absolute;
@@ -44,23 +44,33 @@
     left:0; right:0;
     width:100%; height:100%;
   }
-  
   .stars {
-    z-index: 0;
-    background: #000 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
+    background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index:0;
   }
   
   .twinkling{
-    z-index: 1;
-    background:transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
-    animation: move-twink-back 200s linear infinite;
-  }
-  
-  .clouds{
-    z-index: 2;
-      background:transparent url('https://image.ibb.co/bT4N7T/clouds.png') repeat top center;
-    animation: move-clouds-back 200s linear infinite;
-  }
+  background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.clouds{
+  font-family: 'Overlock', sans-serif;
+    background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds.png) repeat top center;
+    z-index:3;
+
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -ms-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
   
   @keyframes move-twink-back {
     from {background-position:0 0;}
@@ -72,11 +82,10 @@
     to {background-position:10000px 0;}
   }
 
-  .navbar-toggler{
-    background-color: white;
-  }
   .navbar{
     padding: 25px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.2vw;
   }
 
   .navbar-toggler-icon{
@@ -85,12 +94,11 @@
 
   .navbar-brand{
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2vw;
   }
 
   .nav-item a{
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 
   }
 

@@ -1,29 +1,54 @@
 .events{
-    margin-left: 70px;
-    margin-right:50px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    display: flex;
-    flex-wrap:wrap;
-    flex-direction: row;
-    flex: 1;
-    background-color: aliceblue;
-  }
+  margin-left: 3vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+  flex: 1;
+  max-width: 900px;
+}
 
-  .event{
-    display: flex;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68) ;
-    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    margin: 2rem;
-    width: 250px;
-    border-radius: 10%;
-    background-color: aliceblue;
-  }
+.event{
+  display: flex;
+  margin: 3vw;
+  width: auto;
+  border-radius: 10%;
+  background:radial-gradient(94.84% 94.84% at 50% 50%, rgba(196, 196, 196, 0.28) 0%, rgba(196, 196, 196, 0.13) 100%);;
+}
 
 
-  .eventwrapper{
-    padding: 10px;
-    padding-top: 10px;
-  }
+.event_wrapper{
+  padding: 1.5vw;
+  font-family: 'Heebo', sans-serif;
+}
+
+.event_society{
+  display: flex;
+  justify-content:center;
+}
+
+.society_name{
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+
+.event_name, .event_date, .event_time{
+  padding: 10px;
+  font-size: 1.2vw;
+  
+}
+
+.event_register{
+  padding:  0 1vw;
+  text-align: center;
+  font-size: 1.2vw;
+}
+
+.event_register button{
+  border-radius: 8px;
+  background-color: black;
+  border-color: black;
+  margin-top: 0.5vw;
+  padding: 0.7vw 1.5vw 0.7vw 1.5vw;
+}
