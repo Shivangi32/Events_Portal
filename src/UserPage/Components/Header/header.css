@@ -1,38 +1,3 @@
-/* body{\
-    background-size: 90%
-  }
-
-  #navside{
-    justify-content: space-around;
-    width: 15vw;
-    
-  }
-
-  .navbar, .navbar-brand, .nav-item{
-    color: aliceblue !important;
-  }
-
-
-  nav{
-    font-family: 'Heebo', sans-serif;
-    font-size: 1.5vw;
-  }
-
-  img,svg{
-    margin: auto;
-  }
-
-  #navside button{
-    border: none;
-    background: none;
-  }
-
-  .events{
-    margin-top: 50%;
-  }
-
-   */
-
    body{
     font-family: 'Overlock', cursive;
     max-width: 500px;
