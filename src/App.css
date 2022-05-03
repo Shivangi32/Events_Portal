@@ -37,3 +37,270 @@
     transform: rotate(360deg);
   }
 } */
+
+/*Society event page app.css */
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  
+}
+
+.societyPage-background{
+  background-image: url("./Society/images/event_pageBackground.jpeg");
+  margin-top: -3.4%;
+  height:100vh ;
+  background-size: cover;
+  background-position: center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.societyPage{
+  margin:0 15% 0 15%;
+  
+}
+.societyName{
+  margin:50px;
+}
+.societyName h1{
+  color:white;
+  font-size: 4rem;
+ text-align: center;
+
+}
+hr{
+  width:20%;
+  align-items: center;
+  border:none;
+	height: 50px;
+	margin-top: 0;
+	border-bottom: 1px solid #ffffff;
+	box-shadow: 0 20px 20px -20px rgb(96, 92, 92);
+  margin: -50px auto 10px; 
+}
+
+
+.addCard {
+  cursor: pointer;
+  margin:20px;
+  width: 220px;
+  height: 320px;
+  border-radius: 12px;
+  background-color:rgb(128,128,128,0.4);
+  padding: 20px;
+  text-align: center;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.addCard img{
+    width: 30%;
+}
+
+.addCard h4{
+  margin-top: 10%;
+  color: white;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  width: 220px;
+  height: 320px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  text-align: center;
+  float: left;
+  border: 2px solid white;
+  color:white;
+  font-size: 0.9rem;
+  
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+
+.card .content .images{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  
+}
+
+.card .content .images .icons{
+  margin-left: 40%;
+  display: flex;
+}
+
+.card .content .images .icons div{
+  padding: 0 5%;
+
+}
+
+.info h2{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.info h1{
+  text-align: left;
+  font-size: 1rem;
+  padding: 1%;
+}
+.card button{
+  padding: 3%;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-image: url(./Society/images/event_CardBackground.jpeg) 2% stretch;
+  background-color: black;
+  color:white;
+}
+
+.Modal{
+  display: flex;
+  flex-direction: column;
+  
+  margin: auto;
+  margin-top: 10%;
+  width: 25%;
+  height: 50%;
+  background-image: url('./Society/images/event_CardBackground.jpeg') !important;
+  background-size: cover;
+  border-radius: 3%;
+
+
+  
+}
+
+.Modal .modal-header h2{
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: -5px;
+}
+
+.Modal .modal-header{
+  border-bottom: 2px #282c34;
+}
+
+.Modal .modal-header .material-icons{
+  cursor: pointer;
+}
+
+.Modal .line{
+  height: 0.5px; 
+  background-color: #25272be8;
+  width: 90%;
+  margin: auto;
+  border-radius: 1px;
+}
+
+
+
+.Modal input::placeholder{
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+.Modal input{
+  
+  font-size: 0.8rem;
+  color: white;
+  background-color: #282c34;
+}
+
+.Modal .modal-body .field-rows{
+  display: flex;
+  flex-direction: column;
+}
+
+.Modal .modal-body .field-rows .field-colums{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+}
+
+.Modal .modal-body .field-rows .fields{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Modal .modal-body .field-rows .small-ip input{
+  padding: 6%;
+  width: 98%;
+  border: 2px transparent;
+  border-radius: 4px;
+
+}
+
+.Modal .modal-body .field-rows .big-ip input{
+  padding: 3%;
+  width: 100%;
+  border: 2px transparent;
+  border-radius: 4px;
+
+}
+
+
+
+.Modal .modal-btn{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.Modal .modal-btn button{
+  margin-top: 8%;
+  background-color: #282c34;
+  width: 90%;
+  color: #ffffff;
+  border: 2px none;
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.Modal label{
+  font-weight: 500;
+}
