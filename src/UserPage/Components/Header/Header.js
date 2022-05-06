@@ -4,6 +4,7 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa"
 import Heading from './Heading';
 import '../Event_Card/Card';
+import SearchBar from '../Search_Bar/searchBar';
 import Card from '../Event_Card/Card.js';
 
 export default function Header() {
@@ -44,6 +45,9 @@ export default function Header() {
                         </nav>
                         <div>
                             <Heading />
+                        </div>
+                        <div>
+                            <SearchBar />
                         </div>
                         <div>
                             <Card />
