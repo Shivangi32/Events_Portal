@@ -28,7 +28,7 @@ const Event = ({event:{society,eventname,date,time}}) =>{
   )
 }
 
-const Card=()=>{
+const Card = () => {
   return(
   <div className="events">
     {events.map((event)=>
