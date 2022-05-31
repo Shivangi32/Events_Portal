@@ -8,8 +8,8 @@ function Card(props) {
             <img src="" alt="logo" />
           </div>
           <div className="icons">
-            <div class="material-icons">close</div>
-            <div class="material-icons">edit</div>
+            <div className="material-icons">close</div>
+            <div className="material-icons">edit</div>
           </div>
         </div>
 

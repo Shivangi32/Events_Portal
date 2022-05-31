@@ -26,7 +26,7 @@ export default function Header() {
                                         <a className="nav-link active" aria-current="page" href="/">About</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link active" aria-current="page" href="/">Societies</a>
+                                        <a className="nav-link active" aria-current="page" href="/src/Society/SocietyPage">Societies</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link active" aria-current="page" href="/">FAQS</a>

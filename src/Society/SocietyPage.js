@@ -50,7 +50,7 @@ function SocietyPage() {
   });
 
   return (
-    <div className="societyPage">
+    <div className="societyPage ">
       <div className="societyName">
         <h1>INSTINCT</h1>
         <hr></hr>
