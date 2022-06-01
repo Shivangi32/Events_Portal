@@ -37,23 +37,15 @@ export default function Header() {
                                     <span><BsFillPersonPlusFill /></span>
                                     <button>Login</button>
                                     <span><FaPlus /></span>
-                                    <button>Register</button>
+                                    <button><a href="./Register/RegisterPage">Register</a></button>
                                     <i className="fa fa-sign-in" aria-hidden="true"></i>
                                 </form>
                                 </div>
                             </div>
                         </nav>
-                        <div>
                             <Heading />
-                        </div>
-                        <div>
                             <SearchBar />
-                        </div>
-                        <div>
                             <Card />
-                        </div> 
-
-                    
                     </div>
                 </div>
             </div>
