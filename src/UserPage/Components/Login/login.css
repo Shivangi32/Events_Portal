@@ -1,6 +1,7 @@
 .modal-content{
     margin: auto auto;
     width: 28%;
+    background-image: url("/src/Society/images/event_CardBackground.jpeg");
     height: 50%;
 }
 .modal-body{
@@ -12,6 +13,10 @@ form svg{
 .modal-header h2{
     margin: 0 auto;
     font-size: 5vw;
+}
+
+.textbox ::placeholder{
+    font-size: 2vw;
 }
 .Modal{
     height: 100%;
@@ -58,9 +63,9 @@ form svg{
 }
 
 #submitbtn{
-    width: 200px;
+    width: 30%;
     font-size: medium !important;
-    height: 40px;
+    height: 5vh;
     padding: 5px;
     font-size: 20px;
     background-color: green;

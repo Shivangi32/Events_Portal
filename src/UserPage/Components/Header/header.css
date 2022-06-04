@@ -1,6 +1,5 @@
    body{
     font-family: 'Overlock', cursive;
-    max-width: 500px;
    }
    .stars, .twinkling, .clouds {
     position:absolute;

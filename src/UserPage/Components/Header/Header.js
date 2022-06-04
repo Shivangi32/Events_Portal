@@ -12,6 +12,9 @@ export default function Header() {
 
 
     const [openModal, setOpenModal] = useState(false);
+    const setVal=(value)=>{
+        setOpenModal(value);
+    }
 
     return (
         <div>
@@ -49,7 +52,7 @@ export default function Header() {
                             </div>
                         </nav>
                         <Heading />
-                        {openModal && <Login setOpenModal />}
+                        {openModal && <Login setModalFunc={setVal}/>}
                         <SearchBar />
                         <Card />
                     </div>

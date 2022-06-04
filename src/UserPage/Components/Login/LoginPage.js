@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import "./login.css";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../Register/firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
-export default function Login({setOpenModal}) {
-    
+export default function Login({ setModalFunc }) {
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     function submit() {
         const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -30,7 +29,7 @@ export default function Login({setOpenModal}) {
             <div className='modal-content'>
                 <div className='modal-header'>
                     <h2>Log In</h2>
-                    <div className="closebtn" onClick={()=>{setOpenModal(false)}}>&times;</div>
+                    <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">
                     <form className='form'>
@@ -42,7 +41,7 @@ export default function Login({setOpenModal}) {
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
                         </div>
-                        <button id="submitbtn"onSubmit={submit()}>Submit</button>
+                        <button id="submitbtn" onSubmit={submit()}>Submit</button>
                     </form>
 
                 </div>

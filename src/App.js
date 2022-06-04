@@ -8,6 +8,7 @@ import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
 function App() {
   return (
     <Router>
+      
       <Switch>
         <Route exact path="/" component={Header}/>
         <Route exact path="/src/Society/SocietyPage">
