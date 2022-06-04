@@ -10,6 +10,9 @@ let heading_style={
 }
 export default function Heading() {
   return (
+    <>
     <div style={heading_style}>Events Portal</div>
+   
+    </>
   )
 }

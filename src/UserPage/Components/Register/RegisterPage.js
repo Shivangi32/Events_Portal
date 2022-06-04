@@ -19,8 +19,6 @@ export default function Register() {
                 const errorCode = error.code;
                 const errorMessage = error.message;
             });
-
-
     }
 
     return (
