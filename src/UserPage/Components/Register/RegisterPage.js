@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./register.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "./firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -13,7 +13,7 @@ export default function Register({ setModalFunc }) {
 
     function submit() {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
             })
@@ -28,7 +28,7 @@ export default function Register({ setModalFunc }) {
         <div id="simpleModal" className="Modal">
             <div className='modal-content'>
                 <div className='modal-header'>
-                    <h2>Register</h2>
+                    <div id="register_head">Register</div>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">

@@ -10,9 +10,10 @@
 form svg{
     margin: 0.5vw;
 }
-.modal-header h2{
+#register_head {
+    padding-left: 1vw;
     margin: 0 auto;
-    font-size: 5vw;
+    font-size: 2.5vw;
 }
 
 .textbox ::placeholder{
@@ -61,14 +62,13 @@ form svg{
     align-items: center;
     justify-content: space-evenly;
 }
-
 #submitbtn{
-    width: 30%;
-    font-size: medium !important;
+    vertical-align: middle;
+    font-size: large !important;
+    text-align: center;
+    padding: 0 2vw 0 2vw;
     height: 5vh;
-    padding: 5px;
-    font-size: 20px;
-    background-color: green;
+    background-color: #1ac31a;
     border-radius: 5px;
     cursor: pointer;
 }
