@@ -5,15 +5,21 @@ import { FaPlus } from "react-icons/fa"
 import Heading from './Heading';
 import '../Event_Card/Card';
 import SearchBar from '../Search_Bar/searchBar';
-import Login from "../Login/LoginPage"
+import Register from '../Register/RegisterPage';
+import Login from "../Login/LoginPage.js";
 import Card from '../Event_Card/Card.js';
 
 export default function Header() {
 
 
-    const [openModal, setOpenModal] = useState(false);
-    const setVal=(value)=>{
-        setOpenModal(value);
+    const [openLoginModal, setOpenLoginModal] = useState(false);
+    const setLoginVal=(value)=>{
+        setOpenLoginModal(value);
+    }
+
+    const [openRegisterModal, setOpenRegisterModal] = useState(false);
+    const setRegisterVal=(value)=>{
+        setOpenRegisterModal(value);
     }
 
     return (
@@ -43,16 +49,17 @@ export default function Header() {
                                     </ul>
                                     <div id="navside">
                                         <span><BsFillPersonPlusFill /></span>
-                                        <button onClick={() => { setOpenModal(true) }}>Login</button>
+                                        <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
                                         <span><FaPlus /></span>
-                                        <button>Register</button>
+                                        <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
                                         <i className="fa fa-sign-in" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
                         </nav>
                         <Heading />
-                        {openModal && <Login setModalFunc={setVal}/>}
+                        {openLoginModal && <Login setModalFunc={setLoginVal}/>}
+                        {openRegisterModal && <Register setModalFunc={setRegisterVal}/>}
                         <SearchBar />
                         <Card />
                     </div>

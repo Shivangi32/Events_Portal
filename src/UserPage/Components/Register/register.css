@@ -1,0 +1,74 @@
+.modal-content{
+    margin: auto auto;
+    width: 28%;
+    background-image: url("/src/Society/images/event_CardBackground.jpeg");
+    height: 50%;
+}
+.modal-body{
+    padding: 0;
+}
+form svg{
+    margin: 0.5vw;
+}
+.modal-header h2{
+    margin: 0 auto;
+    font-size: 5vw;
+}
+
+.textbox ::placeholder{
+    font-size: 2vw;
+}
+.Modal{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    margin:0;
+    overflow: auto;
+    top:0;
+    background-image: none !important; 
+    background-color: rgba(0, 0, 0, 0.611);
+}
+
+.form input
+{
+    width: 22vw;
+    font-size: 1.5vw;
+    height: 3vw;
+    padding: 2vw;
+    color: white;
+    border: green;
+    outline: none;
+    border-radius: 0.3vw;
+}
+.closebtn{
+    float: right;
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+.modal-header{
+    justify-content: center;
+    margin-right: 1vw;
+    padding: 0.6vw 0 0 0;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#submitbtn{
+    width: 30%;
+    font-size: medium !important;
+    height: 5vh;
+    padding: 5px;
+    font-size: 20px;
+    background-color: green;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import "./register.css"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "./firebaseConfig"
+import "./register.css";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "./firebaseConfig";
+import { FaUserAlt } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
+export default function Register({ setModalFunc }) {
 
-export default function Register() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
     function submit() {
         const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -23,13 +25,27 @@ export default function Register() {
 
     return (
 
-        <form  className='form'>
-            <label>Email</label>
-            <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}></input>
-            <label>Password</label>
-            <input type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}></input>
-            <button onSubmit={submit()}>Submit</button>
-        </form>
-    )
+        <div id="simpleModal" className="Modal">
+            <div className='modal-content'>
+                <div className='modal-header'>
+                    <h2>Register</h2>
+                    <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
+                </div>
+                <div className="modal-body">
+                    <form className='form'>
+                        <div className="textbox" >
+                            <FaUserAlt />
+                            <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
+                        </div>
+                        <div className="textbox">
+                            <FaLock />
+                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
+                        </div>
+                        <button id="submitbtn" onSubmit={submit()}>Submit</button>
+                    </form>
 
+                </div>
+            </div>
+        </div>
+    )
 }
