@@ -28,7 +28,7 @@ export default function Login({ setModalFunc }) {
         <div id="simpleModal" className="Modal">
             <div className='modal-content'>
                 <div className='modal-header'>
-                    <h2>Log In</h2>
+                    <div id="login_heading">Log In</div>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">

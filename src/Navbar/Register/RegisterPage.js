@@ -28,7 +28,7 @@ export default function Register({ setModalFunc }) {
         <div id="simpleModal" className="Modal">
             <div className='modal-content'>
                 <div className='modal-header'>
-                    <h2>Register</h2>
+                    <div id="register_head">Register</div>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">

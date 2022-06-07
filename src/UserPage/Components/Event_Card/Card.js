@@ -21,7 +21,7 @@ const Event = ({event:{society,eventname,date,time}}) =>{
           <span className="time">{time}</span>
         </div>
         <div className="event_register">
-          <button><span className='register'>Register now</span></button>
+          <button><span className='register' >Register now</span></button>
         </div>
       </div>
     </div>
