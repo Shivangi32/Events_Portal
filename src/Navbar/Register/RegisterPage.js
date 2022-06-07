@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import "./login.css";
+import "./register.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../Register/firebaseConfig";
+import { app } from "./firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
-export default function Login({ setModalFunc }) {
+export default function Register({ setModalFunc }) {
 
 
     const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ export default function Login({ setModalFunc }) {
         <div id="simpleModal" className="Modal">
             <div className='modal-content'>
                 <div className='modal-header'>
-                    <div id="login_heading">Log In</div>
+                    <h2>Register</h2>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">

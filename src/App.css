@@ -49,7 +49,7 @@
   pointer-events: none;
   
 }
-
+/*
 .societyPage-background{
   background-image: url("./Society/images/event_pageBackground.jpeg");
   margin-top: -3.4%;
@@ -58,7 +58,7 @@
   background-position: center;
   background-repeat:no-repeat;
   background-attachment:fixed;
-}
+}*/
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

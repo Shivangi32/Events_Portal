@@ -1,24 +1,26 @@
 import "./App.css";
-import Header from "./UserPage/Components/Header/Header";
+import UserPage from "./UserPage/Components/UserPage";
+import Navbar from "./Navbar/Navbar"
 import SocietyPage from "./Society/SocietyPage";
-import Register from "./UserPage/Components/Register/RegisterPage";
-import Login from "./UserPage/Components/Login/LoginPage"
-import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      
-      <Switch>
-        <Route exact path="/" component={Header}/>
-        <Route exact path="/src/Society/SocietyPage">
-          <div className="societyPage-background">
-            <SocietyPage />
+      <div className='stars'>
+        <div className="twinkling">
+          <div className="clouds">
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={UserPage} />
+              <Route exact path="/src/Society/SocietyPage" component={SocietyPage}>
+              </Route>
+            </Switch>
           </div>
-        </Route>
-      </Switch>
+        </div>
+      </div>
 
-    </Router>
+    </Router >
   );
 }
 
