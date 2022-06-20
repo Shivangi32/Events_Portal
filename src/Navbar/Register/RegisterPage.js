@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./register.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "./firebaseConfig";
+import { getAuth, createUserWithEmailAndPassword  } from "firebase/auth";
+import { app , signInWithGoogle} from "./firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
@@ -13,7 +13,7 @@ export default function Register({ setModalFunc }) {
 
     function submit() {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
             })
@@ -41,7 +41,8 @@ export default function Register({ setModalFunc }) {
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
                         </div>
-                        <button id="submitbtn" onSubmit={submit()}>Submit</button>
+                        <button onClick={signInWithGoogle()}>Google</button>
+                        <button id="submitbtn" onClick={submit()}>Submit</button>
                     </form>
 
                 </div>

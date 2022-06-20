@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./login.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../Register/firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { app, auth } from "../Register/firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
@@ -12,14 +12,15 @@ export default function Login({ setModalFunc }) {
     const [password, setPassword] = useState("");
 
     function submit() {
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                console.log(user);
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(error);
             });
     }
 
@@ -41,7 +42,7 @@ export default function Login({ setModalFunc }) {
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
                         </div>
-                        <button id="submitbtn" onSubmit={submit()}>Submit</button>
+                        <button id="submitbtn" onClick={()=>submit()}>Submit</button>
                     </form>
 
                 </div>
