@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import "./register.css";
-import { getAuth, createUserWithEmailAndPassword  } from "firebase/auth";
-import { app , signInWithGoogle} from "./firebaseConfig";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app, signInWithGoogle, auth } from "./firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc"
 
 export default function Register({ setModalFunc }) {
 
@@ -11,11 +12,19 @@ export default function Register({ setModalFunc }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function submit() {
-        const auth = getAuth();
+    const submit = event => {
+
+        event.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+            .then((result) => {
+                console.log(result);
+                const name = result.user.displayName;
+                const email = result.user.email;
+                const profilePic = result.user.photoURL;
+
+                localStorage.setItem("name", name);
+                localStorage.setItem("email", email);
+                localStorage.setItem("profilePic", profilePic);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -32,7 +41,7 @@ export default function Register({ setModalFunc }) {
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">
-                    <form className='form'>
+                    <form className='form' action="">
                         <div className="textbox" >
                             <FaUserAlt />
                             <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
@@ -41,8 +50,8 @@ export default function Register({ setModalFunc }) {
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
                         </div>
-                        <button onClick={signInWithGoogle()}>Google</button>
-                        <button id="submitbtn" onClick={submit()}>Submit</button>
+                        <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
+                        <button id="submitbtn" onClick={submit}>Submit</button>
                     </form>
 
                 </div>

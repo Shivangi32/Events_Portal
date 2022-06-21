@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import "./login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { app, auth } from "../Register/firebaseConfig";
+import { app, auth ,signInWithGoogle } from "../Register/firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+import {FcGoogle} from "react-icons/fc"
 
 export default function Login({ setModalFunc }) {
 
@@ -11,11 +12,19 @@ export default function Login({ setModalFunc }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function submit() {
+    const submit= event=> {
+
+        event.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
+            .then((result) => {
+                console.log(result);
+                const name=result.user.displayName;
+                const email=result.user.email;
+                const profilePic=result.user.photoURL;
+         
+                localStorage.setItem("name",name);
+                localStorage.setItem("email",email);
+                localStorage.setItem("profilePic",profilePic);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -33,7 +42,7 @@ export default function Login({ setModalFunc }) {
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body">
-                    <form className='form'>
+                    <form className='form' action="">
                         <div className="textbox" >
                             <FaUserAlt />
                             <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
@@ -42,7 +51,8 @@ export default function Login({ setModalFunc }) {
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
                         </div>
-                        <button id="submitbtn" onClick={()=>submit()}>Submit</button>
+                        <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle/> Sign In with Google</span>
+                        <button id="submitbtn" onClick={submit}>Submit</button>
                     </form>
 
                 </div>

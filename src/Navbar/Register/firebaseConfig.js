@@ -17,11 +17,19 @@ export const auth=getAuth(app);
 
 const provider= new GoogleAuthProvider();
 
-export const signInWithGoogle=()=>{
+export const signInWithGoogle=event=>{
 
+  event.preventDefault();
   signInWithPopup(auth,provider)
     .then((result)=>{
        console.log(result);
+       const name=result.user.displayName;
+       const email=result.user.email;
+       const profilePic=result.user.photoURL;
+
+       localStorage.setItem("name",name);
+       localStorage.setItem("email",email);
+       localStorage.setItem("profilePic",profilePic);
     })
     .catch((error)=>{
        console.log(error);

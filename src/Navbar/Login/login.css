@@ -2,7 +2,7 @@
     margin: auto auto;
     width: 28%;
     background-image: url("/src/Society/images/event_CardBackground.jpeg");
-    height: 50%;
+    height: 54%;
 }
 .modal-body{
     padding: 0;
@@ -74,4 +74,21 @@ input ::placeholder
     background-color: #1ac31a;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#Google svg{
+    height: 2vw;
+    width: 2vw;
+    
+}
+#Google
+{
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 0.2vw;
+    background-color: white;
+    color: black;
+    padding-right: 0.5vw;
+    margin:1vw;
+    cursor:pointer;
+    box-shadow: 1vw;
 }

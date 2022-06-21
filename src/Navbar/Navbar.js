@@ -45,6 +45,7 @@ export default function Navbar() {
                             <span><FaPlus /></span>
                             <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
                             <i className="fa fa-sign-in" aria-hidden="true"></i>
+                            <img id="profilePic"src={localStorage.getItem("profilePic")}></img>
                         </div>
                     </div>
                 </div>
