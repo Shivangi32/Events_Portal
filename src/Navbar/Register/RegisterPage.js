@@ -12,9 +12,13 @@ export default function Register({ setModalFunc }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    function googleSignIn(){
+        setModalFunc(false);
+    }
     const submit = event => {
 
         event.preventDefault();
+        setModalFunc(false);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 console.log(result);

@@ -15,6 +15,7 @@ export default function Login({ setModalFunc }) {
     const submit= event=> {
 
         event.preventDefault();
+        setModalFunc(false);
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 console.log(result);
