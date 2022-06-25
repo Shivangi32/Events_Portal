@@ -39,13 +39,13 @@ export default function Register({ setModalFunc }) {
     return (
 
         <div id="simpleModal" className="Modal">
-            <div className='modal-content'>
-                <div className='modal-header'>
+            <div className='modal-content' id="modalContent">
+                <div className='modal-header' id="ModalHeader">
                     <div id="register_head">Register</div>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
-                <div className="modal-body">
-                    <form className='form' action="">
+                <div className="modal-body" id="ModalBody">
+                    <form id="LRform" action="">
                         <div className="textbox" >
                             <FaUserAlt />
                             <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
