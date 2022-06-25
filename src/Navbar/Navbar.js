@@ -21,6 +21,7 @@ export default function Navbar() {
     
     const setUpUI = (user) => {
 
+        console.log(user);
         const loggedIN=document.querySelectorAll(".logged-in");
         const loggedOUT=document.querySelectorAll(".logged-out");
         if (user) {
@@ -29,9 +30,12 @@ export default function Navbar() {
             console.log(user);
         }
         else {
+            loggedIN.forEach(item=> item.style.display="none")
+            loggedOUT.forEach(item=> item.style.display="block")
         }
-
+        
     }
+    window.addEventListener('load',setUpUI);
     
 
     return (
@@ -59,17 +63,18 @@ export default function Navbar() {
 
                         </ul>
                         <div id="navside">
-                            <span><BsFillPersonPlusFill /></span>
+                            <span className="logged-out"><BsFillPersonPlusFill /></span>
                             <button className="logged-out" onClick={() => { setOpenLoginModal(true) }}>Login</button>
-                            <span><FaPlus /></span>
+                            <span className="logged-out"><FaPlus /></span>
                             <button className="logged-out" onClick={() => { setOpenRegisterModal(true) }}>Register</button>
                             <i className="fa fa-sign-in" aria-hidden="true"></i>
                             <img className="logged-in" id="profilePic" src={localStorage.getItem("profilePic")}></img>
+                            <button className="logged-in">Log Out</button>
                         </div>
                     </div>
                 </div>
             </nav>
-            {openLoginModal && <Login setModalFunc={setLoginVal} setUpUI />}
+            {openLoginModal && <Login setModalFunc={setLoginVal} />}
             {openRegisterModal && <Register setModalFunc={setRegisterVal} />}
         </div>
     )

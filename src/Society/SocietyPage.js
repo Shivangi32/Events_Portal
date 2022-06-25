@@ -1,16 +1,12 @@
 import "../App.css";
-// import AddEventCard from "./Components/AddEventCard";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { useState } from "react";
-import {db} from "../Navbar/Register/firebaseConfig"
 import Card from "./Components/Card";
 
 import {  collection, getDocs  } from 'firebase/firestore/lite';
 import {  addDoc, setDoc, doc,getFirestore, updateDoc } from "firebase/firestore"; 
 
-// import EventForm from "./Components/EventForm";
-//import addToDB from "../Navbar/Register/firebaseConfig"
 
 Modal.setAppElement("#root");
 
@@ -24,7 +20,7 @@ function SocietyPage() {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
+
     //subtitle.style.color = "#f00";
   }
 
@@ -43,9 +39,6 @@ function SocietyPage() {
 
     if(societyName==undefined || eventName==undefined || date==undefined || time==undefined)
     {  return;}
-    console.log(societyName);
-    console.log(eventName);
-    console.log(date);
     e.preventDefault();
     
     let info = {
@@ -57,8 +50,9 @@ function SocietyPage() {
     let infos = [...cards, info];
     setCards(infos);
     const db=getFirestore();
-      const currDoc=doc(db,`Events/Minerva/${eventName}/${date}`);
-      setDoc(currDoc,info)
+      const currDoc=doc(db,`Events/${societyName}`);
+      const obj={infos};
+      setDoc(currDoc,obj)
        .then(()=>{
         console.log(info);
        })
