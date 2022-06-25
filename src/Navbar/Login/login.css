@@ -1,13 +1,13 @@
-.modal-content{
+#modalContent{
     margin: auto auto;
     width: 28%;
     background-image: url("/src/Society/images/event_CardBackground.jpeg");
     height: 54%;
 }
-.modal-body{
+#ModalBody{
     padding: 0;
 }
-form svg{
+#LRform svg{
     margin: 0.5vw;
 }
 #login_heading{
@@ -22,7 +22,7 @@ input ::placeholder
 .textbox ::placeholder{
     font-size: 2vw;
 }
-.Modal{
+#simpleModal{
     height: 100%;
     width: 100%;
     position: fixed;
@@ -35,7 +35,7 @@ input ::placeholder
     background-color: rgba(0, 0, 0, 0.611);
 }
 
-.form input
+#LRform input
 {
     width: 22vw;
     font-size: 1.5vw;
@@ -52,12 +52,12 @@ input ::placeholder
     cursor: pointer;
 }
 
-.modal-header{
+#ModalHeader{
     margin-right: 1vw;
     padding: 0.6vw 0 0 0;
 }
 
-.form{
+#LRform{
     display: flex;
     flex-direction: column;
     height: 90%;
