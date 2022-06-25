@@ -3,8 +3,14 @@ import "../App.css";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { useState } from "react";
+import {db} from "../Navbar/Register/firebaseConfig"
 import Card from "./Components/Card";
+
+import {  collection, getDocs  } from 'firebase/firestore/lite';
+import {  addDoc, setDoc, doc,getFirestore, updateDoc } from "firebase/firestore"; 
+
 // import EventForm from "./Components/EventForm";
+//import addToDB from "../Navbar/Register/firebaseConfig"
 
 Modal.setAppElement("#root");
 
@@ -19,7 +25,7 @@ function SocietyPage() {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    //subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -34,13 +40,27 @@ function SocietyPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
     let info = {
+      key:cards.length,
       EventName: eventName,
       date: date,
       time: time,
     };
     let infos = [...cards, info];
     setCards(infos);
+    const db=getFirestore();
+      const currDoc=doc(db,`Events/Minerva/${eventName}/${date}`);
+      setDoc(currDoc,info)
+       .then(()=>{
+        console.log(info);
+       })
+        .catch((e)=>{
+          console.log(e);
+        });
+      console.log("Document written with ID: ",infos);
+
+    
     closeModal();
   }
 
@@ -78,6 +98,17 @@ function SocietyPage() {
             <div className="modal-body">
               <form className="field-rows">
                 <div className="field-colums">
+                  <div>
+                    <label htmlFor="EventName">Society Name</label>
+                  </div>
+                  <div className="big-ip">
+                    <input
+                      type="text"
+                      id="EventName"
+                      placeholder="Add Society Name"
+                      onChange={(e) => setEventName(e.target.value)}
+                    ></input>
+                  </div>
                   <div>
                     <label htmlFor="EventName">Event Name</label>
                   </div>
