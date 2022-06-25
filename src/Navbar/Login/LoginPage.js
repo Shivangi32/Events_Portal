@@ -6,7 +6,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import {FcGoogle} from "react-icons/fc"
 
-export default function Login({ setModalFunc }) {
+export default function Login({ setModalFunc, setUpUI }) {
 
 
     const [email, setEmail] = useState("");
@@ -14,6 +14,10 @@ export default function Login({ setModalFunc }) {
 
     const submit= event=> {
 
+        if(email=="" || password=="")
+        {
+            return;
+        }
         event.preventDefault();
         setModalFunc(false);
         signInWithEmailAndPassword(auth, email, password)
@@ -36,21 +40,21 @@ export default function Login({ setModalFunc }) {
 
     return (
 
-        <div id="simpleModal" className="Modal">
-            <div className='modal-content'>
-                <div className='modal-header'>
+        <div id="simpleModal" className="Modal" >
+            <div className='modal-content' id="modalContent">
+                <div className='modal-header' id="ModalHeader">
                     <div id="login_heading">Log In</div>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
-                <div className="modal-body">
-                    <form className='form' action="">
+                <div className="modal-body" id="ModalBody">
+                    <form id="LRform" action="">
                         <div className="textbox" >
                             <FaUserAlt />
-                            <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
+                            <input  placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
                         </div>
                         <div className="textbox">
                             <FaLock />
-                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
+                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
                         <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle/> Sign In with Google</span>
                         <button id="submitbtn" onClick={submit}>Submit</button>

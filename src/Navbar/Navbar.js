@@ -17,17 +17,36 @@ export default function Navbar() {
         setOpenRegisterModal(value);
     }
 
+    const user = localStorage.getItem("name");
+    
+    const setUpUI = (user) => {
+
+        const loggedIN=document.querySelectorAll(".logged-in");
+        const loggedOUT=document.querySelectorAll(".logged-out");
+        if (user) {
+            loggedIN.forEach(item=> item.style.display="block")
+            loggedOUT.forEach(item=> item.style.display="none")
+            console.log(user);
+        }
+        else {
+        }
+
+    }
+    
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
 
-                    <a className="navbar-brand" href="/">Home</a>
                     <button className="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/">About</a>
                             </li>
@@ -41,16 +60,16 @@ export default function Navbar() {
                         </ul>
                         <div id="navside">
                             <span><BsFillPersonPlusFill /></span>
-                            <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
+                            <button className="logged-out" onClick={() => { setOpenLoginModal(true) }}>Login</button>
                             <span><FaPlus /></span>
-                            <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
+                            <button className="logged-out" onClick={() => { setOpenRegisterModal(true) }}>Register</button>
                             <i className="fa fa-sign-in" aria-hidden="true"></i>
-                            <img id="profilePic"src={localStorage.getItem("profilePic")}></img>
+                            <img className="logged-in" id="profilePic" src={localStorage.getItem("profilePic")}></img>
                         </div>
                     </div>
                 </div>
             </nav>
-            {openLoginModal && <Login setModalFunc={setLoginVal} />}
+            {openLoginModal && <Login setModalFunc={setLoginVal} setUpUI />}
             {openRegisterModal && <Register setModalFunc={setRegisterVal} />}
         </div>
     )

@@ -1,6 +1,11 @@
 
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app"
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getAuth, GoogleAuthProvider , signInWithPopup } from "firebase/auth";
+import {  addDoc } from "firebase/firestore"; 
+require("firebase/firestore");
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyA9dnYwX75I4AD7DTm5pWR8SAbq3aZNzIE",
   authDomain: "events-portal-38d78.firebaseapp.com",
@@ -14,6 +19,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth=getAuth(app);
+export const db = getFirestore(app);
 
 const provider= new GoogleAuthProvider();
 
@@ -36,3 +42,18 @@ export const signInWithGoogle=event=>{
     });
 
 };
+
+/*export function addToDB(){
+try {
+
+  const docRef = addDoc(collection(db, "Events/today"), {
+    key:"1",
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  //console.error("Error adding document: ", e);
+}
+}*/

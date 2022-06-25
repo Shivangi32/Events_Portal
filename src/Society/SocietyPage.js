@@ -3,8 +3,14 @@ import "../App.css";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { useState } from "react";
+import {db} from "../Navbar/Register/firebaseConfig"
 import Card from "./Components/Card";
+
+import {  collection, getDocs  } from 'firebase/firestore/lite';
+import {  addDoc, setDoc, doc,getFirestore, updateDoc } from "firebase/firestore"; 
+
 // import EventForm from "./Components/EventForm";
+//import addToDB from "../Navbar/Register/firebaseConfig"
 
 Modal.setAppElement("#root");
 
@@ -19,7 +25,7 @@ function SocietyPage() {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    //subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -28,19 +34,40 @@ function SocietyPage() {
 
   let eCards = [];
 
+  let [societyName, setSocietyName] = useState();
   let [eventName, setEventName] = useState();
   let [date, setDate] = useState();
   let [time, setTime] = useState();
 
   function handleSubmit(e) {
+
+    if(societyName==undefined || eventName==undefined || date==undefined || time==undefined)
+    {  return;}
+    console.log(societyName);
+    console.log(eventName);
+    console.log(date);
     e.preventDefault();
+    
     let info = {
+      key:cards.length,
       EventName: eventName,
       date: date,
       time: time,
     };
     let infos = [...cards, info];
     setCards(infos);
+    const db=getFirestore();
+      const currDoc=doc(db,`Events/Minerva/${eventName}/${date}`);
+      setDoc(currDoc,info)
+       .then(()=>{
+        console.log(info);
+       })
+        .catch((e)=>{
+          console.log(e);
+        });
+      console.log("Document written with ID: ",infos);
+
+    
     closeModal();
   }
 
@@ -79,6 +106,18 @@ function SocietyPage() {
               <form className="field-rows">
                 <div className="field-colums">
                   <div>
+                    <label htmlFor="EventName">Society Name</label>
+                  </div>
+                  <div className="big-ip">
+                    <input
+                      type="text"
+                      id="EventName"
+                      placeholder="Add Society Name"
+                      onChange={(e) => setSocietyName(e.target.value)}
+                      required
+                    ></input>
+                  </div>
+                  <div>
                     <label htmlFor="EventName">Event Name</label>
                   </div>
                   <div className="big-ip">
@@ -87,6 +126,7 @@ function SocietyPage() {
                       id="EventName"
                       placeholder="Add Event Name"
                       onChange={(e) => setEventName(e.target.value)}
+                      required
                     ></input>
                   </div>
                 </div>
@@ -101,6 +141,7 @@ function SocietyPage() {
                         id="date"
                         placeholder="DD/MM/YY"
                         onChange={(e) => setDate(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>
@@ -114,6 +155,7 @@ function SocietyPage() {
                         id="time"
                         placeholder="Add Event Time"
                         onChange={(e) => setTime(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>
