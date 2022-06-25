@@ -34,11 +34,18 @@ function SocietyPage() {
 
   let eCards = [];
 
+  let [societyName, setSocietyName] = useState();
   let [eventName, setEventName] = useState();
   let [date, setDate] = useState();
   let [time, setTime] = useState();
 
   function handleSubmit(e) {
+
+    if(societyName==undefined || eventName==undefined || date==undefined || time==undefined)
+    {  return;}
+    console.log(societyName);
+    console.log(eventName);
+    console.log(date);
     e.preventDefault();
     
     let info = {
@@ -106,7 +113,8 @@ function SocietyPage() {
                       type="text"
                       id="EventName"
                       placeholder="Add Society Name"
-                      onChange={(e) => setEventName(e.target.value)}
+                      onChange={(e) => setSocietyName(e.target.value)}
+                      required
                     ></input>
                   </div>
                   <div>
@@ -118,6 +126,7 @@ function SocietyPage() {
                       id="EventName"
                       placeholder="Add Event Name"
                       onChange={(e) => setEventName(e.target.value)}
+                      required
                     ></input>
                   </div>
                 </div>
@@ -132,6 +141,7 @@ function SocietyPage() {
                         id="date"
                         placeholder="DD/MM/YY"
                         onChange={(e) => setDate(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>
@@ -145,6 +155,7 @@ function SocietyPage() {
                         id="time"
                         placeholder="Add Event Time"
                         onChange={(e) => setTime(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>

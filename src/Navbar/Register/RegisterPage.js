@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc"
 
 export default function Register({ setModalFunc }) {
 
+    
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,6 +18,10 @@ export default function Register({ setModalFunc }) {
     }
     const submit = event => {
 
+        if(email=="" || password=="")
+        {
+            return;
+        }
         event.preventDefault();
         setModalFunc(false);
         createUserWithEmailAndPassword(auth, email, password)
@@ -48,11 +53,11 @@ export default function Register({ setModalFunc }) {
                     <form id="LRform" action="">
                         <div className="textbox" >
                             <FaUserAlt />
-                            <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
+                            <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
                         </div>
                         <div className="textbox">
                             <FaLock />
-                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
+                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
                         <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={submit}>Submit</button>
