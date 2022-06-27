@@ -1,43 +1,61 @@
 import React, { useState } from 'react';
 import "./register.css";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app, signInWithGoogle, auth } from "./firebaseConfig";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { app, auth, provider } from "./firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc"
 
-export default function Register({ setModalFunc }) {
+export default function Register({ setModalFunc, setIsLoggedinVal }) {
 
-    
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function googleSignIn(){
-        setModalFunc(false);
-    }
-    const submit = event => {
+    const setItems = (name, email, profilePic) => {
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("profilePic", profilePic);
 
-        if(email=="" || password=="")
-        {
+    }
+
+    const signInWithGoogle = event => {
+
+        event.preventDefault();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+
+                const user = result.user;
+                setItems(user.displayName, user.email, user.photoURL);
+                setIsLoggedinVal(true);
+                setModalFunc(false);
+            })
+            .catch((error) => {
+                setModalFunc(false);
+                setIsLoggedinVal(false);
+            });
+
+    };
+    const createUser = event => {
+
+        if (email == "" || password == "") {
             return;
         }
         event.preventDefault();
         setModalFunc(false);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log(result);
-                const name = result.user.displayName;
-                const email = result.user.email;
-                const profilePic = result.user.photoURL;
 
-                localStorage.setItem("name", name);
-                localStorage.setItem("email", email);
-                localStorage.setItem("profilePic", profilePic);
+                const user = result.user;
+                setItems(user.displayName, user.email, user.photoURL);
+                setIsLoggedinVal(true);
+                setModalFunc(false);
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+
+                setIsLoggedinVal(false);
+                setModalFunc(false);
             });
     }
 
@@ -60,7 +78,7 @@ export default function Register({ setModalFunc }) {
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
                         <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
-                        <button id="submitbtn" onClick={submit}>Submit</button>
+                        <button id="submitbtn" onClick={createUser}>Submit</button>
                     </form>
 
                 </div>

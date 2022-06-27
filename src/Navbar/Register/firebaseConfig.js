@@ -21,7 +21,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth=getAuth(app);
 export const db = getFirestore(app);
 
-const provider= new GoogleAuthProvider();
+export const provider= new GoogleAuthProvider();
 
 export const signInWithGoogle=event=>{
 
@@ -36,9 +36,11 @@ export const signInWithGoogle=event=>{
        localStorage.setItem("name",name);
        localStorage.setItem("email",email);
        localStorage.setItem("profilePic",profilePic);
+       return true;
     })
     .catch((error)=>{
        console.log(error);
+       return false;
     });
 
 };
