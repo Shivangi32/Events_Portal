@@ -62,11 +62,11 @@ export default function Navbar({ user }) {
 
                         </ul>
                         <div id="navside">
-                            
+
 
                             {!isLoggedin ? (
                                 <>
-                                <span ><BsFillPersonPlusFill /></span>
+                                    <span ><BsFillPersonPlusFill /></span>
                                     <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
                                     <span ><FaPlus /></span>
                                     <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>

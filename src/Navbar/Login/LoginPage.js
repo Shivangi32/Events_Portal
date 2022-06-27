@@ -47,7 +47,7 @@ export default function Login({ setModalFunc, setIsLoggedinVal }) {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                
+
                 const user = result.user;
                 setItems(user.displayName, user.email, user.photoURL);
                 setModalFunc(false);

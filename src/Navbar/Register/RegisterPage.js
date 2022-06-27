@@ -59,6 +59,7 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
             });
     }
 
+    
     return (
 
         <div id="simpleModal" className="Modal">

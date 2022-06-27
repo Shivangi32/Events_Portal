@@ -1,42 +1,46 @@
-#modalContent{
+#modalContent {
     margin: auto auto;
     width: 28%;
     background-image: url("/src/Society/images/event_CardBackground.jpeg");
     height: 60vh;
 }
-#ModalBody{
+
+#ModalBody {
     padding: 0;
 }
-#LRform svg{
+
+#LRform svg {
     margin: 0.5vw;
 }
-#login_heading{
+
+#login_heading {
     padding-left: 1vw;
     margin: 0 auto;
     font-size: 2.5vw;
 }
-input ::placeholder
-{
+
+input ::placeholder {
     font-size: large;
 }
-.textbox ::placeholder{
+
+.textbox ::placeholder {
     font-size: 2vw;
 }
-#simpleModal{
+
+#simpleModal {
     height: 100%;
     width: 100%;
     position: fixed;
     z-index: 1;
     left: 0;
-    margin:0;
+    margin: 0;
     overflow: auto;
-    top:0;
-    background-image: none !important; 
+    top: 0;
+    background-image: none !important;
     background-color: rgba(0, 0, 0, 0.611);
 }
 
-#LRform input
-{
+#LRform input {
     width: 22vw;
     font-size: 1.5vw;
     height: 3vw;
@@ -46,18 +50,19 @@ input ::placeholder
     outline: none;
     border-radius: 0.3vw;
 }
-.closebtn{
+
+.closebtn {
     float: right;
     font-size: 3vw;
     cursor: pointer;
 }
 
-#ModalHeader{
+#ModalHeader {
     margin-right: 1vw;
     padding: 0.6vw 0 0 0;
 }
 
-#LRform{
+#LRform {
     display: flex;
     flex-direction: column;
     height: 90%;
@@ -65,7 +70,7 @@ input ::placeholder
     justify-content: space-evenly;
 }
 
-#submitbtn{
+#submitbtn {
     vertical-align: middle;
     font-size: large !important;
     text-align: center;
@@ -76,20 +81,20 @@ input ::placeholder
     cursor: pointer;
 }
 
-#Google svg{
+#Google svg {
     height: 2vw;
     width: 2vw;
-    
+
 }
-#Google
-{
-    font-family:Arial, Helvetica, sans-serif;
+
+#Google {
+    font-family: Arial, Helvetica, sans-serif;
     border-radius: 0.2vw;
     background-color: white;
     font-size: 1.5vw;
     color: black;
     padding: 0.1vw 0.2vw 0.1vw 0.1vw;
-    margin:1vw;
-    cursor:pointer;
+    margin: 1vw;
+    cursor: pointer;
     box-shadow: 1vw;
 }

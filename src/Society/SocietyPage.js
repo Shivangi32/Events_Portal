@@ -4,8 +4,8 @@ import Modal from "react-modal";
 import { useState } from "react";
 import Card from "./Components/Card";
 
-import {  collection, getDocs  } from 'firebase/firestore/lite';
-import {  addDoc, setDoc, doc,getFirestore, updateDoc } from "firebase/firestore"; 
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { addDoc, setDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
 
 
 Modal.setAppElement("#root");
@@ -37,31 +37,30 @@ function SocietyPage() {
 
   function handleSubmit(e) {
 
-    if(societyName==undefined || eventName==undefined || date==undefined || time==undefined)
-    {  return;}
+    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined) { return; }
     e.preventDefault();
-    
+
     let info = {
-      key:cards.length,
+      key: cards.length,
       EventName: eventName,
       date: date,
       time: time,
     };
     let infos = [...cards, info];
     setCards(infos);
-    const db=getFirestore();
-      const currDoc=doc(db,`Events/${societyName}`);
-      const obj={infos};
-      setDoc(currDoc,obj)
-       .then(()=>{
+    const db = getFirestore();
+    const currDoc = doc(db, `Events/${societyName}`);
+    const obj = { infos };
+    setDoc(currDoc, obj)
+      .then(() => {
         console.log(info);
-       })
-        .catch((e)=>{
-          console.log(e);
-        });
-      console.log("Document written with ID: ",infos);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    console.log("Document written with ID: ", infos);
 
-    
+
     closeModal();
   }
 

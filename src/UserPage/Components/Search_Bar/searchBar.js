@@ -36,7 +36,7 @@ function SearchBar({ data }) {
                 <div className="searchInputs">
                     <input type="text" value={wordEntered} placeholder="Search for an event ..." onChange={handleFilter} />
                     <div className="searchIcon">
-                        { filteredData.length === 0 ? 
+                        { filteredData.length <= 0 ? 
                             <SearchIcon /> 
                             : 
                             <CancelIcon id="clearBtn" onClick={clearInput}/> 

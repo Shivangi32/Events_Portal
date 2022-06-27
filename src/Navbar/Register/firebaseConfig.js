@@ -1,8 +1,8 @@
 
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { getAuth, GoogleAuthProvider , signInWithPopup } from "firebase/auth";
-import {  addDoc } from "firebase/firestore"; 
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { addDoc } from "firebase/firestore";
 require("firebase/firestore");
 
 
@@ -18,44 +18,8 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-export const auth=getAuth(app);
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-export const provider= new GoogleAuthProvider();
-
-export const signInWithGoogle=event=>{
-
-  event.preventDefault();
-  signInWithPopup(auth,provider)
-    .then((result)=>{
-       console.log(result);
-       const name=result.user.displayName;
-       const email=result.user.email;
-       const profilePic=result.user.photoURL;
-
-       localStorage.setItem("name",name);
-       localStorage.setItem("email",email);
-       localStorage.setItem("profilePic",profilePic);
-       return true;
-    })
-    .catch((error)=>{
-       console.log(error);
-       return false;
-    });
-
-};
-
-/*export function addToDB(){
-try {
-
-  const docRef = addDoc(collection(db, "Events/today"), {
-    key:"1",
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  //console.error("Error adding document: ", e);
-}
-}*/
+export const provider = new GoogleAuthProvider();
+export const FireBase = initializeApp(firebaseConfig);
