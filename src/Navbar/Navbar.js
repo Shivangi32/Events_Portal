@@ -2,24 +2,29 @@ import React, { useState } from 'react';
 import "./Navbar.css"
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { auth } from "./Register/firebaseConfig"
 import Register from "./Register/RegisterPage";
 import Login from "./Login/LoginPage";
-var loggedIN;
-var loggedOUT;
 
-export default function Navbar({ user }) {
+export default function Navbar({ user, email }) {
 
 
-    const [isLoggedin, setIsLoggedin] = useState(false);
+    console.log(email);
+    const [isLoggedin, setIsLoggedin] = useState((user == undefined) ? false : true);
+    const [AdminLogin, setAdminLogin] = useState((email.includes("gmail.com")) ? false : true);
 
+    console.log(AdminLogin);
     const setIsLoggedinVal = (value) => {
+
         console.log("inside is logged in" + value);
         setIsLoggedin(value);
     }
 
+
     const logOut = () => {
 
-        localStorage.removeItem("name");
+        localStorage.setItem("name", undefined);
         localStorage.removeItem("email");
         localStorage.removeItem("profilePic");
         setIsLoggedin(false);
@@ -53,9 +58,11 @@ export default function Navbar({ user }) {
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/">About</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/src/Society/SocietyPage">Societies</a>
-                            </li>
+                            {AdminLogin ? (
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/src/Society/SocietyPage">Societies</a>
+                                </li>) : (<div></div>)
+                            }
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/">FAQS</a>
                             </li>
@@ -88,20 +95,4 @@ export default function Navbar({ user }) {
             {openRegisterModal && <Register setModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
         </div>
     )
-}
-
-export function setUpUI(user) {
-
-    console.log(user);
-
-    if (user) {
-        console.log(loggedIN);
-        loggedIN.forEach(item => item.style.display = "block")
-        loggedOUT.forEach(item => item.style.display = "none")
-    }
-    else {
-        loggedIN.forEach(item => item.style.display = "none")
-        loggedOUT.forEach(item => item.style.display = "block")
-    }
-
 }
