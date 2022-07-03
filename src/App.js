@@ -2,6 +2,8 @@ import "./App.css";
 import UserPage from "./UserPage/Components/UserPage";
 import Navbar from "./Navbar/Navbar"
 import SocietyPage from "./Society/SocietyPage";
+import AdminPage from "./Admin/AdminPage";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
 
@@ -19,9 +21,10 @@ function App() {
             <Navbar user={user} email={email} />
             <Switch>
               <Route exact path="/" component={UserPage} />
-                <Route exact path="/src/Society/SocietyPage" component={SocietyPage}>
+                <Route exact path="/src/Society/SocietyPage" component={SocietyPage}/>
+                <Route exact path="/src/Admin/AdminPage" component={AdminPage}/>
               
-              </Route>
+              
             </Switch>
           </div>
         </div>
