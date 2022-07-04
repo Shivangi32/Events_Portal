@@ -4,23 +4,26 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 import { signOut } from "firebase/auth";
 import { auth } from "./Register/firebaseConfig"
-import Register from "./Register/RegisterPage";
-import Login from "./Login/LoginPage";
+import Register from "./Register/RegisterPage.js";
+import Login from "./Login/LoginPage.js";
 
 export default function Navbar({ user, email }) {
 
 
     console.log(email);
-    const [isLoggedin, setIsLoggedin] = useState((user == undefined) ? false : true);
-    const [AdminLogin, setAdminLogin] = useState((email.includes("gmail.com")) ? false : true);
+    const [isLoggedin, setIsLoggedin] = useState((user === "undefined") ? false : true);
+    const [AdminLogin, setAdminLogin] = useState((email==null || !email.includes("admin.com")) ? false : true);
 
-    console.log(AdminLogin);
+    console.log(isLoggedin);
     const setIsLoggedinVal = (value) => {
 
         console.log("inside is logged in" + value);
         setIsLoggedin(value);
     }
 
+    const setisAdminLogin=(value)=>{
+        setAdminLogin(value);
+    }
 
     const logOut = () => {
 
@@ -28,6 +31,7 @@ export default function Navbar({ user, email }) {
         localStorage.removeItem("email");
         localStorage.removeItem("profilePic");
         setIsLoggedin(false);
+        setisAdminLogin(false);
     };
 
     const [openLoginModal, setOpenLoginModal] = useState(false);
@@ -59,9 +63,13 @@ export default function Navbar({ user, email }) {
                                 <a className="nav-link active" aria-current="page" href="/">About</a>
                             </li>
                             {AdminLogin ? (
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="/src/Society/SocietyPage">Societies</a>
-                                </li>) : (<div></div>)
+                                <>
+                                    <li className="nav-item">
+                                        <a className="nav-link active" aria-current="page" href="/Society">Societies</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link active" aria-current="page" href="/Admin">Admin</a>
+                                    </li></>) : (<div></div>)
                             }
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/">FAQS</a>
@@ -91,7 +99,7 @@ export default function Navbar({ user, email }) {
                     </div>
                 </div>
             </nav>
-            {openLoginModal && <Login setModalFunc={setLoginVal} setIsLoggedinVal={setIsLoggedinVal} />}
+            {openLoginModal && <Login setModalFunc={setLoginVal} setIsLoggedinVal={setIsLoggedinVal} setisAdminLogin={setisAdminLogin}/>}
             {openRegisterModal && <Register setModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
         </div>
     )

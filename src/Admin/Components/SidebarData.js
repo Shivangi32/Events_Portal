@@ -5,7 +5,7 @@ import * as BsIcons from 'react-icons/bs';
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    path: '/Admin',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },

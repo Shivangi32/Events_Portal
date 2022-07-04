@@ -2,7 +2,7 @@ import "../App.css";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { useState } from "react";
-import Card from "./Components/Card";
+import Card from "./Components/Card.js";
 
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { addDoc, setDoc, doc, getFirestore, updateDoc } from "firebase/firestore";

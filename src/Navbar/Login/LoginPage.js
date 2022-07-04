@@ -6,7 +6,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc"
 
-export default function Login({ setModalFunc, setIsLoggedinVal }) {
+export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin }) {
 
 
     const [email, setEmail] = useState("");
@@ -29,10 +29,12 @@ export default function Login({ setModalFunc, setIsLoggedinVal }) {
                 setItems(user.displayName, user.email, user.photoURL);
                 setIsLoggedinVal(true);
                 setModalFunc(false);
+                setisAdminLogin(false);
             })
             .catch((error) => {
                 console.log(error);
                 setIsLoggedinVal(false);
+                setisAdminLogin(false);
                 setModalFunc(false);
             });
 
@@ -52,10 +54,12 @@ export default function Login({ setModalFunc, setIsLoggedinVal }) {
                 setItems(user.displayName, user.email, user.photoURL);
                 setModalFunc(false);
                 setIsLoggedinVal(true);
+                setisAdminLogin(true);
             })
             .catch((error) => {
 
                 console.log(error);
+                setisAdminLogin(false);
                 setModalFunc(false);
                 setIsLoggedinVal(false);
             });
