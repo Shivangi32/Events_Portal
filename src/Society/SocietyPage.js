@@ -3,14 +3,17 @@ import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { useState } from "react";
 import Card from "./Components/Card.js";
-
+import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { addDoc, setDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
 
 
 Modal.setAppElement("#root");
 
-function SocietyPage() {
+function SocietyPage({email}) {
+
+  
+
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
@@ -69,7 +72,12 @@ function SocietyPage() {
     eCards.push(ca);
   });
 
+
+  /*if(email==null || email.includes("cbigdtuw.in")==false)
+  {  <Navigate to="/" />
+return(<div></div>);}*/
   return (
+
     <div className="societyPage ">
       <div className="societyName">
         <h1>INSTINCT</h1>

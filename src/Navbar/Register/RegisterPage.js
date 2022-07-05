@@ -4,8 +4,15 @@ import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { app, auth, provider } from "./firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc"
-
+import { FcGoogle } from "react-icons/fc";
+import {
+    getFirestore,
+    query,
+    getDocs,
+    collection,
+    where,
+    addDoc,
+} from "firebase/firestore";
 export default function Register({ setModalFunc, setIsLoggedinVal }) {
 
 
@@ -20,43 +27,57 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
 
     }
 
-    const signInWithGoogle = event => {
-
+    const db = getFirestore(app);
+    const signInWithGoogle = async (event) => {
         event.preventDefault();
-        signInWithPopup(auth, provider)
-            .then((result) => {
+        try {
+            const res = await signInWithPopup(auth, provider);
+            const user = res.user;
+            const q = query(collection(db, "users"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
 
-                const user = result.user;
-                setItems(user.displayName, user.email, user.photoURL);
-                setIsLoggedinVal(true);
-                setModalFunc(false);
-            })
-            .catch((error) => {
-                setModalFunc(false);
-                setIsLoggedinVal(false);
-            });
-
+                await addDoc(collection(db, "users"), {
+                    uid: user.uid,
+                    name: user.displayName,
+                    authProvider: "google",
+                    email: user.email,
+                });
+                alert("Registered successfully");
+            }
+            else
+            {
+                alert("Already registered!!");
+            }
+            setModalFunc(false);
+        } catch (err) {
+            console.error(err);
+            setIsLoggedinVal(false);
+            setModalFunc(false);
+        }
     };
-    const createUser = event => {
+
+    const createUser = async(event) => {
 
         if (email == "" || password == "") {
             return;
         }
         event.preventDefault();
         setModalFunc(false);
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-
-                const user = result.user;
-                setItems(user.displayName, user.email, user.photoURL);
-                setIsLoggedinVal(true);
-                setModalFunc(false);
-            })
-            .catch((error) => {
-
-                setIsLoggedinVal(false);
-                setModalFunc(false);
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+        console.log(user.email);
+        const q = query(collection(db, "SocietyMembers"), where("uid", "==", user.uid));
+        const docs = await getDocs(q);
+        if (docs.docs.length === 0) {
+            await addDoc(collection(db, "SocietyMembers"), {
+                uid: user.uid,
+                authProvider: "cbigdtuw",
+                email: user.email,
             });
+            console.log()
+            setModalFunc(false);
+        }
     }
 
     

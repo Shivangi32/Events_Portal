@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import "./login.css";
-import { signInWithEmailAndPassword, signInWithPopup , signOut} from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, signOut, createUserWithEmailAndPassword } from "firebase/auth";
 import { app, auth, provider } from "../Register/firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc";
+import {
+    getFirestore,
+    query,
+    getDocs,
+    collection,
+    where,
+    addDoc,
+} from "firebase/firestore";
 
 export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin }) {
 
@@ -19,50 +27,53 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
 
     }
 
-    const signInWithGoogle = event => {
-
+    const db = getFirestore(app);
+    const signInWithGoogle = async (event) => {
         event.preventDefault();
-        signInWithPopup(auth, provider)
-            .then((result) => {
-
-                const user = result.user;
+        try {
+            const res = await signInWithPopup(auth, provider);
+            const user = res.user;
+            const q = query(collection(db, "users"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
+                alert("Not registered");
+            }
+            else {
                 setItems(user.displayName, user.email, user.photoURL);
                 setIsLoggedinVal(true);
                 setModalFunc(false);
                 setisAdminLogin(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setIsLoggedinVal(false);
-                setisAdminLogin(false);
-                setModalFunc(false);
-            });
-
+            }
+        } catch (err) {
+            console.error(err);
+            setIsLoggedinVal(false);
+            setisAdminLogin(false);
+            setModalFunc(false);
+        }
     };
 
-    const signInwithEmail = event => {
+    const signInwithEmail = async (event) => {
 
         if (email == "" || password == "") {
             return;
         }
         event.preventDefault();
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-
-                const user = result.user;
-                setItems(user.displayName, user.email, user.photoURL);
-                setModalFunc(false);
-                setIsLoggedinVal(true);
-                setisAdminLogin(true);
-            })
-            .catch((error) => {
-
-                console.log(error);
-                setisAdminLogin(false);
-                setModalFunc(false);
-                setIsLoggedinVal(false);
-            });
+        try {
+            const res = await signInWithEmailAndPassword(auth, email, password);
+            const user=res.user;
+            setModalFunc(false);
+            setItems(user.displayName, user.email, user.photoURL);
+            setIsLoggedinVal(true);
+            setisAdminLogin(true);
+            
+        } catch (err) {
+            console.error(err);
+            alert("Invalid Credentials")
+            setIsLoggedinVal(false);
+            setisAdminLogin(false);
+            setModalFunc(false);
+        }
     }
 
     return (

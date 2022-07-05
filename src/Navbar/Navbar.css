@@ -1,5 +1,5 @@
 body {
-  font-family: 'Overlock', cursive;
+  font-family: 'Roboto';
   min-width: 70vw;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .clouds {
-  font-family: 'Overlock', sans-serif;
+  font-family: 'Roboto';
   background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds.png) repeat top center;
   z-index: 3;
 
@@ -66,7 +66,7 @@ body {
 
 .navbar {
   padding: 4vh 1vh 0vh 1vh;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Roboto';
   font-size: 1.2vw;
 }
 
@@ -93,6 +93,10 @@ body {
   width: 4.3vw;
 }
 
+.nav-item{
+  margin: 1vw;
+  text-decoration: none;
+}
 .nav-item a {
   color: white;
 
