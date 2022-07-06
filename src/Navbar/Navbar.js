@@ -3,6 +3,7 @@ import "./Navbar.css"
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaPlus } from "react-icons/fa";
+import { AiOutlineUser } from "react-icons/ai";
 import { signOut } from "firebase/auth";
 import { auth } from "./Register/firebaseConfig"
 import Register from "./Register/RegisterPage.js";
@@ -89,8 +90,17 @@ export default function Navbar({ user, email }) {
                                 </>
                             ) : (
                                 <>
-                                    <button onClick={logOut}>Log Out</button>
-                                    <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
+                                    <button onClick={logOut}>
+                                        <Link to="/">Log Out</Link></button>
+                                    {
+                                        (localStorage.getItem("profilePic") == "null") ?
+                                        <span >   <AiOutlineUser /></span>
+                                            :
+                                        <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
+
+                                    }
+
+
                                 </>
                             )}
 

@@ -102,13 +102,20 @@ body {
 
 }
 
-#navside button,
+#navside button,#navside
 span {
   border: none;
   background: none;
   color: white;
+  
 }
-
+#navside span{
+  font-size: 1.5vw;
+  margin-left: 0vw !important;
+}
+span{
+  color: white;
+}
 #profilePic {
   height: 3vw;
   width: 3vw;
