@@ -21,7 +21,7 @@ function App() {
               <Route  index element={<UserPage />} />
               <Route  path="Society" element={(email!=null && email.includes("cbigdtuw.in"))? <SocietyPage/>:<Navigate replace to="/" /> } />
               <Route  path="Admin" element={(email!=null && email.includes("cbigdtuw.in"))? <AdminPage/>:<Navigate replace to="/" /> }/>
-              <Route exact path="/" element={<Navigate replace to="/" />}/>
+              <Route  path="*" element={<Navigate replace to="/" />}/>
             </Routes>
           </div>
         </div>
