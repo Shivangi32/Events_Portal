@@ -122,3 +122,7 @@ span{
   margin: 0vw 1vw 0vw 0.5vw;
   border-radius: 50%;
 }
+
+.admin{
+  float:right;
+}
