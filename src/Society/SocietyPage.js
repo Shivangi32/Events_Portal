@@ -10,10 +10,10 @@ import { addDoc, setDoc, doc, getFirestore, updateDoc } from "firebase/firestore
 
 Modal.setAppElement("#root");
 
-function SocietyPage({email}) {
+function SocietyPage({email,setShowNavFunc}) {
 
   
-
+  setShowNavFunc(true);
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);

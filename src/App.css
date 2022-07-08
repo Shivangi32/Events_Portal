@@ -328,3 +328,7 @@ hr{
 .Modal label{
   font-weight: 500;
 }
+
+a:visited{
+  color: white !important;
+}

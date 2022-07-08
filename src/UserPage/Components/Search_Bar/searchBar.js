@@ -17,7 +17,8 @@ function SearchBar({ data }) {
                 value.society.toLowerCase().includes(searchWord.toLowerCase());
         });
 
-        if(searchWord === "") {
+        if(searchWord == "") {
+           
             setFilteredData([]);
         } else {
             setFilteredData(newFilter);
@@ -30,13 +31,14 @@ function SearchBar({ data }) {
         setWordEntered("");
         return;
     };
-
+    
     return (
             <div className="search">
                 <div className="searchInputs">
                     <input type="text" value={wordEntered} placeholder="Search for an event ..." onChange={handleFilter} />
                     <div className="searchIcon">
-                        { filteredData.length <= 0 ? 
+
+                        {  (wordEntered.length === 0) ? 
                             <SearchIcon /> 
                             : 
                             <CancelIcon id="clearBtn" onClick={clearInput}/> 

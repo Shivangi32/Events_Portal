@@ -7,7 +7,8 @@ import StatsCard from "./Components/Stats/StatsCard"
 import Home from './pages/Home';
 import Events from './pages/Events'
 const admin='admin';
-const App = () => {
+const App = ({setShowNavFunc}) => {
+  setShowNavFunc(false);
   return (
   <>
 
