@@ -22,7 +22,7 @@ function App() {
         <div className="twinkling">
           <div className="clouds">
 
-          {showNav && <Navbar user={user} email={email}/>}
+          <Navbar user={user} email={email} showNav={showNav}/>
             <Routes>
               <Route  index element={<UserPage  setShowNavFunc={setShowNavFunc} />} />
               <Route  path="Society" element={(email!=null && email.includes("cbigdtuw.in"))? <SocietyPage  setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> } />

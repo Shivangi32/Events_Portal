@@ -9,7 +9,7 @@ import { auth } from "./Register/firebaseConfig"
 import Register from "./Register/RegisterPage.js";
 import Login from "./Login/LoginPage.js";
 
-export default function Navbar({ user, email }) {
+export default function Navbar({ user, email ,showNav}) {
 
 
     const [isLoggedin, setIsLoggedin] = useState((user === "undefined") ? false : true);
@@ -43,6 +43,38 @@ export default function Navbar({ user, email }) {
     const setRegisterVal = (value) => {
         setOpenRegisterModal(value);
     }
+    if(!showNav){
+        return(
+        <div id="navside" class="admin">
+
+
+        {!isLoggedin ? (
+            <>
+                <span ><BsFillPersonPlusFill /></span>
+                <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
+                <span ><FaPlus /></span>
+                <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
+                <i className="fa fa-sign-in" aria-hidden="true"></i>
+
+            </>
+        ) : (
+            <>
+                <button onClick={logOut}>
+                    <Link to="/">Log Out</Link></button>
+                {
+                    (localStorage.getItem("profilePic") == "null") ?
+                    <span >   <AiOutlineUser /></span>
+                        :
+                    <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
+
+                }
+
+
+            </>
+        )}
+
+    </div>);
+    }
     return (
 
         <div>
@@ -61,7 +93,7 @@ export default function Navbar({ user, email }) {
                             <li className="nav-item">
                                 <Link to="/About">About</Link>
                             </li>
-                            { AdminLogin ? (
+                            { (AdminLogin) ? (
                                 <>
                                     <li className="nav-item">
                                         <Link to="/Society">Societies</Link>
@@ -69,7 +101,7 @@ export default function Navbar({ user, email }) {
                                     <li className="nav-item">
                                         <Link to="/Admin">Admin</Link>
                                     </li></>) : (<div></div>)
-                            }
+                             }
                             <li className="nav-item">
                                 <Link to="/FAQs">FAQs </Link>
                             </li>
