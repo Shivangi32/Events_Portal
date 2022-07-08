@@ -103,13 +103,17 @@ body {
 
 }
 
+#navside {
+  margin-right: 10px;
+}
+
 #navside button,#navside
 span {
   border: none;
   background: none;
-  color: white;
-  
+  color: white;  
 }
+
 #navside span{
   font-size: 1.5vw;
   margin-left: 0vw !important;

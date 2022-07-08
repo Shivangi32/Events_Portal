@@ -1,0 +1,25 @@
+.admin-search .search {
+    margin-left: 16vw;   
+}
+
+.admin-search .searchInputs {
+    margin-top: 12vh;
+}
+
+.admin-search .searchInputs input {
+    background-color: rgba(255, 255, 255, 0.233);
+    color: white;
+    width: 35vw;
+    border: 2px solid rgba(255, 255, 255, 0.641);
+}
+
+.admin-search .searchIcon {
+    background-color: rgba(255, 255, 255, 0.233);
+    /* background-color: black; */
+    border: 2px solid rgba(255, 255, 255, 0.641);
+}
+
+.admin-search .searchIcon svg {
+    color: white;
+}
+

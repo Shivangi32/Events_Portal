@@ -28,6 +28,8 @@
     content: "";
   background-image: url(./card_img.webp);
   /* background: url(image.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
     opacity: 0.9;
     top: 0;
     left: 0;

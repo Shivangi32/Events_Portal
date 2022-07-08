@@ -32,10 +32,11 @@ export const SidebarData = [
     path: '#',
     icon: <BsIcons.BsArrowUpRight />,
     cName: 'nav-text'
-  },{
-    title:'Log Out',
-    path:'/',
-    icon:<AiIcons.AiOutlineLogin />,
-    cName:'nav-text'
-  }
+  },
+  // {
+  //   title:'Log Out',
+  //   path:'/',
+  //   icon:<AiIcons.AiOutlineLogin />,
+  //   cName:'nav-text'
+  // }
 ];

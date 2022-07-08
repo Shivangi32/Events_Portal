@@ -1,0 +1,32 @@
+.stats {
+    /* background-color: rgba(255, 255, 255, 0.233); */
+    width: 72vw;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-left: 21vw;
+    margin-top: 10vh;
+    border: 8px solid transparent;
+    border-image: url('/src/Society/images/event_CardBackground.jpeg') 20% round;
+    border-radius: 10px;
+}
+
+.column {
+    color: white;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 150px;
+    margin-left: 80px;
+}
+
+.column h4 {
+    font-size: 50px;
+}
+
+.stats-bar {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* background-color: rgba(255, 255, 255, 0.233) ; */
+}
