@@ -17,7 +17,7 @@ function Card(props) {
         </div>
 
         <div className="info">
-          <h2>{props.EventName}</h2>
+          <h2>{props.title}</h2>
           <h1>Date: {props.date}</h1>
           <h1>Time: {props.time}</h1>
         </div>
@@ -37,7 +37,7 @@ export default Card;
 //     };
 //     this.newDate = "";
 //     this.newTime = "";
-//     this.newEventName = "";
+//     this.newtitle = "";
 //   }
 
 //   render() {
