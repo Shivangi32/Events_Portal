@@ -24,7 +24,6 @@ function SocietyPage() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
   const ref = firebase.firestore().collection("events")
   console.log(ref);
 
@@ -49,26 +48,6 @@ function SocietyPage() {
     ref
       .doc(newEvent.id)
       .set(newEvent)
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-  //DELETE FUNCTION
-  function deleteEvent(event) {
-    ref
-      .doc(event.id)
-      .delete()
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-  //EDIT FUNCTION
-  function editEvent(updatedEvent) {
-    ref
-      .doc(updatedEvent.id)
-      .update(updatedEvent)
       .catch((err) => {
         console.error(err);
       });

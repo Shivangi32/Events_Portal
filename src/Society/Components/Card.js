@@ -1,6 +1,64 @@
 import Modal from "react-modal";
+import firebase from "../firebase";
+import React, { useState , useEffect } from "react";
+
 
 function Card(props) {
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const ref = firebase.firestore().collection("events")
+  console.log(ref);
+
+  function getEvents() {
+    setLoading(true);
+    ref.onSnapshot((querySnapshot) => {
+      const items =[];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setEvents(items);
+      setLoading(false);
+    });
+  }
+
+  useEffect(() => {
+    getEvents();
+  }, [])
+
+  //ADD FUNCTION
+  function addEvent(newEvent) {
+    ref
+      .doc(newEvent.id)
+      .set(newEvent)
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  //DELETE FUNCTION
+  function deleteEvent(event) {
+    ref
+      .doc(event.id)
+      .delete()
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  //EDIT FUNCTION
+  function editEvent(updatedEvent) {
+    ref
+      .doc(updatedEvent.id)
+      .update(updatedEvent)
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   return (
     <div className="card">
       <div className="content">
@@ -9,10 +67,8 @@ function Card(props) {
             <img src="" alt="logo" />
           </div>
           <div className="icons">
-            <div className="material-icons" 
-            // onClick={() => editModal( id: )}
-            >close</div>
-            <div className="material-icons">edit</div>
+            <div className="material-icons" onClick={() => deleteEvent(event)}>close</div>
+            <div className="material-icons" onClick={() => editEvent({ title: event.title, Date: event.date, time: event.timeStamp, id: event.id })}>edit</div>
           </div>
         </div>
 
