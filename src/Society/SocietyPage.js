@@ -47,11 +47,17 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   const onwindowLoad = async () => {
 
+    const values=localStorage.getItem("email").split("@");
+    const temp=values[0];
+    console.log(temp);
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
 
       const socName=socData.data().soc;
+      if(temp!=socName){
+        return;
+      }
       const q = query(collection(db, `Events/soc_events/${socName}`));
 
       const curr_soc = await getDocs(q);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import events from "../Event_Card/data";
+import events from "../Event_Card/Card";
 import './searchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import CancelIcon from '@mui/icons-material/Cancel';
