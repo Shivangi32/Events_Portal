@@ -98,7 +98,6 @@ function SocietyPage({ email, setShowNavFunc }) {
   /*adds cards to site*/
 
   cards.forEach((c) => {
-    console.log(c);
     const temp=c.soc.toUpperCase();
     let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} />;
     eCards.push(ca);
@@ -109,7 +108,6 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     <div className="societyPage ">
       <div className="societyName">
-        <h1>INSTINCT</h1>
         <hr></hr>
       </div>
       <div className="cards">
