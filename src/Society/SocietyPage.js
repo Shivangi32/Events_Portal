@@ -1,22 +1,36 @@
 import "../App.css";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
-import { useState } from "react";
+import { db } from "../Navbar/Register/firebaseConfig";
+import { useState ,useEffect} from "react";
+
 import Card from "./Components/Card.js";
 import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
-import { collection, getDocs } from 'firebase/firestore/lite';
-import { addDoc, setDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  setDoc, doc
+} from "firebase/firestore";
 
 
 Modal.setAppElement("#root");
 
-function SocietyPage({email,setShowNavFunc}) {
+function SocietyPage({ email, setShowNavFunc }) {
 
-  
+
   setShowNavFunc(true);
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
+  let [societyName, setSocietyName] = useState();
+  let [eventName, setEventName] = useState();
+  let [date, setDate] = useState();
+  let [time, setTime] = useState();
+  let eCards = [];
+
 
   function openModal() {
     setIsOpen(true);
@@ -31,51 +45,66 @@ function SocietyPage({email,setShowNavFunc}) {
     setIsOpen(false);
   }
 
-  let eCards = [];
+  const onwindowLoad = async () => {
 
-  let [societyName, setSocietyName] = useState();
-  let [eventName, setEventName] = useState();
-  let [date, setDate] = useState();
-  let [time, setTime] = useState();
+    const soc_collection = query(collection(db, "Societies"));
+    const socdocs = await getDocs(soc_collection);
+    const soc_list = socdocs.docs.map(async (socData) => {
 
-  function handleSubmit(e) {
+      const socName=socData.data().soc;
+      const q = query(collection(db, `Events/soc_events/${socName}`));
 
-    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined) { return; }
+      const curr_soc = await getDocs(q);
+      const events_list = curr_soc.docs.map( (doc) => {
+
+        const data = doc.data();
+        let info = {
+          soc: socName,
+          key: cards.length,
+          EventName: data.EventName,
+          date: data.date,
+          time: data.time,
+        };
+        setCards(current=>[...current,info]);
+      })
+    })
+  } 
+
+  const handleSubmit = async (e) => {
+
+    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined) 
+       { return; }
     e.preventDefault();
 
+    const temp = societyName.toLowerCase();
+    setSocietyName(temp);
+
     let info = {
+      soc: societyName,
       key: cards.length,
       EventName: eventName,
       date: date,
       time: time,
     };
-    let infos = [...cards, info];
-    setCards(infos);
-    const db = getFirestore();
-    const currDoc = doc(db, `Events/${societyName}`);
-    const obj = { infos };
-    setDoc(currDoc, obj)
-      .then(() => {
-        console.log(info);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    console.log("Document written with ID: ", infos);
 
-
+    await addDoc(collection(db, `Events/soc_events/${temp}`), info);
+    setCards(current=>[...current,info]);
     closeModal();
   }
 
+  useEffect(() => {
+    onwindowLoad();
+  }, [])
+  /*adds cards to site*/
+
   cards.forEach((c) => {
-    let ca = <Card EventName={c.EventName} date={c.date} time={c.time} />;
+    console.log(c);
+    const temp=c.soc.toUpperCase();
+    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} />;
     eCards.push(ca);
   });
 
 
-  /*if(email==null || email.includes("cbigdtuw.in")==false)
-  {  <Navigate to="/" />
-return(<div></div>);}*/
   return (
 
     <div className="societyPage ">

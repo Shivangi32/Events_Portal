@@ -39,7 +39,9 @@
 } */
 
 /*Society event page app.css */
-
+body{
+  background-color: black;
+}
 .App {
   text-align: center;
 }

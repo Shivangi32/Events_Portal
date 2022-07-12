@@ -1,7 +1,8 @@
 
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import firebase from 'firebase/compat/app';
 import { addDoc } from "firebase/firestore";
 require("firebase/firestore");
 
@@ -20,6 +21,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+//export const database= firebase.firestore();
 
 export const provider = new GoogleAuthProvider();
 export const FireBase = initializeApp(firebaseConfig);

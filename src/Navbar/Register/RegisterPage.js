@@ -59,9 +59,15 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
 
     const createUser = async(event) => {
 
-        if (email == "" || password == "") {
+        if (email == "" || password == "" ) {
             return;
         }
+        if(email.includes("cbigdtuw.in")==false)
+        {
+            alert("Invalid Credentials!!");
+            return;
+        }
+
         event.preventDefault();
         setModalFunc(false);
         const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -75,7 +81,6 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
                 authProvider: "cbigdtuw",
                 email: user.email,
             });
-            console.log()
             setModalFunc(false);
         }
     }
