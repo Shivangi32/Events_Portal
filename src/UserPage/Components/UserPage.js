@@ -1,18 +1,16 @@
+import Heading from "./Heading";
+import Card from "./Event_Card/Card.js";
+import SearchBar from "./Search_Bar/searchBar";
+import EventsData from "./Event_Card/data";
 
-import Heading from './Heading';
-import Card from './Event_Card/Card.js';
-import SearchBar from './Search_Bar/searchBar';
+export default function Header({ setShowNavFunc }) {
+  setShowNavFunc(true);
 
-export default function Header({setShowNavFunc}) {
-
-    setShowNavFunc(true);
-
-    return (
-        <div>
-            <Heading />
-            <SearchBar />
-            <Card />
-                   
-        </div>
-    )
+  return (
+    <div>
+      <Heading />
+      <SearchBar data={EventsData} />
+      {/* <Card /> */}
+    </div>
+  );
 }
