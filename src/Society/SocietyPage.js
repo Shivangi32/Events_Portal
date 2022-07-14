@@ -25,6 +25,7 @@ function SocietyPage({ email, setShowNavFunc }) {
   setShowNavFunc(true);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
+  let [EventLink,setEventLink]=useState();
   let [societyName, setSocietyName] = useState();
   let [eventName, setEventName] = useState();
   let [date, setDate] = useState();
@@ -49,7 +50,6 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     const values=localStorage.getItem("email").split("@");
     const temp=values[0];
-    console.log(temp);
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
@@ -70,6 +70,7 @@ function SocietyPage({ email, setShowNavFunc }) {
           EventName: data.EventName,
           date: data.date,
           time: data.time,
+          approved : data.approved
         };
         setCards(current=>[...current,info]);
       })
@@ -78,11 +79,29 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   const handleSubmit = async (e) => {
 
-    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined) 
+    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined 
+      || societyName == "" || eventName == "" || date == "" || time == "") 
        { return; }
+    const todaydate=new Date();
+    let currentyear=todaydate.getFullYear();
+    let datevalues=date.split("-");
+    console.log(datevalues[0]);
+    if(datevalues[0]<currentyear || datevalues[0]>currentyear+1)
+      {
+        alert("Wrong Date");
+        return;
+      }
+    const values=localStorage.getItem("email").split("@");
+    const curr_soc=values[0];
     e.preventDefault();
 
     const temp = societyName.toLowerCase();
+    if(curr_soc!=temp)
+    {
+      alert("You can add events only of your society!!");
+      closeModal();
+      return;
+    }
     setSocietyName(temp);
 
     let info = {
@@ -90,6 +109,7 @@ function SocietyPage({ email, setShowNavFunc }) {
       key: cards.length,
       EventName: eventName,
       date: date,
+      approved :"false",
       time: time,
     };
 
@@ -105,7 +125,7 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   cards.forEach((c) => {
     const temp=c.soc.toUpperCase();
-    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} />;
+    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} approved={c.approved}/>;
     eCards.push(ca);
   });
 
@@ -163,6 +183,18 @@ function SocietyPage({ email, setShowNavFunc }) {
                       required
                     ></input>
                   </div>
+                  <div>
+                    <label htmlFor="EventLink">Event registration Link</label>
+                  </div>
+                  <div className="big-ip">
+                    <input
+                      type="text"
+                      id="EventLink"
+                      placeholder="Add Event Link"
+                      onChange={(e) => setEventLink(e.target.value)}
+                      required
+                    ></input>
+                  </div>
                 </div>
                 <div className="fields">
                   <div className="fields-colums">
@@ -171,7 +203,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     </div>
                     <div className="small-ip">
                       <input
-                        type="text"
+                        type="date"
                         id="date"
                         placeholder="DD/MM/YY"
                         onChange={(e) => setDate(e.target.value)}
@@ -185,7 +217,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     </div>
                     <div className="small-ip">
                       <input
-                        type="text"
+                        type="time"
                         id="time"
                         placeholder="Add Event Time"
                         onChange={(e) => setTime(e.target.value)}

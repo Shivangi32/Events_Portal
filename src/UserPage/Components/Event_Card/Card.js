@@ -56,7 +56,9 @@ const Card = () => {
       const curr_soc = await getDocs(q);
       const events_list = curr_soc.docs.map((doc) => {
 
+        
         const data = doc.data();
+        
         let info = {
           soc: socName,
           key: events.length,
@@ -64,7 +66,8 @@ const Card = () => {
           date: data.date,
           time: data.time,
         };
-        setEvents(current => [...current, info]);
+        if(data.approved=="true")
+          setEvents(current => [...current, info]);
       })
     })
     return events;

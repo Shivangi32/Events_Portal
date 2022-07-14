@@ -13,21 +13,14 @@ import {
     where,
     addDoc,
 } from "firebase/firestore";
+
 export default function Register({ setModalFunc, setIsLoggedinVal }) {
-
-
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const setItems = (name, email, profilePic) => {
-        localStorage.setItem("name", name);
-        localStorage.setItem("email", email);
-        localStorage.setItem("profilePic", profilePic);
-
-    }
-
     const db = getFirestore(app);
+
     const signInWithGoogle = async (event) => {
         event.preventDefault();
         try {
@@ -45,8 +38,7 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
                 });
                 alert("Registered successfully");
             }
-            else
-            {
+            else {
                 alert("Already registered!!");
             }
             setModalFunc(false);
@@ -57,22 +49,20 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
         }
     };
 
-    const createUser = async(event) => {
+    const createUser = async (event) => {
 
-        if (email == "" || password == "" ) {
+        if (email == "" || password == "") {
             return;
         }
-        if(email.includes("cbigdtuw.in")==false)
-        {
+        if (email.includes("cbigdtuw.in") == false) {
             alert("Invalid Credentials!!");
             return;
         }
 
         event.preventDefault();
-        setModalFunc(false);
+    
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
-        console.log(user.email);
         const q = query(collection(db, "SocietyMembers"), where("uid", "==", user.uid));
         const docs = await getDocs(q);
         if (docs.docs.length === 0) {
@@ -81,11 +71,16 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
                 authProvider: "cbigdtuw",
                 email: user.email,
             });
-            setModalFunc(false);
+            alert("registered successfully!!");
         }
+        else
+        {
+            alert("Already registered");
+        }
+        setModalFunc(false);
     }
 
-    
+
     return (
 
         <div id="simpleModal" className="Modal">
@@ -104,7 +99,7 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
-                        <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
+                        <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
                         <button id="submitbtn" onClick={createUser}>Submit</button>
                     </form>
 

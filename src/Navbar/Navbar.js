@@ -27,11 +27,13 @@ export default function Navbar({ user, email ,showNav}) {
     const logOut = () => {
 
         signOut(auth);
+        window.location.reload();
         localStorage.setItem("name", undefined);
         localStorage.removeItem("email");
         localStorage.removeItem("profilePic");
         setIsLoggedin(false);
         setisAdminLogin(false);
+        
     };
 
     const [openLoginModal, setOpenLoginModal] = useState(false);

@@ -19,6 +19,7 @@ function Card(props) {
           <h1>Event: {props.EventName}</h1>
           <h1>Date: {props.date}</h1>
           <h1>Time: {props.time}</h1>
+          <h1>Approved: {props.approved}</h1>
         </div>
       </div>
       <button>Register Now</button>
