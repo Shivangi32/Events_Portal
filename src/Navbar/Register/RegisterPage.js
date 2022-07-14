@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./register.css";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { app, auth, provider } from "./firebaseConfig";
+import { app, auth, provider } from "../../firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaPlus } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
 import { signOut } from "firebase/auth";
-import { auth } from "./Register/firebaseConfig"
+import { auth } from "../firebaseConfig"
 import Register from "./Register/RegisterPage.js";
 import Login from "./Login/LoginPage.js";
 

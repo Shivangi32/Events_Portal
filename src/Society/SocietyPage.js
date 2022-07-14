@@ -1,7 +1,7 @@
 import "../App.css";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
-import { db } from "../Navbar/Register/firebaseConfig";
+import { db } from "../firebaseConfig";
 import { useState ,useEffect} from "react";
 
 import Card from "./Components/Card.js";

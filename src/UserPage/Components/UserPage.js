@@ -10,7 +10,7 @@ export default function Header({ setShowNavFunc }) {
     <div>
       <Heading />
       <SearchBar data={EventsData} />
-      {/* <Card /> */}
+      <Card />
     </div>
   );
 }

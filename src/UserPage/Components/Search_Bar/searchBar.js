@@ -4,7 +4,7 @@ import "./searchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import CancelIcon from "@mui/icons-material/Cancel";
 
-import { db } from "../../../Navbar/Register/firebaseConfig";
+import { db } from "../../../firebaseConfig";
 
 import {
   query,
