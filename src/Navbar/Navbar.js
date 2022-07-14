@@ -9,7 +9,7 @@ import { auth } from "../firebaseConfig"
 import Register from "./Register/RegisterPage.js";
 import Login from "./Login/LoginPage.js";
 
-export default function Navbar({ user, email ,showNav}) {
+export default function Navbar({ user, email, showNav }) {
 
 
     const [isLoggedin, setIsLoggedin] = useState((user === "undefined") ? false : true);
@@ -33,7 +33,7 @@ export default function Navbar({ user, email ,showNav}) {
         localStorage.removeItem("profilePic");
         setIsLoggedin(false);
         setisAdminLogin(false);
-        
+
     };
 
     const [openLoginModal, setOpenLoginModal] = useState(false);
@@ -45,37 +45,37 @@ export default function Navbar({ user, email ,showNav}) {
     const setRegisterVal = (value) => {
         setOpenRegisterModal(value);
     }
-    if(!showNav){
-        return(
-        <div id="navside" class="admin">
+    if (!showNav) {
+        return (
+            <div id="navside" class="admin">
 
 
-        {!isLoggedin ? (
-            <>
-                <span ><BsFillPersonPlusFill /></span>
-                <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
-                <span ><FaPlus /></span>
-                <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
-                <i className="fa fa-sign-in" aria-hidden="true"></i>
+                {!isLoggedin ? (
+                    <>
+                        <span ><BsFillPersonPlusFill /></span>
+                        <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
+                        <span ><FaPlus /></span>
+                        <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
+                        <i className="fa fa-sign-in" aria-hidden="true"></i>
 
-            </>
-        ) : (
-            <>
-                <button onClick={logOut}>
-                    <Link to="/">Log Out</Link></button>
-                {
-                    (localStorage.getItem("profilePic") == "null") ?
-                    <span >   <AiOutlineUser /></span>
-                        :
-                    <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
+                    </>
+                ) : (
+                    <>
+                        <button onClick={logOut}>
+                            <Link to="/">Log Out</Link></button>
+                        {
+                            (localStorage.getItem("profilePic") == "null") ?
+                                <span >   <AiOutlineUser /></span>
+                                :
+                                <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
 
-                }
+                        }
 
 
-            </>
-        )}
+                    </>
+                )}
 
-    </div>);
+            </div>);
     }
     return (
 
@@ -95,15 +95,12 @@ export default function Navbar({ user, email ,showNav}) {
                             <li className="nav-item">
                                 <Link to="/About">About</Link>
                             </li>
-                            { (AdminLogin) ? (
-                                <>
+                            {(AdminLogin) ? (
                                     <li className="nav-item">
                                         <Link to="/Society">Societies</Link>
                                     </li>
-                                    <li className="nav-item">
-                                        <Link to="/Admin">Admin</Link>
-                                    </li></>) : (<div></div>)
-                             }
+                                ) : (<div></div>)
+                            }
                             <li className="nav-item">
                                 <Link to="/FAQs">FAQs </Link>
                             </li>
@@ -127,9 +124,9 @@ export default function Navbar({ user, email ,showNav}) {
                                         <Link to="/">Log Out</Link></button>
                                     {
                                         (localStorage.getItem("profilePic") == "null") ?
-                                        <span >   <AiOutlineUser /></span>
+                                            <span >   <AiOutlineUser /></span>
                                             :
-                                        <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
+                                            <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
 
                                     }
 
@@ -147,4 +144,3 @@ export default function Navbar({ user, email ,showNav}) {
     )
 }
 
-    

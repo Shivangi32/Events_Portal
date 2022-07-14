@@ -30,7 +30,7 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
 
     const db = getFirestore(app);
     const signInWithGoogle = async (event) => {
-        
+
         event.preventDefault();
         try {
             const res = await signInWithPopup(auth, provider);
@@ -45,7 +45,7 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
                 setIsLoggedinVal(true);
                 setModalFunc(false);
                 setisAdminLogin(false);
-                
+
             }
 
         } catch (err) {
@@ -65,13 +65,13 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
 
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
-            const user=res.user;
+            const user = res.user;
             setModalFunc(false);
             setItems(user.displayName, user.email, user.photoURL);
             setIsLoggedinVal(true);
             setisAdminLogin(true);
             window.location.reload();
-            
+
         } catch (err) {
             console.error(err);
             alert("Invalid Credentials")
