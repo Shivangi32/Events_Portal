@@ -1,0 +1,11 @@
+.Heading{
+	display: flex;
+	justify-content:center;
+	margin-top:8%;
+
+}
+
+h1{
+	color:white;
+	text-decoration: underline;
+}

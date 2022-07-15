@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import "./login.css";
-import { signInWithEmailAndPassword, signInWithPopup, signOut, createUserWithEmailAndPassword } from "firebase/auth";
-import { app, auth, provider } from "../Register/firebaseConfig";
+import { signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { app, auth, provider } from "../../firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+
 import { FcGoogle } from "react-icons/fc";
 import {
     getFirestore,
@@ -29,6 +30,7 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
 
     const db = getFirestore(app);
     const signInWithGoogle = async (event) => {
+
         event.preventDefault();
         try {
             const res = await signInWithPopup(auth, provider);
@@ -43,7 +45,9 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
                 setIsLoggedinVal(true);
                 setModalFunc(false);
                 setisAdminLogin(false);
+
             }
+
         } catch (err) {
             console.error(err);
             setIsLoggedinVal(false);
@@ -61,12 +65,13 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
 
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
-            const user=res.user;
+            const user = res.user;
             setModalFunc(false);
             setItems(user.displayName, user.email, user.photoURL);
             setIsLoggedinVal(true);
             setisAdminLogin(true);
-            
+            window.location.reload();
+
         } catch (err) {
             console.error(err);
             alert("Invalid Credentials")
@@ -74,7 +79,7 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
             setisAdminLogin(false);
             setModalFunc(false);
         }
-    }
+    };
 
     return (
 

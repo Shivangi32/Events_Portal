@@ -1,52 +1,148 @@
-import React, { useState } from "react";
-import events from "../Event_Card/data";
-import './searchBar.css';
-import SearchIcon from '@mui/icons-material/Search';
-import CancelIcon from '@mui/icons-material/Cancel';
+import React, { useState, useEffect } from "react";
+// import events from "../Event_Card/Card";
+import "./searchBar.css";
+import SearchIcon from "@mui/icons-material/Search";
+import CancelIcon from "@mui/icons-material/Cancel";
+import { Event } from "../Event_Card/Card";
 
-function SearchBar({ data }) {
+import { db } from "../../../firebaseConfig";
 
-    const [filteredData, setFilteredData] = useState([]);
-    const [wordEntered, setWordEntered] = useState("");
-
-    const handleFilter = (event) => {
-        const searchWord = event.target.value;
-        setWordEntered(searchWord);
-        const newFilter = events.filter((value) => {
-            return value.eventname.toLowerCase().includes(searchWord.toLowerCase()) ||
-                value.society.toLowerCase().includes(searchWord.toLowerCase());
-        });
-
-        if(searchWord == "") {
-           
-            setFilteredData([]);
-        } else {
-            setFilteredData(newFilter);
-        }
-    };
+import {
+  query,
+  getDocs,
+  collection,
+} from "firebase/firestore";
 
 
-    const clearInput = () => {
-        setFilteredData([]);
-        setWordEntered("");
-        return;
-    };
-    
-    return (
-            <div className="search">
-                <div className="searchInputs">
-                    <input type="text" value={wordEntered} placeholder="Search for an event ..." onChange={handleFilter} />
-                    <div className="searchIcon">
+function SearchBar() {
 
-                        {  (wordEntered.length === 0) ? 
-                            <SearchIcon /> 
-                            : 
-                            <CancelIcon id="clearBtn" onClick={clearInput}/> 
-                        }                    
-                    </div>
-                </div>
-            </div>        
-    )
+  const [InitialEvents, setInitialEvents] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [showInitialEvents,setshowInitialEvents]=useState(true);
+
+  const eCards = [];
+
+  const getData = async () => {
+    const socCollection = query(collection(db, "Societies"));
+    const socDocs = await getDocs(socCollection);
+    const socList = socDocs.docs.map(async (socData) => {
+
+      const socName = socData.data().soc;
+      const socEvents = query(collection(db, `Events/soc_events/${socName}`));
+      const events = await getDocs(socEvents);
+
+      const eventsList = events.docs.map((event) => {
+
+        const data = event.data();
+        let info = {
+          soc: socName,
+          key: events.length,
+          EventName: data.EventName,
+          date: data.date,
+          time: data.time,
+        };
+
+        if (data.approved == "true")
+          setInitialEvents(current => [...current, info]);
+
+        const eventName = data.EventName;
+        setEvents(events => [...events, eventName]);
+      })
+    })
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
+
+  const handleFilter = (event) => {
+
+    setshowInitialEvents(false);
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+
+    const newFilter = events.filter((value) => {
+      console.log("value " + value);
+      return value.toLowerCase().includes(searchWord.toLowerCase())
+    });
+
+    const tempfilter= InitialEvents.filter((e)=>{
+      console.log(e);
+      return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
+    })
+
+
+
+    if (searchWord === "") {
+      setshowInitialEvents(true);
+      setFilteredData([]);
+    } else {
+      setFilteredEvents(tempfilter);
+      setFilteredData(newFilter);
+    }
+
+  };
+
+  if(showInitialEvents)
+  {
+    InitialEvents.forEach((e) => {
+      let ca = <Event event={e} key={e.id} />;
+      eCards.push(ca);
+    });
+  }
+
+  filteredEvents.forEach((e)=>{
+    let ca = <Event event={e} key={e.id} />;
+    eCards.push(ca);
+  })
+
+
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+    return;
+  };
+
+  return (
+    <>
+      <div className="search">
+        <div className="searchInputs">
+          <input
+            type="text"
+            value={wordEntered}
+            placeholder="Search for an event ..."
+            onChange={handleFilter}
+          />
+          <div className="searchIcon">
+            {wordEntered.length === 0 ? (
+              <SearchIcon />
+            ) : (
+              <CancelIcon id="clearBtn" onClick={clearInput} />
+            )}
+          </div>
+        </div>
+        {filteredData.length !== 0 && (
+          <div className="dataResult">
+            {filteredData.slice(0, 15).map((value) => {
+              return (
+                <a className="dataItem" href="/">
+                  <p>{value}</p>
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </div>
+      <div className="events">
+        {eCards}
+      </div>
+    </>
+  );
 }
 
 export default SearchBar;
