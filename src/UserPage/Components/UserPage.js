@@ -8,7 +8,7 @@ export default function Header({ setShowNavFunc }) {
   return (
     <div>
       <Heading />
-      <SearchBar  />
+      <SearchBar />
       {/*<Card />*/}
     </div>
   );
