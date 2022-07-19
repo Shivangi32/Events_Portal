@@ -57,6 +57,7 @@ function SocietyPage({ email, setShowNavFunc }) {
       const socName=socData.data().soc;
       if(temp!=socName){
         return;
+
       }
       const q = query(collection(db, `Events/soc_events/${socName}`));
 
@@ -127,8 +128,7 @@ function SocietyPage({ email, setShowNavFunc }) {
     const temp=c.soc.toUpperCase();
     let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} approved={c.approved}/>;
     eCards.push(ca);
-  });
-
+  }); 
 
   return (
 
@@ -237,6 +237,27 @@ function SocietyPage({ email, setShowNavFunc }) {
       </div>
     </div>
   );
+}
+
+//DELETE FUNCTION
+export function deleteEvent(event) {
+ ref
+   .doc(event.key)
+   .delete()
+   .catch((err) => {
+     console.error(err);
+   });
+}
+
+// EDIT FUNCTION
+export function editEvent(updatedEvent) {
+ setLoading();
+ ref
+   .doc(updatedEvent.key)
+   .update(updatedEvent)
+   .catch((err) => {
+     console.error(err);
+   });
 }
 
 export default SocietyPage;
