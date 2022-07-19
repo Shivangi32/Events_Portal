@@ -112,12 +112,34 @@ function SearchBar() {
   })
 
 
-  function selectedValue()
+  const selectedValue=(e)=>
   {
-    var selected=document.getElementById("options");
-    console.log(selected);
-    if(selected!=null)
-    console.log(selected.value);
+    let curr_soc=e.target.value;
+    if(curr_soc=="none")
+    {
+      console.log("none");
+      setshowInitialEvents(true);
+      setFilteredEvents([]);
+      return;
+    }
+    setshowInitialEvents(false);
+    setFilteredEvents([]);
+    InitialEvents.forEach((e) => {
+      
+      if(e.soc==curr_soc)
+      {
+        setFilteredEvents(current => [...current, e]);
+      }
+    });
+    /*
+    var select = document.getElementById('options');
+    if(select!=null)
+    {
+		var option = select.options[select.selectedIndex];
+    if(option!=null)
+    console.log(option.value);
+    }*/
+  
   }
   
   const clearInput = () => {
@@ -145,7 +167,8 @@ function SearchBar() {
             )}
           </div>
           <div>
-            <select name="options" id="options" onChange={selectedValue()}>
+            <select name="options" id="options" onChange={selectedValue}>
+              <option value="none">Select value</option>
               {optionsList}
             </select>
           </div>
