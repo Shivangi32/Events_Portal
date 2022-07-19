@@ -112,6 +112,14 @@ function SearchBar() {
   })
 
 
+  function selectedValue()
+  {
+    var selected=document.getElementById("options");
+    console.log(selected);
+    if(selected!=null)
+    console.log(selected.value);
+  }
+  
   const clearInput = () => {
     setshowInitialEvents(true);
     setFilteredData([]);
@@ -137,7 +145,7 @@ function SearchBar() {
             )}
           </div>
           <div>
-            <select name="cars" id="cars">
+            <select name="options" id="options" onChange={selectedValue()}>
               {optionsList}
             </select>
           </div>

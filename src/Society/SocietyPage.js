@@ -238,7 +238,7 @@ function SocietyPage({ email, setShowNavFunc }) {
     </div>
   );
 }
-
+/*
 //DELETE FUNCTION
 export function deleteEvent(event) {
  ref
@@ -259,5 +259,5 @@ export function editEvent(updatedEvent) {
      console.error(err);
    });
 }
-
+*/
 export default SocietyPage;

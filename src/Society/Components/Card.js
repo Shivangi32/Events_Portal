@@ -10,8 +10,8 @@ function Card(props) {
             <img src="" alt="logo" />
           </div>
           <div className="icons">
-            <div className="material-icons"><button  onClick={() => deleteEvent(e)}>close</button></div>
-            <div className="material-icons"><button  onClick={() => editEvent({ soc : e.soc, eventName, date, time, approved })}>edit</button></div>
+            <div className="material-icons"><button  /*onClick={() => deleteEvent(e)}*/>close</button></div>
+            <div className="material-icons"><button  /*onClick={() => editEvent({ soc : e.soc, eventName, date, time, approved })}*/>edit</button></div>
           </div>
         </div>
 
