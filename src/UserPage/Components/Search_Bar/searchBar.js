@@ -16,9 +16,12 @@ import {
 
 function SearchBar() {
 
+  const optionsList=[];
+
+  const [allsoc,setallsoc]=useState([]);
   const [InitialEvents, setInitialEvents] = useState([]);
   const [events, setEvents] = useState([]);
-  const [showInitialEvents,setshowInitialEvents]=useState(true);
+  const [showInitialEvents, setshowInitialEvents] = useState(true);
 
   const eCards = [];
 
@@ -28,6 +31,8 @@ function SearchBar() {
     const socList = socDocs.docs.map(async (socData) => {
 
       const socName = socData.data().soc;
+
+      setallsoc(current => [...current,socName]);
       const socEvents = query(collection(db, `Events/soc_events/${socName}`));
       const events = await getDocs(socEvents);
 
@@ -71,7 +76,7 @@ function SearchBar() {
       return value.toLowerCase().includes(searchWord.toLowerCase())
     });
 
-    const tempfilter= InitialEvents.filter((e)=>{
+    const tempfilter = InitialEvents.filter((e) => {
       console.log(e);
       return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
     })
@@ -88,21 +93,27 @@ function SearchBar() {
 
   };
 
-  if(showInitialEvents)
-  {
+  if (showInitialEvents) {
     InitialEvents.forEach((e) => {
       let ca = <Event event={e} key={e.id} />;
       eCards.push(ca);
     });
   }
 
-  filteredEvents.forEach((e)=>{
+  filteredEvents.forEach((e) => {
     let ca = <Event event={e} key={e.id} />;
     eCards.push(ca);
   })
 
+  allsoc.forEach((soc)=>{
+
+    let option=<option value={soc}>{soc}</option>;
+    optionsList.push(option);
+  })
+
 
   const clearInput = () => {
+    setshowInitialEvents(true);
     setFilteredData([]);
     setWordEntered("");
     return;
@@ -125,7 +136,13 @@ function SearchBar() {
               <CancelIcon id="clearBtn" onClick={clearInput} />
             )}
           </div>
+          <div>
+            <select name="cars" id="cars">
+              {optionsList}
+            </select>
+          </div>
         </div>
+
         {filteredData.length !== 0 && (
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {

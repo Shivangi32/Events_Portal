@@ -3,7 +3,7 @@ import './Heading.css';
 function Heading() {
   return (
     
-	<div class="Heading"><h1>ABOUT</h1></div>
+	<div className="Heading"><h1>ABOUT</h1></div>
 	
   )
 }

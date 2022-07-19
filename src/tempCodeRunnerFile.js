@@ -1,1 +1,0 @@
-<div className="societyPage-background">
