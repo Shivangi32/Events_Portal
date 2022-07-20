@@ -2,7 +2,7 @@ import "../App.css";
 import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { db } from "../firebaseConfig";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 
 import Card from "./Components/Card.js";
 import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
@@ -11,21 +11,23 @@ import {
   query,
   getDocs,
   collection,
-  where,
+  where, deleteDoc,
   addDoc,
   setDoc, doc
 } from "firebase/firestore";
 
 
 Modal.setAppElement("#root");
+var curr_soc="";
 
 function SocietyPage({ email, setShowNavFunc }) {
 
 
   setShowNavFunc(true);
+
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
-  let [EventLink,setEventLink]=useState();
+  let [EventLink, setEventLink] = useState();
   let [societyName, setSocietyName] = useState();
   let [eventName, setEventName] = useState();
   let [date, setDate] = useState();
@@ -48,57 +50,61 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   const onwindowLoad = async () => {
 
-    const values=localStorage.getItem("email").split("@");
-    const temp=values[0];
+    const values = localStorage.getItem("email").split("@");
+    const temp = values[0];
+    curr_soc=temp;
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
 
-      const socName=socData.data().soc;
-      if(temp!=socName){
+      const socName = socData.data().soc;
+      if (temp != socName) {
         return;
 
       }
       const q = query(collection(db, `Events/soc_events/${socName}`));
 
       const curr_soc = await getDocs(q);
-      const events_list = curr_soc.docs.map( (doc) => {
+      const events_list = curr_soc.docs.map((doc) => {
 
         const data = doc.data();
         let info = {
+          id: doc.id,
           soc: socName,
           key: cards.length,
           EventName: data.EventName,
           date: data.date,
           time: data.time,
-          approved : data.approved
+          approved: data.approved
         };
-        setCards(current=>[...current,info]);
+        setCards(current => [...current, info]);
       })
     })
-  } 
+  }
 
   const handleSubmit = async (e) => {
 
-    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined 
-      || societyName == "" || eventName == "" || date == "" || time == "") 
-       { return; }
-    const todaydate=new Date();
-    let currentyear=todaydate.getFullYear();
-    let datevalues=date.split("-");
-    console.log(datevalues[0]);
-    if(datevalues[0]<currentyear || datevalues[0]>currentyear+1)
-      {
-        alert("Wrong Date");
-        return;
-      }
-    const values=localStorage.getItem("email").split("@");
-    const curr_soc=values[0];
     e.preventDefault();
+    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined
+      || societyName == "" || eventName == "" || date == "" || time == "") 
+      { return; }
 
+    /*Check Date*/
+    const todaydate = new Date();
+    let currentyear = todaydate.getFullYear();
+    let datevalues = date.split("-");
+    console.log(datevalues[0]);
+    if (datevalues[0] < currentyear || datevalues[0] > currentyear + 1) {
+      alert("Wrong Date");
+      return;
+    }
+
+    /*check Society*/
+
+    const values = localStorage.getItem("email").split("@");
+    const curr_soc = values[0];
     const temp = societyName.toLowerCase();
-    if(curr_soc!=temp)
-    {
+    if (curr_soc != temp) {
       alert("You can add events only of your society!!");
       closeModal();
       return;
@@ -110,31 +116,33 @@ function SocietyPage({ email, setShowNavFunc }) {
       key: cards.length,
       EventName: eventName,
       date: date,
-      approved :"false",
+      approved: "false",
       time: time,
     };
 
     await addDoc(collection(db, `Events/soc_events/${temp}`), info);
-    setCards(current=>[...current,info]);
+    setCards(current => [...current, info]);
     closeModal();
   }
 
   useEffect(() => {
     onwindowLoad();
   }, [])
-  /*adds cards to site*/
 
+
+  /*adds cards to site*/
   cards.forEach((c) => {
-    const temp=c.soc.toUpperCase();
-    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} approved={c.approved}/>;
+    const temp = c.soc.toUpperCase();
+    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} approved={c.approved} id={c.id} />;
     eCards.push(ca);
-  }); 
+  });
+
 
   return (
 
     <div className="societyPage ">
       <div className="societyName">
-        <hr></hr>
+        {curr_soc}
       </div>
       <div className="cards">
         <button className="addCard" onClick={openModal}>
@@ -237,6 +245,20 @@ function SocietyPage({ email, setShowNavFunc }) {
       </div>
     </div>
   );
+}
+
+export const deleteEvent = async (e) => {
+  const socName = e.soc.toLowerCase();
+  const eName = e.EventName.toLowerCase();
+  const docref = doc(db, `Events/soc_events/${socName}`, e.id);
+  console.log(docref);
+  deleteDoc(docref);
+  window.location.reload();
+
+}
+
+export const updateEvent = async (e) => {
+
 }
 /*
 //DELETE FUNCTION

@@ -168,7 +168,7 @@ function SearchBar() {
           </div>
           <div>
             <select name="options" id="options" onChange={selectedValue}>
-              <option value="none">Select value</option>
+              <option value="none">All Events</option>
               {optionsList}
             </select>
           </div>

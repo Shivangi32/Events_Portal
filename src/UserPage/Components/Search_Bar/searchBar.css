@@ -74,3 +74,12 @@ a:hover {
 #clearBtn {
   cursor: pointer;
 }
+
+#options{
+  border-radius: 0.5vw;
+    font-size: 1.5vw;
+    padding-left: 0.5vw;
+    margin-left: 1vw;
+    height: 3vw;
+    width: 13vw;
+}

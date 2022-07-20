@@ -122,13 +122,11 @@ body{
   
 }
 .societyName{
-  margin:50px;
-}
-.societyName h1{
-  color:white;
-  font-size: 4rem;
- text-align: center;
-
+  margin: 0vw;
+    font-size: 6vw;
+    font-variant-caps: all-petite-caps;
+    color: white;
+    text-align: center;
 }
 hr{
   width:20%;

@@ -2,7 +2,7 @@ import React from 'react'
 import "./Paragraph.css"
 function Paragraph() {
   return (
-    <div className='info'>
+    <div className='about_info'>
       <div className='content'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
