@@ -5,9 +5,8 @@ import { db } from "../firebaseConfig";
 import { useState, useEffect } from "react";
 
 import Card from "./Components/Card.js";
-import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
 import {
-  getFirestore,
   query,
   getDocs,
   collection,
@@ -18,7 +17,7 @@ import {
 
 
 Modal.setAppElement("#root");
-var curr_soc="";
+var curr_soc = "";
 
 function SocietyPage({ email, setShowNavFunc }) {
 
@@ -52,13 +51,13 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     const values = localStorage.getItem("email").split("@");
     const temp = values[0];
-    curr_soc=temp;
+    curr_soc = temp;
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
 
       const socName = socData.data().soc;
-      if (temp != socName) {
+      if (temp !== socName) {
         return;
 
       }
@@ -85,9 +84,8 @@ function SocietyPage({ email, setShowNavFunc }) {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    if (societyName == undefined || eventName == undefined || date == undefined || time == undefined
-      || societyName == "" || eventName == "" || date == "" || time == "") 
-      { return; }
+    if (societyName === undefined || eventName === undefined || date === undefined || time === undefined || EventLink === undefined
+      || societyName === "" || eventName === "" || date === "" || time === "" || EventLink === "") { return; }
 
     /*Check Date*/
     const todaydate = new Date();
@@ -104,7 +102,7 @@ function SocietyPage({ email, setShowNavFunc }) {
     const values = localStorage.getItem("email").split("@");
     const curr_soc = values[0];
     const temp = societyName.toLowerCase();
-    if (curr_soc != temp) {
+    if (curr_soc !== temp) {
       alert("You can add events only of your society!!");
       closeModal();
       return;
@@ -196,7 +194,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                   </div>
                   <div className="big-ip">
                     <input
-                      type="text"
+                      type="url"
                       id="EventLink"
                       placeholder="Add Event Link"
                       onChange={(e) => setEventLink(e.target.value)}
@@ -249,7 +247,6 @@ function SocietyPage({ email, setShowNavFunc }) {
 
 export const deleteEvent = async (e) => {
   const socName = e.soc.toLowerCase();
-  const eName = e.EventName.toLowerCase();
   const docref = doc(db, `Events/soc_events/${socName}`, e.id);
   console.log(docref);
   deleteDoc(docref);

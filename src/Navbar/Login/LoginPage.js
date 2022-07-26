@@ -12,10 +12,9 @@ import {
     getDocs,
     collection,
     where,
-    addDoc,
 } from "firebase/firestore";
 
-export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin }) {
+export default function Login({ setModalFunc, setIsLoggedinVal, setisSocLogin }) {
 
 
     const [email, setEmail] = useState("");
@@ -44,14 +43,14 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
                 setItems(user.displayName, user.email, user.photoURL);
                 setIsLoggedinVal(true);
                 setModalFunc(false);
-                setisAdminLogin(false);
+                setisSocLogin(false);
 
             }
 
         } catch (err) {
             console.error(err);
             setIsLoggedinVal(false);
-            setisAdminLogin(false);
+            setisSocLogin(false);
             setModalFunc(false);
         }
     };
@@ -69,14 +68,14 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisAdminLogin 
             setModalFunc(false);
             setItems(user.displayName, user.email, user.photoURL);
             setIsLoggedinVal(true);
-            setisAdminLogin(true);
+            setisSocLogin(true);
             window.location.reload();
 
         } catch (err) {
             console.error(err);
             alert("Invalid Credentials")
             setIsLoggedinVal(false);
-            setisAdminLogin(false);
+            setisSocLogin(false);
             setModalFunc(false);
         }
     };

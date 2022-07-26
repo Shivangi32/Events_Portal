@@ -13,15 +13,15 @@ export default function Navbar({ user, email, showNav }) {
 
 
     const [isLoggedin, setIsLoggedin] = useState((user === "undefined") ? false : true);
-    const [AdminLogin, setAdminLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
+    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
 
     const setIsLoggedinVal = (value) => {
 
         setIsLoggedin(value);
     }
 
-    const setisAdminLogin = (value) => {
-        setAdminLogin(value);
+    const setisSocLogin = (value) => {
+        setSocLogin(value);
     }
 
     const logOut = () => {
@@ -32,7 +32,7 @@ export default function Navbar({ user, email, showNav }) {
         localStorage.removeItem("email");
         localStorage.removeItem("profilePic");
         setIsLoggedin(false);
-        setisAdminLogin(false);
+        setisSocLogin(false);
 
     };
 
@@ -95,7 +95,7 @@ export default function Navbar({ user, email, showNav }) {
                             <li className="nav-item">
                                 <Link to="/About">About</Link>
                             </li>
-                            {(AdminLogin) ? (
+                            {(SocLogin) ? (
                                     <li className="nav-item">
                                         <Link to="/Society">Societies</Link>
                                     </li>
@@ -138,7 +138,7 @@ export default function Navbar({ user, email, showNav }) {
                     </div>
                 </div>
             </nav>
-            {openLoginModal && <Login setModalFunc={setLoginVal} setIsLoggedinVal={setIsLoggedinVal} setisAdminLogin={setisAdminLogin} />}
+            {openLoginModal && <Login setModalFunc={setLoginVal} setIsLoggedinVal={setIsLoggedinVal} setisSocLogin={setisSocLogin} />}
             {openRegisterModal && <Register setModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
         </div>
     )
