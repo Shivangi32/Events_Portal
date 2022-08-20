@@ -12,6 +12,7 @@ function Card(props) {
     approved: props.approved,
 
   }
+
   return (
     <div className="card">
 

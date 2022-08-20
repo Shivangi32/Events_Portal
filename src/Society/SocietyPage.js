@@ -49,6 +49,8 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   const onwindowLoad = async () => {
 
+
+    console.log("window loaded");
     const values = localStorage.getItem("email").split("@");
     const temp = values[0];
     curr_soc = temp;
@@ -121,6 +123,7 @@ function SocietyPage({ email, setShowNavFunc }) {
     await addDoc(collection(db, `Events/soc_events/${temp}`), info);
     setCards(current => [...current, info]);
     closeModal();
+    window.location.reload();
   }
 
   useEffect(() => {
@@ -247,6 +250,7 @@ function SocietyPage({ email, setShowNavFunc }) {
 
 export const deleteEvent = async (e) => {
   const socName = e.soc.toLowerCase();
+  console.log(e);
   const docref = doc(db, `Events/soc_events/${socName}`, e.id);
   console.log(docref);
   deleteDoc(docref);

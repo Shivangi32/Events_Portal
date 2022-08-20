@@ -16,10 +16,12 @@ import {
 
 function SearchBar() {
 
-  const optionsList=[];
+  const optionsList = [];
 
-  const [allsoc,setallsoc]=useState([]);
+  const [allsoc, setallsoc] = useState([]);
+  const [Tag, setTag] = useState("none");
   const [InitialEvents, setInitialEvents] = useState([]);
+  const [AllEvents, setAllEvents] = useState([]);
   const [events, setEvents] = useState([]);
   const [showInitialEvents, setshowInitialEvents] = useState(true);
 
@@ -32,7 +34,7 @@ function SearchBar() {
 
       const socName = socData.data().soc;
 
-      setallsoc(current => [...current,socName]);
+      setallsoc(current => [...current, socName]);
       const socEvents = query(collection(db, `Events/soc_events/${socName}`));
       const events = await getDocs(socEvents);
 
@@ -47,11 +49,13 @@ function SearchBar() {
           time: data.time,
         };
 
-        if (data.approved == "true")
+        if (data.approved == "true") {
+          setAllEvents(current => [...current, info]);
           setInitialEvents(current => [...current, info]);
+          const eventName = data.EventName;
+          setEvents(events => [...events, eventName]);
 
-        const eventName = data.EventName;
-        setEvents(events => [...events, eventName]);
+        }
       })
     })
   }
@@ -59,6 +63,7 @@ function SearchBar() {
   useEffect(() => {
     getData();
   }, [])
+
 
 
   const [filteredEvents, setFilteredEvents] = useState([]);
@@ -71,27 +76,55 @@ function SearchBar() {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
 
-    const newFilter = events.filter((value) => {
-      console.log("value " + value);
-      return value.toLowerCase().includes(searchWord.toLowerCase())
-    });
-
-    const tempfilter = InitialEvents.filter((e) => {
-      console.log(e);
-      return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
-    })
-
-
-
     if (searchWord === "") {
       setshowInitialEvents(true);
       setFilteredData([]);
-    } else {
+      return;
+    }
+
+    if (Tag == "None" || Tag == "Event") {
+
+      const newFilter = events.filter((value) => {
+        console.log("value " + value);
+        return value.toLowerCase().includes(searchWord.toLowerCase())
+      });
+
+      const tempfilter = InitialEvents.filter((e) => {
+        console.log(e);
+        return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
+      })
+
+      setFilteredEvents(tempfilter);
+      setFilteredData(newFilter);
+
+    }
+
+    else if (Tag == "Society") {
+
+      const newFilter = allsoc.filter((value) => {
+        console.log("value " + value);
+        return value.toLowerCase().includes(searchWord.toLowerCase())
+      });
+
+      const tempfilter = InitialEvents.filter((e) => {
+        console.log(e);
+        return e.soc.toLowerCase().includes(searchWord.toLowerCase())
+      })
+
       setFilteredEvents(tempfilter);
       setFilteredData(newFilter);
     }
 
-  };
+    else if(Tag=="Date")
+    {
+      const tempfilter = InitialEvents.filter((e) => {
+        return e.date.toLowerCase().includes(searchWord.toLowerCase())
+      })
+
+      setFilteredEvents(tempfilter);
+    }
+
+  };  //handelfilter  close
 
   if (showInitialEvents) {
     InitialEvents.forEach((e) => {
@@ -105,43 +138,8 @@ function SearchBar() {
     eCards.push(ca);
   })
 
-  allsoc.forEach((soc)=>{
-
-    let option=<option value={soc}>{soc}</option>;
-    optionsList.push(option);
-  })
 
 
-  const selectedValue=(e)=>
-  {
-    let curr_soc=e.target.value;
-    if(curr_soc=="none")
-    {
-      console.log("none");
-      setshowInitialEvents(true);
-      setFilteredEvents([]);
-      return;
-    }
-    setshowInitialEvents(false);
-    setFilteredEvents([]);
-    InitialEvents.forEach((e) => {
-      
-      if(e.soc==curr_soc)
-      {
-        setFilteredEvents(current => [...current, e]);
-      }
-    });
-    /*
-    var select = document.getElementById('options');
-    if(select!=null)
-    {
-		var option = select.options[select.selectedIndex];
-    if(option!=null)
-    console.log(option.value);
-    }*/
-  
-  }
-  
   const clearInput = () => {
     setshowInitialEvents(true);
     setFilteredData([]);
@@ -149,6 +147,9 @@ function SearchBar() {
     return;
   };
 
+  const setTagfunc =(event)=>{
+    setTag(event.target.value)
+  }
   return (
     <>
       <div className="search">
@@ -167,9 +168,11 @@ function SearchBar() {
             )}
           </div>
           <div>
-            <select name="options" id="options" onChange={selectedValue}>
-              <option value="none">All Events</option>
-              {optionsList}
+            <select name="options" id="options" onChange={setTagfunc}>
+              <option value="None">Tag</option>
+              <option value="Event">Event</option>
+              <option value="Society">Society</option>
+              <option value="Date">Date</option>
             </select>
           </div>
         </div>
@@ -178,9 +181,7 @@ function SearchBar() {
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {
               return (
-                <a className="dataItem" href="/">
                   <p>{value}</p>
-                </a>
               );
             })}
           </div>
