@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
+
+
+.heading{
+    font-family: 'Play', sans-serif;
+font-size: 2.5rem;
+font-weight: 400;
+width:88%;
+color:white;
+text-align: left;
+margin: auto;
+
+}
+
+.sub-heading{
+    font-family: 'Montserrat', sans-serif;
+font-size: 1.2rem;
+
+font-weight: 400;
+width:88%;
+color:white;
+text-align: left;
+margin: auto;
+}

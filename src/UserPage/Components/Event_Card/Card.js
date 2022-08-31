@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Card.css';
+import img from './img.PNG'
 import {
     query,
     getDocs,
@@ -13,22 +14,21 @@ export const Event = ({ event: { soc, EventName, date, time } }) => {
     return (
         <div className="event">
             <div className="event_wrapper">
-                <div className="event_society">
-                    <span className="society_name">{soc.toUpperCase()}</span>
-                </div>
+                <img className="event-img" src={img}/>
+                <div className='info'>
                 <div className="event_name">
-                    <span>{EventName}</span>
+                    <span>{EventName.toUpperCase()}</span>
                 </div>
+                <div className="event_society">
+                    <span className="society_name">{soc}</span>
+                </div>
+                
                 <div className="event_date">
-                    <span>Date : </span>
-                    <span className="date">{date}</span>
-                </div>
-                <div className="event_time">
-                    <span>Time : </span>
-                    <span className="time">{time}</span>
+                    <span className="date">18 August 2022 , {time}</span>
                 </div>
                 <div className="event_register">
-                    <button><span className='register' >Register now</span></button>
+                    <button><span className='register' >REGISTER</span></button>
+                </div>
                 </div>
             </div>
         </div>

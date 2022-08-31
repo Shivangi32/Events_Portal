@@ -111,16 +111,16 @@ export default function Navbar({ user, email, showNav }) {
 
                             {!isLoggedin ? (
                                 <>
-                                    <span ><BsFillPersonPlusFill /></span>
-                                    <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
-                                    <span ><FaPlus /></span>
-                                    <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
+                                    
+                                    <button className="login" onClick={() => { setOpenLoginModal(true) }}>LOG IN</button>
+                                  
+                                    <button className="register" onClick={() => { setOpenRegisterModal(true) }}>REGISTER</button>
                                     <i className="fa fa-sign-in" aria-hidden="true"></i>
 
                                 </>
                             ) : (
                                 <>
-                                    <button onClick={logOut}>
+                                    <button className="login" onClick={logOut}>
                                         <Link to="/">Log Out</Link></button>
                                     {
                                         (localStorage.getItem("profilePic") == "null") ?

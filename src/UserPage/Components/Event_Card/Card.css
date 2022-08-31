@@ -6,49 +6,87 @@
   flex-wrap:wrap;
   flex-direction: row;
   flex: 1;
-  max-width: 900px;
 }
 
 .event{
   display: flex;
   margin: 3vw;
   width: auto;
-  border-radius: 10%;
-  background:radial-gradient(94.84% 94.84% at 50% 50%, rgba(196, 196, 196, 0.28) 0%, rgba(196, 196, 196, 0.13) 100%);;
+  border-radius: 20px;
+  background: #1C1B1B;
+
 }
 
 
 .event_wrapper{
-  padding: 1.5vw;
-  font-family: 'Roboto'
+  /* padding: 1.5vw; */
+  font-family: 'Roboto';
+  width:25vw;
+  height:421px;
+  
 }
 
+.event-img{
+  border-radius: 20px 20px 0 0;
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
+  
+  
+}
+.info{
+  margin:30px 20px;
+  align-items: center;
+}
 .event_society{
   display: flex;
   justify-content:center;
 }
 
-.society_name{
-  font-size: 1.5vw;
-  font-weight: 500;
-}
 
-.event_name, .event_date, .event_time{
-  padding: 10px;
-  font-size: 1.2vw;
+/* font-family: 'Montserrat', sans-serif; */
+.event_name{
+  font-family: 'Play', sans-serif;
+  font-size: 100%;
+  text-align: center;
+}
+.society_name{
+font-family: 'Montserrat', sans-serif;
+font-size: 1.0rem;
+margin: 5px 0;
   
+}
+.event_date{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+ background: #2B2A2A;
+  margin:5px auto;
+  padding: 10px;
+  border-radius: 10px;
+font-size: 1.0rem;
+  
+}
+.date{
+  margin:0;
 }
 
 .event_register{
-  padding:  0 1vw;
+  
   text-align: center;
-  font-size: 1.2vw;
+  font-family: 'Play', sans-serif;
+  font-size: 1.0rem;
 }
 
 .event_register button{
   border-radius: 7px;
-  background-color: black;
-  border-color: black;
-  margin-top: 0.5vw;
-  padding: 0.7vw 1.5vw 0.7vw 1.5vw;
+  background-color:#9747FF;
+  border: none;
+  margin:25px auto;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+.register{
+  margin: 0;
 }
