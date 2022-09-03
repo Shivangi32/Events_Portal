@@ -4,6 +4,7 @@ import Team from "./Team"
 export default function Member() {
     return (
         <div className='team'>
+            <div className="Header"><h1>TEAM</h1></div>
             <div className="container">
                 {Team.map((item, index) => {
                     return (
