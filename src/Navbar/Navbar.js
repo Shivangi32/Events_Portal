@@ -8,6 +8,9 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig"
 import Register from "./Register/RegisterPage.js";
 import Login from "./Login/LoginPage.js";
+import logo from './logo.png'
+
+
 
 export default function Navbar({ user, email, showNav }) {
 
@@ -88,22 +91,8 @@ export default function Navbar({ user, email, showNav }) {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
-                            <li className="nav-item">
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/About">About</Link>
-                            </li>
-                            {(SocLogin) ? (
-                                    <li className="nav-item">
-                                        <Link to="/Society">Societies</Link>
-                                    </li>
-                                ) : (<div></div>)
-                            }
-                            <li className="nav-item">
-                                <Link to="/FAQs">FAQs </Link>
-                            </li>
+                            <img className="logo" src={logo}/>
+                            
 
                         </ul>
                         <div id="navside">
@@ -111,16 +100,16 @@ export default function Navbar({ user, email, showNav }) {
 
                             {!isLoggedin ? (
                                 <>
-                                    <span ><BsFillPersonPlusFill /></span>
-                                    <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
-                                    <span ><FaPlus /></span>
-                                    <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
+                                    
+                                    <button className="login" onClick={() => { setOpenLoginModal(true) }}>LOG IN</button>
+                                  
+                                    <button className="register" onClick={() => { setOpenRegisterModal(true) }}>REGISTER</button>
                                     <i className="fa fa-sign-in" aria-hidden="true"></i>
 
                                 </>
                             ) : (
                                 <>
-                                    <button onClick={logOut}>
+                                    <button className="login" onClick={logOut}>
                                         <Link to="/">Log Out</Link></button>
                                     {
                                         (localStorage.getItem("profilePic") == "null") ?

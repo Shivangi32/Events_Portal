@@ -1,5 +1,8 @@
+import { icons } from 'react-icons';
 import { editEvent, deleteEvent } from '../SocietyPage'
-
+import "./Card.css"
+import img from "./img.PNG"
+import {MdDelete,MdModeEdit} from 'react-icons/md';
 function Card(props) {
 
   let info = {
@@ -15,28 +18,36 @@ function Card(props) {
 
   return (
     <div className="card">
-
-      <div className="content">
-        <div className="images">
-          <div className="image">
-            <img src="" alt="logo" />
-          </div>
-          <div className="icons">
-            <div className="material-icons"><button onClick={() => deleteEvent(info)}>close</button></div>
-            <div className="material-icons"><button  /*onClick={() => editEvent({ soc : e.soc, eventName, date, time, approved })}*/>edit</button></div>
-          </div>
+            <div className="event_wrapper">
+                <img className="event-img" src={img}/>
+                <div className='info'>
+                <div className="event_name">
+                    <span>{props.EventName}</span>
+                </div>
+                <div className="event_society">
+                    <span className="society_name">{props.soc}</span>
+                </div>
+                
+                <div className="event_date">
+                    <span className="date">18 August 2022 , {props.time}</span>
+                </div>
+                
+                
+                </div>
+                <div className="event-action">
+                <div className="event_register">
+                    <button><span className='register' >REGISTER</span></button>
+                </div>
+                <div className="icon event_edit">
+                  <MdModeEdit/>
+                </div>
+                <div className="icon event_delete">
+                  <MdDelete onClick={() => deleteEvent(info)}/>
+                </div>
+                </div>
+            </div>
         </div>
-
-        <div className="info">
-          <h2>{props.soc}</h2>
-          <h1>Event: {props.EventName}</h1>
-          <h1>Date: {props.date}</h1>
-          <h1>Time: {props.time}</h1>
-          <h1>Approved: {props.approved}</h1>
-        </div>
-      </div>
-      <button>Register Now</button>
-    </div>
+    
   );
 }
 
