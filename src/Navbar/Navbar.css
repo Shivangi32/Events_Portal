@@ -3,7 +3,7 @@ body {
   min-width: 70vw;
 }
 
-.stars,
+/* .stars,
 .twinkling,
 .clouds {
   position: absolute;
@@ -62,9 +62,14 @@ body {
   to {
     background-position: 10000px 0;
   }
-}
+} */
 
+.logo{
+  margin: 5px;
+  height:50px;
+}
 .navbar {
+  margin-top: 10px;
   padding: 4vh 1vh 0vh 1vh;
   font-family: 'Roboto';
   font-size: 1.2vw;
@@ -118,17 +123,17 @@ span{
   color: white;
   border: 1px solid white;
   background: transparent;
-  padding: 5px 10px;
+  padding: 5px 30px;
   border-radius: 5px;
-  font-size: 1.0rem;
+  font-size: 0.9rem;
 
 }
 .register{
   font-family: 'Play', sans-serif;
   background: #9747FF;
   color: white;
-font-size: 1rem;
-  padding: 5px 10px;
+font-size: 0.9rem;
+  padding: 5px 30px;
   border-radius: 5px;
 
 

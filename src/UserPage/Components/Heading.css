@@ -2,13 +2,14 @@
 
 
 .heading{
+    
     font-family: 'Play', sans-serif;
-font-size: 2.5rem;
+font-size: 2.1rem;
 font-weight: 400;
 width:88%;
 color:white;
 text-align: left;
-margin: auto;
+margin: 0 auto 0 auto;
 
 }
 

@@ -8,6 +8,9 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig"
 import Register from "./Register/RegisterPage.js";
 import Login from "./Login/LoginPage.js";
+import logo from './logo.png'
+
+
 
 export default function Navbar({ user, email, showNav }) {
 
@@ -88,22 +91,8 @@ export default function Navbar({ user, email, showNav }) {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
-                            <li className="nav-item">
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/About">About</Link>
-                            </li>
-                            {(SocLogin) ? (
-                                    <li className="nav-item">
-                                        <Link to="/Society">Societies</Link>
-                                    </li>
-                                ) : (<div></div>)
-                            }
-                            <li className="nav-item">
-                                <Link to="/FAQs">FAQs </Link>
-                            </li>
+                            <img className="logo" src={logo}/>
+                            
 
                         </ul>
                         <div id="navside">

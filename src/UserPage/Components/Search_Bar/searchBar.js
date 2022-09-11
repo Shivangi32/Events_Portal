@@ -4,7 +4,6 @@ import "./searchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Event } from "../Event_Card/Card";
-
 import { db } from "../../../firebaseConfig";
 
 import {
@@ -157,7 +156,7 @@ function SearchBar() {
           <input
             type="text"
             value={wordEntered}
-            placeholder="Search for an event ..."
+            placeholder="Search event"
             onChange={handleFilter}
           />
           <div className="searchIcon">
@@ -169,8 +168,8 @@ function SearchBar() {
           </div>
           <div>
             <select name="options" id="options" onChange={setTagfunc}>
-              <option value="None">Tag</option>
-              <option value="Event">Event</option>
+              {/* <option value="None">Tag</option> */}
+              <option value="None">By Event</option>
               <option value="Society">Society</option>
               <option value="Date">Date</option>
             </select>
