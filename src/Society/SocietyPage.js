@@ -3,7 +3,8 @@ import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { db } from "../firebaseConfig";
 import { useState, useEffect } from "react";
-
+import "./Society.css"
+import {MdClose} from "react-icons/md"
 import Card from "./Components/Card.js";
 //import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
 import {
@@ -143,13 +144,16 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     <div className="societyPage ">
       <div className="societyName">
-        {curr_soc}
+        Instinct
       </div>
+      <div className="society-container">
+      <div className="society-sub-heading">
+        Society overview
+      </div>
+      <button className="addevent" onClick={openModal}>+</button>
+      </div>
+      
       <div className="cards">
-        <button className="addCard" onClick={openModal}>
-          <img src={plus} alt="sign" />
-          <h4>Add Event</h4>
-        </button>
         <div className="modal-container">
           <Modal
             isOpen={modalIsOpen}
@@ -160,8 +164,8 @@ function SocietyPage({ email, setShowNavFunc }) {
           >
             <div className="modal-header">
               <h2>ADD EVENT</h2>
-              <div className="material-icons" onClick={closeModal}>
-                cancel
+              <div className="modal-close">
+              <MdClose  onClick={closeModal}/>
               </div>
             </div>
             <div className="line"></div>
@@ -169,7 +173,7 @@ function SocietyPage({ email, setShowNavFunc }) {
               <form className="field-rows">
                 <div className="field-colums">
                   <div>
-                    <label htmlFor="EventName">Society Name</label>
+                    <label htmlFor="EventName">SOCIETY NAME</label>
                   </div>
                   <div className="big-ip">
                     <input
@@ -181,7 +185,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     ></input>
                   </div>
                   <div>
-                    <label htmlFor="EventName">Event Name</label>
+                    <label htmlFor="EventName">EVENT NAME</label>
                   </div>
                   <div className="big-ip">
                     <input
@@ -193,7 +197,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     ></input>
                   </div>
                   <div>
-                    <label htmlFor="EventLink">Event registration Link</label>
+                    <label htmlFor="EventLink">EVENT REGISTRATION LINK</label>
                   </div>
                   <div className="big-ip">
                     <input
@@ -206,9 +210,9 @@ function SocietyPage({ email, setShowNavFunc }) {
                   </div>
                 </div>
                 <div className="fields">
-                  <div className="fields-colums">
+                  <div className=" date field-colums">
                     <div>
-                      <label htmlFor="date">Date</label>
+                      <label htmlFor="date">DATE</label>
                     </div>
                     <div className="small-ip">
                       <input
@@ -220,9 +224,9 @@ function SocietyPage({ email, setShowNavFunc }) {
                       ></input>
                     </div>
                   </div>
-                  <div className="field-colums">
+                  <div className="time field-colums">
                     <div>
-                      <label htmlFor="time">Time</label>
+                      <label htmlFor="time">TIME</label>
                     </div>
                     <div className="small-ip">
                       <input
@@ -236,7 +240,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                   </div>
                 </div>
                 <div className="modal-btn">
-                  <button onClick={handleSubmit}>Save</button>
+                  <button onClick={handleSubmit}>ADD</button>
                 </div>
               </form>
             </div>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
 /* .App {
   text-align: center;
 }
@@ -62,7 +63,16 @@ body{
   background-attachment:fixed;
 }*/
 /* width */
-
+body{
+  background: url("background.jpg");
+}
+.mainpage{
+  display:grid;
+}
+.container-user{
+  display: grid;
+  grid-template-columns:12% 88%;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 1vw;
@@ -117,8 +127,8 @@ body{
   }
 }
 
-.societyPage{
-  margin:0 15% 0 15%;
+/* .societyPage{
+  margin:0 auto 0 auto;
   
 }
 .societyName{
@@ -139,44 +149,21 @@ hr{
   margin: -50px auto 10px; 
 }
 
-
-.addCard {
-  cursor: pointer;
-  margin:20px;
-  width: 220px;
-  height: 320px;
-  border-radius: 12px;
-  background-color:rgb(128,128,128,0.4);
-  padding: 20px;
-  text-align: center;
-  float: left;
+.cards{
+  margin-left: 30px;
+  align-items: flex-start;
+  justify-content: flex-start;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.addCard img{
-    width: 30%;
-}
-
-.addCard h4{
-  margin-top: 10%;
-  color: white;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 1 1;
 }
 .card {
   display: flex;
-  justify-content: space-between;
-  margin: 20px;
-  width: 220px;
-  height: 320px;
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 20px;
-  text-align: center;
-  float: left;
-  border: 2px solid white;
-  color:white;
-  font-size: 0.9rem;
+  margin: 3vw;
+  width: auto;
+  border-radius: 20px;
+  background: #1C1B1B;
   
 }
 
@@ -222,27 +209,22 @@ hr{
   border-image: url(./Society/images/event_CardBackground.jpeg) 2% stretch;
   background-color: black;
   color:white;
-}
+} */
 
 .Modal{
   display: flex;
   flex-direction: column;
-  
   margin: auto;
-  margin-top: 10%;
-  width: 25%;
-  height: 50%;
-  background-image: url('./Society/images/event_CardBackground.jpeg') !important;
-  background-size: cover;
-  border-radius: 3%;
-
-
-  
+  margin-top: 8%;
+  width: 30%;
+  background-color: #1C1B1B;
+  border-radius: 3%;  
 }
 
 .Modal .modal-header h2{
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: 'Play', sans-serif;
+  color:white;
   margin-bottom: -5px;
 }
 
@@ -250,8 +232,13 @@ hr{
   border-bottom: 2px #282c34;
 }
 
-.Modal .modal-header .material-icons{
+.Modal .modal-header .modal-close{
   cursor: pointer;
+  padding:0 5px;
+  border-radius: 5%;
+  color:white;
+  font-size: 1.2rem;
+  background-color: #9747FF;
 }
 
 .Modal .line{
@@ -262,17 +249,25 @@ hr{
   border-radius: 1px;
 }
 
+.Modal label{
+  font-family: 'Play', sans-serif;
+  color:white;
+  font-size:0.8rem;
+  font-weight: 500;
+}
 
+.Modal .big-ip{
+
+  background: #F8F7F7;
+  font-weight: 900;
+  margin-bottom:10px;
+  border-radius: 10%;
+}
 
 .Modal input::placeholder{
-  font-size: 0.8rem;
-  color: #ffffff;
-}
-.Modal input{
-  
-  font-size: 0.8rem;
-  color: white;
-  background-color: #282c34;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
 }
 
 .Modal .modal-body .field-rows{
@@ -283,7 +278,6 @@ hr{
 .Modal .modal-body .field-rows .field-colums{
   display: flex;
   flex-direction: column;
-  margin-bottom: 5%;
 }
 
 .Modal .modal-body .field-rows .fields{
@@ -291,8 +285,9 @@ hr{
   justify-content: space-between;
 }
 
+
 .Modal .modal-body .field-rows .small-ip input{
-  padding: 6%;
+  padding: 2%;
   width: 98%;
   border: 2px transparent;
   border-radius: 4px;
@@ -300,13 +295,17 @@ hr{
 }
 
 .Modal .modal-body .field-rows .big-ip input{
-  padding: 3%;
+  padding: 2%;
   width: 100%;
   border: 2px transparent;
   border-radius: 4px;
 
 }
-
+ .date, .time{
+  width:40%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+ }
 
 
 .Modal .modal-btn{
@@ -318,17 +317,16 @@ hr{
 
 .Modal .modal-btn button{
   margin-top: 8%;
-  background-color: #282c34;
-  width: 90%;
+  background-color: #9747FF;
+  font-family: 'Play', sans-serif;
+  width: 40%;
   color: #ffffff;
   border: 2px none;
-  padding: 2%;
+  padding: 2% 8%;
   border-radius: 5px;
 }
 
-.Modal label{
-  font-weight: 500;
-}
+
 
 a:visited{
   color: white !important;

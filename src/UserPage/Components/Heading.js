@@ -1,18 +1,12 @@
 import React from 'react'
-
-let heading_style={
-  fontFamily: "'Overlock', cursive",
-    margin: "auto",
-    width: "50%",
-    color: "white",
-    fontSize: "4vw",
-    textAlign: "center"
-}
+// import Tag from "./Tag/Tag.js"
+import "./Heading.css"
 export default function Heading() {
   return (
     <>
-    <div style={heading_style}>Events Portal</div>
-   
+    <div className='heading'>EVENTS PORTAL</div>
+    <div className='sub-heading'>Register for Events</div>
+   {/* <Tag/> */}
     </>
   )
 }
