@@ -18,7 +18,7 @@ function SearchBar() {
   const optionsList = [];
 
   const [allsoc, setallsoc] = useState([]);
-  const [Tag, setTag] = useState("none");
+  const [Tag, setTag] = useState("None");
   const [InitialEvents, setInitialEvents] = useState([]);
   const [AllEvents, setAllEvents] = useState([]);
   const [events, setEvents] = useState([]);
@@ -168,7 +168,6 @@ function SearchBar() {
           </div>
           <div>
             <select name="options" id="options" onChange={setTagfunc}>
-              {/* <option value="None">Tag</option> */}
               <option value="None">By Event</option>
               <option value="Society">Society</option>
               <option value="Date">Date</option>
