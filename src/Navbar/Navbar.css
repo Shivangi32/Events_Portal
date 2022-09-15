@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
 body {
-  font-family: 'Equinox';
+  font-family: 'Play', sans-serif;
   min-width: 70vw;
 }
 
@@ -66,7 +67,7 @@ body {
 
 .navbar {
   padding: 4vh 1vh 0vh 1vh;
-  font-family: 'Equinox';
+  font-family: 'Play', sans-serif;;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

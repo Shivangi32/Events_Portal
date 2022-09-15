@@ -1,0 +1,31 @@
+.Heading{
+	display: flex;
+	justify-content:center;
+	margin-top:8%;
+}
+
+.Heading {
+    display: flex;
+	justify-content:center;
+	margin-top:8%;
+	
+	position: absolute;
+	width: 164px;
+	height: 41px;
+	left: 800px;
+	top: 172px;
+
+	font-family: 'Equinox';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 48px;
+	line-height: 86%;
+	/* or 41px */
+
+	color: #FFFFFF;
+}
+
+h1{
+	color:white;
+	text-decoration: underline;
+}

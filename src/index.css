@@ -1,16 +1,14 @@
 /*Society event page app.css */
 .societyPage {
     margin: 0;
-    font-family: 'Roboto';
+    font-family: 'Play', sans-serif;;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* background-image: url('./Society/images/event_pageBackground.jpeg');
     width: fit-content; */
-  
-   
   }
   
   code {
-    font-family: 'Roboto';
+    font-family: 'Play', sans-serif;;
   }
   

@@ -1,7 +1,19 @@
+#simpleModal {
+    background-image: url("https://thumbs.dreamstime.com/b/hundreds-white-rain-drops-window-black-background-glass-108001374.jpg");
+    /* opacity: 0.9 !important; */
+}
+
 #modalContent {
     margin: auto auto;
     width: 28%;
-    background-image: url("/src/Society/images/event_CardBackground.jpeg");
+    position: absolute;
+    width: 401px;
+    height: 1000px;
+    left: 850px;
+    top: 124px;
+
+    background: #2B2A2A;
+    border-radius: 15px;    
     height: 60vh;
 }
 
@@ -14,17 +26,39 @@
 }
 
 #login_heading {
-    padding-left: 1vw;
+    padding-left: 7vw;
+    padding-top: 8vh;
+    /* padding-bottom: 8vh; */
     margin: 0 auto;
     font-size: 2.5vw;
+    position: absolute;
+    /* width: 289px;
+    height: 15px; */
+    text-align: center;
+    /* left: 131px; */
+    /* top: 30px; */
+
+    font-family: 'Equinox';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 23px;
+    line-height: 41px;
+
+    color: #FFFFFF;
+
 }
 
 input ::placeholder {
     font-size: large;
 }
 
+.textbox {
+    background-color: #FFFFFF;
+    margin-top: 2vh;
+}
+
 .textbox ::placeholder {
-    font-size: 2vw;
+    font-size: 8vw;
 }
 
 #simpleModal {
@@ -45,7 +79,7 @@ input ::placeholder {
     font-size: 1.5vw;
     height: 3vw;
     padding: 2vw;
-    color: white;
+    color: black;
     border: green;
     outline: none;
     border-radius: 0.3vw;
@@ -66,6 +100,7 @@ input ::placeholder {
     display: flex;
     flex-direction: column;
     height: 90%;
+    padding-top: 5vw;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -76,9 +111,10 @@ input ::placeholder {
     text-align: center;
     padding: 0 2vw 0 2vw;
     height: 5vh;
-    background-color: #1ac31a;
-    border-radius: 5px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 3px 5px 15px #201F1F;
 }
 
 #Google svg {
