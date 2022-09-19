@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
 body {
-  font-family: 'Roboto';
+  font-family: 'Play', sans-serif;
   min-width: 70vw;
 }
 
@@ -14,9 +15,9 @@ body {
   right: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
-.stars {
+/* .stars {
   background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
   z-index: 0;
 }
@@ -42,7 +43,7 @@ body {
   -o-animation: move-clouds-back 200s linear infinite;
   -webkit-animation: move-clouds-back 200s linear infinite;
   animation: move-clouds-back 200s linear infinite;
-}
+} */
 
 @keyframes move-twink-back {
   from {
@@ -71,9 +72,43 @@ body {
 .navbar {
   margin-top: 10px;
   padding: 4vh 1vh 0vh 1vh;
-  font-family: 'Roboto';
-  font-size: 1.2vw;
+  font-family: 'Play', sans-serif;;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 40px;
+  gap: 50px;
+
+  position: absolute;
+  width: 153px;
+  height: 425px;
+  left: 88px;
+  top: 349px;
+
+  background: #2B2A2A;
+  border-radius: 20px;
 }
+
+/* .navbar2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 15px;
+  
+  position: absolute;
+  width: 209px;
+  height: 56px;
+  left: 1363px;
+  top: 62px;
+} */
 
 .navbar-toggler-icon {
   color: white;
@@ -81,27 +116,71 @@ body {
 }
 
 .navbar-brand {
-  color: white;
-  font-size: 2vw;
+  width: 60px;
+  height: 21px;
+
+  font-family: 'Equinox';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-toggler-icon {
-  color: white;
-  padding: 0;
-  height: 3vw;
-  width: 3vw;
+  background-color: #9747FF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 24px;
+  gap: 10px;
+
+  width: 93px;
+  height: 41px;
 }
 
 .navbar-toggler {
+  background-color: #9747FF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 24px;
+  gap: 10px;
 
-  padding: 0 0.5vw;
-  height: 3.8vw;
-  width: 4.3vw;
+  width: 93px;
+  height: 41px;
 }
 
 .nav-item{
-  margin: 1vw;
-  text-decoration: none;
+  /* margin: 1vw;
+  text-decoration: none; */
+  width: 60px;
+  height: 21px;
+
+  font-family: 'Equinox';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #FFFFFF;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
 
 .nav-item a {

@@ -8,3 +8,58 @@
 .content{
     font-size: 1.2rem;
 }
+
+.img_rocket {
+    position: absolute;
+    width: 405px;
+    height: 397px;
+    left: 350px;
+    top: 200px;
+    background-repeat: no-repeat;
+    /* max-width: 100%;
+        max-height: 100%;
+        display: block; */
+    /* max-width: 605px;;
+    height: auto; */
+
+    background: url('/src/Society/images/rocket.png'), #D9D9D9;
+}
+
+.Heading{
+	display: flex;
+	justify-content:center;
+	margin-top:8%;
+	
+	position: absolute;
+	width: 164px;
+	height: 41px;
+	left: 800px;
+	top: 172px;
+
+	font-family: 'Equinox';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 48px;
+	line-height: 86%;
+	/* or 41px */
+
+	color: #FFFFFF;
+}
+
+.para {
+	position: absolute;
+	width: 484px;
+	height: 293px;
+	left: 800px;
+	top: 372px;
+    margin-right: 200px;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 86%;     /* or 17px */
+    justify-content: normal;
+
+	color: #FFFFFF;
+}

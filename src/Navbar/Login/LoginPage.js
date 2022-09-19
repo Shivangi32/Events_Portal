@@ -85,21 +85,21 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisSocLogin })
         <div id="simpleModal" className="Modal" >
             <div className='modal-content' id="modalContent">
                 <div className='modal-header' id="ModalHeader">
-                    <div id="login_heading">Log In</div>
+                    <div id="login_heading">WELCOME BACK!</div>
                     <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body" id="ModalBody">
                     <form id="LRform" action="">
                         <div className="textbox" >
-                            <FaUserAlt />
+                            {/* <FaUserAlt /> */}
                             <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
                         </div>
                         <div className="textbox">
-                            <FaLock />
+                            {/* <FaLock /> */}
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
                         <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
-                        <button id="submitbtn" onClick={signInwithEmail}>Submit</button>
+                        <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
                     </form>
 
                 </div>

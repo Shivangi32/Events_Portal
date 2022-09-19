@@ -2,7 +2,31 @@
     margin-left: 25vw;
     margin-top:62px;
 }
-.hello,.welcome{
-    font-size: 1.5rem;
-    color:white;
+
+.welcome{
+    width: 124px;
+    height: 29px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
+}
+
+.hello {
+    width: 338px;
+    height: 48px;
+
+    font-family: 'Play', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
 }
