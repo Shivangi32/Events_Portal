@@ -1,6 +1,6 @@
 import React from "react";
-import Page from "./Components/Member";
 import Paragraph from "./Components/Paragraph";
+import Page from "./Components/Member";
 function About() {
   return (
     <div>

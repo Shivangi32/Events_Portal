@@ -91,11 +91,11 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisSocLogin })
                 <div className="modal-body" id="ModalBody">
                     <form id="LRform" action="">
                         <div className="textbox" >
-                            {/* <FaUserAlt /> */}
+                            <FaUserAlt />
                             <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
                         </div>
                         <div className="textbox">
-                            {/* <FaLock /> */}
+                            <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
                         <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
