@@ -5,6 +5,7 @@ import Navbar from "./Navbar/Navbar"
 import SocietyPage from "./Society/SocietyPage.js";
 import AdminPage from "./Admin/AdminPage.js";
 import AboutPage from "./About/About";
+import FAQPage from "./FAQs/FAQs"
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from "react-router-dom";
 import Sidebar from "./Sidebar/Sidebar"
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <Route  path="Society" element={(email!==null && email.includes("cbigdtuw.in") && email!=="admin@cbigdtuw.in") ? <SocietyPage  setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> } />
               <Route  path="Admin" element={(email!==null && email=="admin@cbigdtuw.in")? <AdminPage setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
               <Route  path="About" element={(email==null ||  email!=="admin@cbigdtuw.in")? <AboutPage setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
+              <Route  path="FAQs" element={(email==null ||  email!=="admin@cbigdtuw.in")? <FAQPage setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
               <Route  path="*" element={<Navigate replace to="/" />}/>
             </Routes>
             </div>
