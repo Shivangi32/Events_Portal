@@ -5,11 +5,7 @@ import Navbar from "./Navbar/Navbar"
 import SocietyPage from "./Society/SocietyPage.js";
 import AdminPage from "./Admin/AdminPage.js";
 import AboutPage from "./About/About";
-<<<<<<< HEAD
-import FAQPage from "./FAQs/FAQs"
-=======
 import FAQs from "./FAQs/FAQs.js";
->>>>>>> 7b0e8e77e42d32aa7c233c46c5b999666aac8496
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from "react-router-dom";
 import Sidebar from "./Sidebar/Sidebar"
 function App() {
@@ -37,9 +33,9 @@ function App() {
               <Route  index element={(email==null ||  email!=="admin@cbigdtuw.in") ?<UserPage  setShowNavFunc={setShowNavFunc} />: <Navigate replace to="/Admin" />} />
               <Route  path="Society" element={(email!==null && email.includes("cbigdtuw.in") && email!=="admin@cbigdtuw.in") ? <SocietyPage  setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> } />
               <Route  path="Admin" element={(email!==null && email=="admin@cbigdtuw.in")? <AdminPage setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
-              <Route  path="FAQs" element={(email!==null && email=="admin@cbigdtuw.in")? <FAQs setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
+              {/* <Route  path="FAQs" element={(email!==null && email=="admin@cbigdtuw.in")? <FAQs setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/> */}
               <Route  path="About" element={(email==null ||  email!=="admin@cbigdtuw.in")? <AboutPage setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
-              <Route  path="FAQs" element={(email==null ||  email!=="admin@cbigdtuw.in")? <FAQPage setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
+              <Route  path="FAQs" element={(email==null ||  email!=="admin@cbigdtuw.in")? <FAQs setShowNavFunc={setShowNavFunc}/>:<Navigate replace to="/" /> }/>
               <Route  path="*" element={<Navigate replace to="/" />}/>
             </Routes>
             </div>
