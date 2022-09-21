@@ -1,10 +1,10 @@
 .team {
-   margin:60px 0;
+   margin: 60px 0;
    display: flex;
    justify-content: center;
    align-items: center;
    min-height: 100vh;
-   margin-top: 700px;  
+   margin-top: 700vw;  
 }
 
 .Header{
@@ -15,7 +15,7 @@
 	position: absolute;
    width: 132px;
    height: 55px;
-   left: 600px;
+   left: 800px;
    top: 700px;
 
    font-family: 'Equinox';
@@ -172,7 +172,7 @@
    /* width: 80px; */
    color: #9747FF;
    size: 5px;
-   background-color: #9747FF;
+   /* background-color: #9747FF; */
 }
 
 .flip {
