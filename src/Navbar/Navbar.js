@@ -41,6 +41,7 @@ export default function Navbar({ user, email, showNav }) {
 
     const [openLoginModal, setOpenLoginModal] = useState(false);
     const setLoginVal = (value) => {
+        console.log(value)
         setOpenLoginModal(value);
     }
 
@@ -92,15 +93,7 @@ export default function Navbar({ user, email, showNav }) {
                     <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <img className="logo" src={logo}/>
-                            
-
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            
-                        <div id="navside">
+                            <div id="navside">
                             {!isLoggedin ? (
                                 <>
                                     
@@ -123,7 +116,15 @@ export default function Navbar({ user, email, showNav }) {
                                     }
                                 </>
                             )}
+                        </div>
+
+                        </ul>
                     </div>
+                </div>
+            </nav>
+
+            
+                    
             {openLoginModal && <Login setModalFunc={setLoginVal} setIsLoggedinVal={setIsLoggedinVal} setisSocLogin={setisSocLogin} />}
             {openRegisterModal && <Register setModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
         </div>

@@ -144,7 +144,7 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     <div className="societyPage ">
       <div className="societyName">
-        Instinct
+        {curr_soc.toUpperCase()}
       </div>
       <div className="society-container">
       <div className="society-sub-heading">

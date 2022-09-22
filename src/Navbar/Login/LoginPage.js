@@ -92,7 +92,7 @@ export default function Login({ setModalFunc, setIsLoggedinVal, setisSocLogin })
                     <form id="LRform" action="">
                         <div className="textbox" >
                             <FaUserAlt />
-                            <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
+                            <input placeholder="E-mail" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
                         </div>
                         <div className="textbox">
                             <FaLock />

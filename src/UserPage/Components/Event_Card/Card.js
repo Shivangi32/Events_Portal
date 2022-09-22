@@ -24,7 +24,7 @@ export const Event = ({ event: { soc, EventName, date, time } }) => {
                 </div>
                 
                 <div className="event_date">
-                    <span className="date">18 August 2022 , {time}</span>
+                    <span className="date">{date} , {time}</span>
                 </div>
                 <div className="event_register">
                     <button><span className='register' >REGISTER</span></button>

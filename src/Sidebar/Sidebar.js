@@ -1,8 +1,12 @@
-import React from "react-dom";
+import React, { useState } from 'react';
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import "./Sidebar.css"
 export default function Sidebar(){
+
+    const email = localStorage.getItem("email");
+    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
     return (
         <nav className="usernav">
         <ul class="usernav-items">

@@ -1,50 +1,36 @@
 #simpleModal {
-    background-image: url("https://thumbs.dreamstime.com/b/hundreds-white-rain-drops-window-black-background-glass-108001374.jpg");
+    /*background-image: url("https://thumbs.dreamstime.com/b/hundreds-white-rain-drops-window-black-background-glass-108001374.jpg");
     /* opacity: 0.9 !important; */
+    background-image: url("../../background.jpg");
 }
 
 #modalContent {
-    margin: auto auto;
-    width: 28%;
-    position: absolute;
-    width: 401px;
-    height: 1000px;
-    left: 850px;
-    top: 124px;
-
-    background: #2B2A2A;
-    border-radius: 15px;    
-    height: 60vh;
+        width: 28%;
+        position: absolute;
+        width: 30vw;
+        top: 15vh;
+        right: 8vw;
+        background: #2B2A2A;
+        border-radius: 1vw;
+        height: 68vh;
 }
 
-#ModalBody {
-    padding: 0;
-}
 
 #LRform svg {
     margin: 0.5vw;
 }
 
 #login_heading {
-    padding-left: 7vw;
-    padding-top: 8vh;
-    /* padding-bottom: 8vh; */
-    margin: 0 auto;
-    font-size: 2.5vw;
-    position: absolute;
-    /* width: 289px;
-    height: 15px; */
-    text-align: center;
-    /* left: 131px; */
-    /* top: 30px; */
 
     font-family: 'Equinox';
     font-style: normal;
     font-weight: 200;
-    font-size: 23px;
     line-height: 41px;
 
     color: #FFFFFF;
+    padding-left: 1vw;
+    margin: 0 auto;
+    font-size: 2vw;
 
 }
 
@@ -53,8 +39,13 @@ input ::placeholder {
 }
 
 .textbox {
-    background-color: #FFFFFF;
-    margin-top: 2vh;
+    align-items: center;
+    background-color: white;
+    padding-left: 0.5vw;
+    display: flex;
+    border-radius: 0.5vw;
+    width: 23vw;
+    height: 3.4vw;
 }
 
 .textbox ::placeholder {
@@ -74,11 +65,10 @@ input ::placeholder {
 }
 
 #LRform input {
-    width: 22vw;
-    font-size: 1.5vw;
-    height: 3vw;
-    padding: 2vw;
+    height: 2vw;
+    padding: 1.5vw;
     color: black;
+    width: 20vw;
     border: green;
     outline: none;
     border-radius: 0.3vw;
@@ -87,7 +77,13 @@ input ::placeholder {
 .closebtn {
     float: right;
     font-size: 3vw;
-    cursor: pointer;
+    color:white;
+    cursor: pointer !important;
+    
+}
+
+.closebtn :hover{
+    color: red;
 }
 
 #ModalHeader {
@@ -99,7 +95,7 @@ input ::placeholder {
     display: flex;
     flex-direction: column;
     height: 90%;
-    padding-top: 5vw;
+    padding-top: 0.5vw;
     align-items: center;
     justify-content: space-evenly;
 }

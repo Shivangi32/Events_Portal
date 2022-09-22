@@ -29,7 +29,7 @@ function Card(props) {
                 </div>
                 
                 <div className="event_date">
-                    <span className="date">18 August 2022 , {props.time}</span>
+                    <span className="date">{props.date} , {props.time}</span>
                 </div>
                 
                 
