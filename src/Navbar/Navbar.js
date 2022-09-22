@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import "./Navbar.css"
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -49,6 +49,13 @@ export default function Navbar({ user, email, showNav }) {
     const setRegisterVal = (value) => {
         setOpenRegisterModal(value);
     }
+
+    window.addEventListener('popstate', function(event) {
+        setOpenLoginModal(false);
+        setOpenRegisterModal(false);
+        
+     });
+    
     if (!showNav) {
         return (
             <div id="navside" class="admin">
@@ -125,7 +132,7 @@ export default function Navbar({ user, email, showNav }) {
 
             
                     
-            {openLoginModal && <Login setModalFunc={setLoginVal} setIsLoggedinVal={setIsLoggedinVal} setisSocLogin={setisSocLogin} />}
+            {openLoginModal && <Login setLoginModalFunc={setLoginVal} setRegisterModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} setisSocLogin={setisSocLogin} />}
             {openRegisterModal && <Register setModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
         </div>
     )
