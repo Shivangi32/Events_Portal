@@ -12,10 +12,8 @@ export default function Sidebar(){
         <ul class="usernav-items">
             <li class="usernav-item a"><Link to="/">HOME</Link></li>
             <li class="usernav-item b"><Link to="/About">ABOUT</Link></li>
-
-            {SocLogin? (<li class="usernav-item c"><Link to="/Society">SOCIETY</Link></li>):(<div></div>)}
             
-            
+            <li class="usernav-item c"><Link to="/Society">SOCIETY</Link></li>
             <li class="usernav-item d"><Link to="/FAQs">FAQs</Link></li>
         </ul>
     </nav>

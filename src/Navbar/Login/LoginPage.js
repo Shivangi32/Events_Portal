@@ -4,7 +4,6 @@ import { signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/a
 import { app, auth, provider } from "../../firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import earth from "../../earth_img-removebg-preview.png";
 
 import { FcGoogle } from "react-icons/fc";
 import {
@@ -15,7 +14,7 @@ import {
     where,
 } from "firebase/firestore";
 
-export default function Login({ setLoginModalFunc,setRegisterModalFunc, setIsLoggedinVal, setisSocLogin }) {
+export default function Login({ setModalFunc, setIsLoggedinVal, setisSocLogin }) {
 
 
     const [email, setEmail] = useState("");
@@ -43,7 +42,7 @@ export default function Login({ setLoginModalFunc,setRegisterModalFunc, setIsLog
             else {
                 setItems(user.displayName, user.email, user.photoURL);
                 setIsLoggedinVal(true);
-                setLoginModalFunc(false);
+                setModalFunc(false);
                 setisSocLogin(false);
 
             }
@@ -52,7 +51,7 @@ export default function Login({ setLoginModalFunc,setRegisterModalFunc, setIsLog
             console.error(err);
             setIsLoggedinVal(false);
             setisSocLogin(false);
-            setLoginModalFunc(false);
+            setModalFunc(false);
         }
     };
 
@@ -66,7 +65,7 @@ export default function Login({ setLoginModalFunc,setRegisterModalFunc, setIsLog
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
             const user = res.user;
-            setLoginModalFunc(false);
+            setModalFunc(false);
             setItems(user.displayName, user.email, user.photoURL);
             setIsLoggedinVal(true);
             setisSocLogin(true);
@@ -77,22 +76,18 @@ export default function Login({ setLoginModalFunc,setRegisterModalFunc, setIsLog
             alert("Invalid Credentials")
             setIsLoggedinVal(false);
             setisSocLogin(false);
-            setLoginModalFunc(false);
+            setModalFunc(false);
         }
     };
 
     return (
 
         <div id="simpleModal" className="Modal" >
-            <div id="earthdiv" >
-            </div>
-            
             <div className='modal-content' id="modalContent">
                 <div className='modal-header' id="ModalHeader">
                     <div id="login_heading">WELCOME BACK!</div>
-                    <div className="closebtn" onClick={() => { setLoginModalFunc(false) }}>&times;</div>
+                    <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
                 </div>
-                
                 <div className="modal-body" id="ModalBody">
                     <form id="LRform" action="">
                         <div className="textbox" >
@@ -103,7 +98,6 @@ export default function Login({ setLoginModalFunc,setRegisterModalFunc, setIsLog
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
-                        <button onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>Forgot</button>
                         <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
                     </form>

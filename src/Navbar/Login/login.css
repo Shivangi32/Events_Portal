@@ -5,29 +5,16 @@
 }
 
 #modalContent {
-    width: 28%;
-    position: absolute;
-    width: 30vw;
-    top: 15vh;
-    right: 8vw;
-    background: #2B2A2A;
-    border-radius: 1vw;
-    height: 68vh;
-
-
+        width: 28%;
+        position: absolute;
+        width: 30vw;
+        top: 15vh;
+        right: 8vw;
+        background: #2B2A2A;
+        border-radius: 1vw;
+        height: 68vh;
 }
 
-#earthdiv {
-    position: absolute;
-    width: 19.5vw;
-    height: 100%;
-    left: 0vw;
-
-    background-repeat: none !important;
-
-    background: url("../../earth-removebg-preview.png");
-    mix-blend-mode: normal;
-}
 
 #LRform svg {
     margin: 0.5vw;
@@ -90,12 +77,12 @@ input ::placeholder {
 .closebtn {
     float: right;
     font-size: 3vw;
-    color: white;
+    color:white;
     cursor: pointer !important;
-
+    
 }
 
-.closebtn :hover {
+.closebtn :hover{
     color: red;
 }
 
