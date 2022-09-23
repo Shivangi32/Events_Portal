@@ -84,6 +84,7 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
     return (
 
         <div id="simpleModal" className="Modal">
+            <div id="earthdiv" >            </div>
             <div className='modal-content' id="modalContent">
                 <div className='modal-header' id="ModalHeader">
                     <div id="register_head">WELCOME!</div>

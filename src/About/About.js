@@ -4,7 +4,6 @@ import Page from "./Components/Member";
 function About() {
   return (
     <div>
-      {/* <Heading /> */}
       <Paragraph />
       <Page />
     </div>

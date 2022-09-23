@@ -9,12 +9,14 @@ export default function Sidebar(){
     const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
     return (
         <nav className="usernav">
-        <ul class="usernav-items">
-            <li class="usernav-item a"><Link to="/">HOME</Link></li>
-            <li class="usernav-item b"><Link to="/About">ABOUT</Link></li>
+        <ul className="usernav-items">
+            <Link to="/"><li class="usernav-item a">HOME</li></Link>
+            <Link to="/About"><li class="usernav-item b">ABOUT</li></Link>
+
+            {SocLogin? (<Link to="/Society"><li class="usernav-item c">SOCIETY</li></Link>):(<div></div>)}
             
-            <li class="usernav-item c"><Link to="/Society">SOCIETY</Link></li>
-            <li class="usernav-item d"><Link to="/FAQs">FAQs</Link></li>
+            
+            <Link to="/FAQs"><li class="usernav-item d">FAQs</li></Link>
         </ul>
     </nav>
     );

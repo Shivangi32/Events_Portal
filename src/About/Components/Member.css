@@ -1,44 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
 
-.about_team {
+.team_about {
    margin: 60px 0;
    display: flex;
    justify-content: center;
+   flex-direction: column;
    align-items: center;
-   min-height: 100vh;
-   margin-top: -200px;  
 }
 
-.about_Header{
-	display: flex;
-	justify-content:center;
-	/* margin-top: 100px; */
+.team_Header{
 
-	position: absolute;
    width: 132px;
    height: 55px;
-   left: 750px;
-   top: 700px;
-
-   font-family: 'Play', sans-serif;
-   font-size: 2.1rem;
+   font-family: 'Equinox';
+   font-style: normal;
    font-weight: 400;
    font-size: 48px;
-   /* line-height: 55px; */
-
+   line-height: 55px;
    color: #FFFFFF;
 }
 
-.about_card {
-   perspective: 1500px;
+.mem_card {
+   perspective: 1000px;
 }
 
-.about_content {
-   margin-top: 1050px;
-   height: 0;
-}
-
-.about_card-inner {
+.card-inner {
    position: relative;
    width: 100%;
    height: 100%;
@@ -47,11 +33,11 @@
    transform-style: preserve-3d;
 }
 
-.about_card:hover .about_card-inner {
+.mem_card:hover .card-inner {
    transform: rotateY(180deg);
 }
 
-.about_content, .about_flip {
+.mem_content, .flip {
    position: absolute;
    width: 100%;
    height: 100%;
@@ -59,43 +45,37 @@
    backface-visibility: hidden;
 }
 
-.about_container {
+.container {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-wrap: wrap;
-   margin-top: -450px;
 }
 
-.about_container .about_card {
+.container .mem_card {
    width: 197px;
    height: 275px;
    padding: 0px 0px;
-   margin: 20px 15px;
-   border-radius: 10px;
+   margin: 20px 10px;
+   /* border-radius: 10px; */
    position: relative;
 }
 
-.about_container .about_card .about_content {
+.container .mem_card .content {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
 }
-.about_imgbox {
-   /* width: 132px;
-   height: 132px; */
+.imgbox {
    width: 100%;
    height: 100%;
-   margin-top: -200px;
    border-radius: 0px;
    border: none;
    position: relative;
-   /* margin-bottom: 20px; */
-   /* overflow: hidden; */
 }
 
-.about_imgbox img {
+.imgbox img {
    position: absolute;
    top: 0;
    border-radius: 10px;
@@ -105,7 +85,7 @@
    object-fit: cover;
 }
 
-.about_detail h4 {
+.detail h4 {
    position: relative;
    /* width: 66px;
    height: 28px; */
@@ -121,7 +101,7 @@
    color: #FFFFFF;
 }
 
-.about_detail h5 {
+.detail h5 {
    position: relative;
    /* width: 89px;
    height: 17px; */
@@ -140,13 +120,12 @@
    color: #9747FF;
 }
 
-.about_detail p {
+.detail p {
    position: relative;
    /* width: 298px; */
    /* height: 172px; */
    /* left: 26px; */
    top: 50px;
-   padding: 10px;
 
    font-family: 'Montserrat';
    font-style: normal;
@@ -159,7 +138,7 @@
    color: #FFFFFF;
 }
 
-.about_social {
+.social {
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -178,16 +157,18 @@
    /* top: 319px; */
 } 
 
-.about_social img {
+.social img {
+   /* width: 80px; */
+   color: #9747FF;
    size: 5px;
+   /* background-color: #9747FF; */
 }
 
-.about_flip {
+.flip {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
    transform: rotateY(180deg);
    background-color: #2B2A2A;
    border-radius: 10px;
-   margin-top: 950px;
 }
