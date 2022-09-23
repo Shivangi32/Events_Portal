@@ -1,4 +1,6 @@
-.about_info{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
+
+.ab_info{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,9 +8,8 @@
     padding: 0 10vw;
 	padding-bottom: 0;
 }
-.content{
+.ab_content{
     font-size: 1.2rem;
-	margin-top: 200px;
 }
 
 .img_rocket {
@@ -16,7 +17,7 @@
     width: 405px;
     height: 397px;
     left: 350px;
-    top: 100px;
+    top: 150px;
     /* background-repeat: no-repeat; */
     /* max-width: 100%;
         max-height: 100%;
@@ -27,19 +28,19 @@
     background: url('/src/Society/images/rocket.png'), #D9D9D9;
 }
 
-.Heading{
+.ab_Heading{
 	display: flex;
 	justify-content:center;
-	margin-top:300px;
+	margin-top: 50px;
 	
 	position: absolute;
 	width: 164px;
 	height: 41px;
 	left: 800px;
-	top: 172px;
+	top: 200px;
 
-	font-family: 'Equinox';
-	font-style: normal;
+	font-family: 'Play', sans-serif;
+   font-size: 2.1rem;
 	font-weight: 400;
 	font-size: 48px;
 	line-height: 86%;
@@ -48,12 +49,12 @@
 	color: #FFFFFF;
 }
 
-.para {
+.ab_para {
 	position: absolute;
 	width: 484px;
 	height: 293px;
 	left: 800px;
-	top: 372px;
+	top: 320px;
     margin-right: 200px;
 	/* margin-top: 300px; */
 
