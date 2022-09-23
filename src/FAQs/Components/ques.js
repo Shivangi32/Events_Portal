@@ -24,6 +24,31 @@ const ques = [
       ques: "Lorem Ipsum",
       ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
     },
+    // {
+    //   index: 6,
+    //   ques: "Lorem Ipsum",
+    //   ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+    // },
+    // {
+    //   index: 7,
+    //   ques: "Lorem Ipsum",
+    //   ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+    // },
+    // {
+    //   index: 8,
+    //   ques: "Lorem Ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit",
+    //   ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+    // },
+    // {
+    //   index: 9,
+    //   ques: "Lorem Ipsum",
+    //   ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+    // },
+    // {
+    //   index: 10,
+    //   ques: "Lorem Ipsum",
+    //   ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+    // },
   ];
   
   export default ques;

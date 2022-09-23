@@ -1,9 +1,3 @@
-.Heading{
-	display: flex;
-	justify-content:center;
-	margin-top:8%;
-}
-
 .Heading {
     display: flex;
 	justify-content:center;
@@ -12,13 +6,13 @@
 	position: absolute;
 	width: 164px;
 	height: 41px;
-	left: 800px;
-	top: 172px;
+	left: 750px;
+	top: 2px;
 
-	font-family: 'Equinox';
-	font-style: normal;
+	font-family: 'Play', sans-serif;
+   	font-size: 2.1rem;
 	font-weight: 400;
-	font-size: 48px;
+	/* font-size: 48px; */
 	line-height: 86%;
 	/* or 41px */
 
