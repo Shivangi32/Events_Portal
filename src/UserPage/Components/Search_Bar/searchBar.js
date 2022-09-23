@@ -6,15 +6,9 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { Event } from "../Event_Card/Card";
 import { db } from "../../../firebaseConfig";
 
-import {
-  query,
-  getDocs,
-  collection,
-} from "firebase/firestore";
-
+import { query, getDocs, collection } from "firebase/firestore";
 
 function SearchBar() {
-
   const optionsList = [];
 
   const [allsoc, setallsoc] = useState([]);
@@ -30,15 +24,13 @@ function SearchBar() {
     const socCollection = query(collection(db, "Societies"));
     const socDocs = await getDocs(socCollection);
     const socList = socDocs.docs.map(async (socData) => {
-
       const socName = socData.data().soc;
 
-      setallsoc(current => [...current, socName]);
+      setallsoc((current) => [...current, socName]);
       const socEvents = query(collection(db, `Events/soc_events/${socName}`));
       const events = await getDocs(socEvents);
 
       const eventsList = events.docs.map((event) => {
-
         const data = event.data();
         let info = {
           soc: socName,
@@ -46,31 +38,30 @@ function SearchBar() {
           EventName: data.EventName,
           date: data.date,
           time: data.time,
+          day: data.day,
+          month: data.month,
+          year: data.year,
         };
 
         if (data.approved == "true") {
-          setAllEvents(current => [...current, info]);
-          setInitialEvents(current => [...current, info]);
+          setAllEvents((current) => [...current, info]);
+          setInitialEvents((current) => [...current, info]);
           const eventName = data.EventName;
-          setEvents(events => [...events, eventName]);
-
+          setEvents((events) => [...events, eventName]);
         }
-      })
-    })
-  }
+      });
+    });
+  };
 
   useEffect(() => {
     getData();
-  }, [])
-
-
+  }, []);
 
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
-
     setshowInitialEvents(false);
     const searchWord = event.target.value;
     setWordEntered(searchWord);
@@ -82,48 +73,39 @@ function SearchBar() {
     }
 
     if (Tag == "None" || Tag == "Event") {
-
       const newFilter = events.filter((value) => {
         console.log("value " + value);
-        return value.toLowerCase().includes(searchWord.toLowerCase())
+        return value.toLowerCase().includes(searchWord.toLowerCase());
       });
 
       const tempfilter = InitialEvents.filter((e) => {
         console.log(e);
-        return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
-      })
+        return e.EventName.toLowerCase().includes(searchWord.toLowerCase());
+      });
 
       setFilteredEvents(tempfilter);
       setFilteredData(newFilter);
-
-    }
-
-    else if (Tag == "Society") {
-
+    } else if (Tag == "Society") {
       const newFilter = allsoc.filter((value) => {
         console.log("value " + value);
-        return value.toLowerCase().includes(searchWord.toLowerCase())
+        return value.toLowerCase().includes(searchWord.toLowerCase());
       });
 
       const tempfilter = InitialEvents.filter((e) => {
         console.log(e);
-        return e.soc.toLowerCase().includes(searchWord.toLowerCase())
-      })
+        return e.soc.toLowerCase().includes(searchWord.toLowerCase());
+      });
 
       setFilteredEvents(tempfilter);
       setFilteredData(newFilter);
-    }
-
-    else if(Tag=="Date")
-    {
+    } else if (Tag == "Date") {
       const tempfilter = InitialEvents.filter((e) => {
-        return e.date.toLowerCase().includes(searchWord.toLowerCase())
-      })
+        return e.date.toLowerCase().includes(searchWord.toLowerCase());
+      });
 
       setFilteredEvents(tempfilter);
     }
-
-  };  //handelfilter  close
+  }; //handelfilter  close
 
   if (showInitialEvents) {
     InitialEvents.forEach((e) => {
@@ -135,9 +117,7 @@ function SearchBar() {
   filteredEvents.forEach((e) => {
     let ca = <Event event={e} key={e.id} />;
     eCards.push(ca);
-  })
-
-
+  });
 
   const clearInput = () => {
     setshowInitialEvents(true);
@@ -146,9 +126,9 @@ function SearchBar() {
     return;
   };
 
-  const setTagfunc =(event)=>{
-    setTag(event.target.value)
-  }
+  const setTagfunc = (event) => {
+    setTag(event.target.value);
+  };
   return (
     <>
       <div className="search">
@@ -178,16 +158,12 @@ function SearchBar() {
         {filteredData.length !== 0 && (
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {
-              return (
-                  <p>{value}</p>
-              );
+              return <p>{value}</p>;
             })}
           </div>
         )}
       </div>
-      <div className="events">
-        {eCards}
-      </div>
+      <div className="events">{eCards}</div>
     </>
   );
 }
