@@ -78,6 +78,7 @@ function SearchBar() {
     if (searchWord === "") {
       setshowInitialEvents(true);
       setFilteredData([]);
+      setFilteredEvents([]);
       return;
     }
 
@@ -94,7 +95,7 @@ function SearchBar() {
       })
 
       setFilteredEvents(tempfilter);
-      setFilteredData(newFilter);
+      //setFilteredData(newFilter);
 
     }
 
@@ -111,7 +112,7 @@ function SearchBar() {
       })
 
       setFilteredEvents(tempfilter);
-      setFilteredData(newFilter);
+      //setFilteredData(newFilter);
     }
 
     else if(Tag=="Date")
