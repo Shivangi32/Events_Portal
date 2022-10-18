@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
+@import url(https://allfont.net/allfont.css?fonts=star-jedi);
 
 #register_head {
     padding-left: 1vw;
     margin: 0 auto;
+    font-family: 'Play', sans-serif;
     font-size: 2.5vw;
     color: white;
-    font-family: 'Equinox';
-    font-style: normal;
     font-weight: 200;
     line-height: 41px;
 }

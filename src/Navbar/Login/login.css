@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
+@import url(https://allfont.net/allfont.css?fonts=star-jedi);
+
 #simpleModal {
     /*background-image: url("https://thumbs.dreamstime.com/b/hundreds-white-rain-drops-window-black-background-glass-108001374.jpg");
     /* opacity: 0.9 !important; */
+    font-family: 'Play', sans-serif;
     background-image: url("../../background.jpg");
 }
 
@@ -8,13 +12,26 @@
     width: 28%;
     position: absolute;
     width: 30vw;
-    top: 15vh;
+    top: 17vh;
     right: 8vw;
     background: #2B2A2A;
     border-radius: 1vw;
     height: 68vh;
+}
 
+.loginnav-item {
+    padding: 1vw;
+}
 
+#LoginNavbar {
+    position: absolute;
+    width: 33vw;
+    top: 6vh;
+    right: 8vw;
+    list-style: none;
+    margin-bottom: 0;
+    text-align: center;
+    display: flex;
 }
 
 #earthdiv {
@@ -22,21 +39,18 @@
     width: 19.5vw;
     height: 100%;
     left: 0vw;
-
     background-repeat: none !important;
-
-    background: url("../../earth-removebg-preview.png");
     mix-blend-mode: normal;
 }
-
+#earth{
+    height:100%;
+}
 #LRform svg {
     margin: 0.5vw;
 }
 
 #login_heading {
 
-    font-family: 'Equinox';
-    font-style: normal;
     font-weight: 200;
     line-height: 41px;
 
@@ -58,7 +72,7 @@ input ::placeholder {
     display: flex;
     border-radius: 0.5vw;
     width: 23vw;
-    height: 3.4vw;
+    height: 2.6vw;
 }
 
 .textbox ::placeholder {
@@ -79,7 +93,7 @@ input ::placeholder {
 
 #LRform input {
     height: 2vw;
-    padding: 1.5vw;
+    padding: 0.5vw;
     color: black;
     width: 20vw;
     border: green;
@@ -107,24 +121,27 @@ input ::placeholder {
 #LRform {
     display: flex;
     flex-direction: column;
-    height: 90%;
-    padding-top: 0.5vw;
+    height: 98%;
     align-items: center;
     justify-content: space-evenly;
 }
 
 #submitbtn {
     vertical-align: middle;
-    font-size: large !important;
+    font-size: 1.2vw !important;
     text-align: center;
-    padding: 0 2vw 0 2vw;
-    height: 5vh;
+    padding: 0.2vw 2vw 0.2vw 2vw;
+    height: 2.6vw;
     background-color: #FFFFFF;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 3px 5px 15px #201F1F;
 }
 
+#forgot{
+    color: white;
+
+}
 #Google svg {
     height: 2vw;
     width: 2vw;
@@ -132,13 +149,28 @@ input ::placeholder {
 }
 
 #Google {
-    font-family: 'Roboto';
     border-radius: 0.2vw;
-    background-color: white;
-    font-size: 1.5vw;
-    color: black;
-    padding: 0.1vw 0.2vw 0.1vw 0.1vw;
-    margin: 1vw;
+    font-size: 1.2vw;
+    color: white;
     cursor: pointer;
     box-shadow: 1vw;
+}
+
+#Newacc {
+    position: absolute;
+    font-size: 2.2vw;
+    top: 15vw;
+    left: 25vw;
+    width: 20vw;
+    color: white;
+}
+
+#regbtn {
+
+    background-color: #9747FF;
+    border-radius: 0.5vw;
+    color: white;
+    margin: 2vw 0vw;
+    padding: 0.5vw 1.8vw;
+    font-size: 1.5vw;
 }

@@ -40,12 +40,12 @@ export default function Navbar({ user, email, showNav }) {
     };
 
     const [openLoginModal, setOpenLoginModal] = useState(false);
+    const [openRegisterModal, setOpenRegisterModal] = useState(false);
+    
     const setLoginVal = (value) => {
-        console.log(value)
         setOpenLoginModal(value);
     }
-
-    const [openRegisterModal, setOpenRegisterModal] = useState(false);
+    
     const setRegisterVal = (value) => {
         setOpenRegisterModal(value);
     }
@@ -134,7 +134,7 @@ export default function Navbar({ user, email, showNav }) {
 
 
             {openLoginModal && <Login setLoginModalFunc={setLoginVal} setRegisterModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} setisSocLogin={setisSocLogin} />}
-            {openRegisterModal && <Register setModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
+            {openRegisterModal && <Register setLoginModalFunc={setLoginVal} setRegisterModalFunc={setRegisterVal} setIsLoggedinVal={setIsLoggedinVal} />}
         </div>
     )
 }

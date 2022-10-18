@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import "./register.css";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { app, auth, provider } from "../../firebaseConfig";
-import { FaUserAlt } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
+import { FaUserAlt,FaLock } from "react-icons/fa";
+import { MdAlternateEmail } from "react-icons/md";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import earth from "../../Mask\ group.png"
+import logo from "../logo.png";
 import { FcGoogle } from "react-icons/fc";
 import {
     getFirestore,
@@ -14,10 +17,13 @@ import {
     addDoc,
 } from "firebase/firestore";
 
-export default function Register({ setModalFunc, setIsLoggedinVal }) {
+export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIsLoggedinVal }) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
+    const [confirmpassword, setConfirmPassword] = useState("");
+    const [name, setName] = useState("");
 
     const db = getFirestore(app);
 
@@ -41,11 +47,11 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
             else {
                 alert("Already registered!!");
             }
-            setModalFunc(false);
+            setRegisterModalFunc(false);
         } catch (err) {
             console.error(err);
             setIsLoggedinVal(false);
-            setModalFunc(false);
+            setRegisterModalFunc(false);
         }
     };
 
@@ -56,6 +62,12 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
         }
         if (email.includes("cbigdtuw.in") == false) {
             alert("Invalid Credentials!!");
+            return;
+        }
+
+        if(password != confirmpassword)
+        {
+            alert("Password mismatch!!");
             return;
         }
 
@@ -77,31 +89,54 @@ export default function Register({ setModalFunc, setIsLoggedinVal }) {
         {
             alert("Already registered");
         }
-        setModalFunc(false);
+        setRegisterModalFunc(false);
     }
 
 
     return (
 
         <div id="simpleModal" className="Modal">
-            <div id="earthdiv" >            </div>
+            <img className="logo" src={logo} />
+            <div id="earthdiv" >
+            <img src={earth} id="earth"></img>
+            </div>
+            <div>
+                <ul id="LoginNavbar">
+                    <Link to="/"><li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}>HOME</li></Link>
+                    <Link to="/About"><li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}>ABOUT</li></Link>
+                    <Link to="/FAQs"><li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}>FAQs</li></Link>
+                </ul>
+            </div>
+            <div id="Newacc">
+                ALREADY HAVE AN ACCOUNT?
+                <div></div>
+                <button id="regbtn"onClick={() => { setRegisterModalFunc(false); setLoginModalFunc(true) }}>LOGIN</button>
+            </div>
             <div className='modal-content' id="modalContent">
                 <div className='modal-header' id="ModalHeader">
                     <div id="register_head">WELCOME!</div>
-                    <div className="closebtn" onClick={() => { setModalFunc(false) }}>&times;</div>
+                    <div className="closebtn" onClick={() => { setRegisterModalFunc(false) }}>&times;</div>
                 </div>
                 <div className="modal-body" id="ModalBody">
                     <form id="LRform" action="">
-                        <div className="textbox" >
+                    <   div className="textbox" >
                             <FaUserAlt />
-                            <input placeholder="Email" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
+                            <input placeholder="Name" type="text" value={name} onChange={(e) => { setName(e.target.value) }} required></input>
+                        </div>
+                        <div className="textbox" >
+                            <MdAlternateEmail />
+                            <input placeholder="E-mail" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} required></input>
                         </div>
                         <div className="textbox">
                             <FaLock />
                             <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
                         </div>
-                        <span className="shadow-lg bg-white rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
-                        <button id="submitbtn" onClick={createUser}>Submit</button>
+                        <div className="textbox">
+                            <FaLock />
+                            <input type="password" placeholder='Confirm Password' value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }} required></input>
+                        </div>
+                        <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
+                        <button id="submitbtn" onClick={createUser}>REGISTER</button>
                     </form>
 
                 </div>
