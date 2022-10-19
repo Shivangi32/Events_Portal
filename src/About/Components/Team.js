@@ -10,7 +10,7 @@ const teams = [
     img: Shivangi,
     name: "Shivangi Aggarwal",
     position: "Web Developer",
-    description: "A 3rd year CSE undergraduate, Shivangi is passionate about web development.",
+    description: "Shivangi is a 3rd year CSE undergraduate, Shivangi is passionate about web development.",
     twitter: "https://twitter.com/Shivang2195",
     instagram: "https://www.instagram.com/shivangi_16.09/",
     linkedin: "https://www.linkedin.com/in/shivangi-agg/"

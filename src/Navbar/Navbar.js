@@ -113,7 +113,7 @@ export default function Navbar({ user, email, showNav }) {
                     ) : (
                         <>
                             <button className="login" onClick={logOut}>
-                                <Link to="/">Log Out</Link></button>
+                                <Link to="/" style={{background: "transparent"}}>LOG OUT</Link></button>
                             {
                                 (localStorage.getItem("profilePic") == "null") ?
                                     <span >   <AiOutlineUser /></span>
