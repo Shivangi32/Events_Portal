@@ -2,12 +2,12 @@ const ques = [
     {
       index: 1,
       ques: "Which society should I join?",
-      ans: "It depends on your personal interests however you shouldn't be afraid to try out something new.Start exploring what each society is about and accordingly decide."
+      ans: "It depends on your personal interests however you shouldn't be afraid to try out something new. Start exploring what each society is about and accordingly decide."
     },
     {
       index: 2,
       ques: "How can I join a society?",
-      ans: "There are recruitments every year,you can apply then."
+      ans: "Every society conducts recruitment drives anually. Look out for the openings and apply!"
     },
     {
       index: 3,

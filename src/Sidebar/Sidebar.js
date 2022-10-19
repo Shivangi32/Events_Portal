@@ -1,23 +1,57 @@
 import React, { useState } from 'react';
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 import "./Sidebar.css"
-export default function Sidebar(){
+export default function Sidebar() {
 
     const email = localStorage.getItem("email");
     const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
+
     return (
         <nav className="usernav">
-        <ul className="usernav-items">
-            <Link to="/"><li class="usernav-item a">HOME</li></Link>
-            <Link to="/About"><li class="usernav-item b">ABOUT</li></Link>
+            <ul className="usernav-items">
+                <li className='usernav-item'>
+                    <NavLink to="/" style={({ isActive }) => ({
+                        background: isActive ? '#9747FF' : 'transparent',
+                        padding: "6px 12px",
+                        borderRadius: "5px"
+                    })}>
+                        HOME
+                    </NavLink>
+                </li>
 
-            {SocLogin? (<Link to="/Society"><li class="usernav-item c">SOCIETY</li></Link>):(<div></div>)}
-            
-            
-            <Link to="/FAQs"><li class="usernav-item d">FAQs</li></Link>
-        </ul>
-    </nav>
+                <li className='usernav-item'>
+                    <NavLink to="/About" style={({ isActive }) => ({
+                         background: isActive ? '#9747FF' : 'transparent',
+                         padding: "6px 12px",
+                         borderRadius: "5px"
+                    })}>
+                        ABOUT
+                    </NavLink>
+                </li>
+
+
+                {SocLogin ? (
+                    <li className='usernav-item'>
+                        <NavLink to="/Society" style={({ isActive }) => ({
+                             background: isActive ? '#9747FF' : 'transparent',
+                             padding: "6px 12px",
+                             borderRadius: "5px"
+                        })}>SOCIETY</NavLink>
+                    </li>
+                ) : (<></>)}
+
+                <li className='usernav-item'>
+                    <NavLink to="/FAQs" style={({ isActive }) => ({
+                         background: isActive ? '#9747FF' : 'transparent',
+                         padding: "6px 12px",
+                         borderRadius: "5px"
+                    })}>
+                        FAQs
+                    </NavLink>
+                </li>
+            </ul>
+        </nav>
     );
 }

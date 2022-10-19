@@ -21,6 +21,11 @@
 
 .loginnav-item {
     padding: 1vw;
+    background: transparent;
+}
+
+#LoginNavbar li:hover {
+    background: transparent;
 }
 
 #LoginNavbar {
@@ -32,6 +37,7 @@
     margin-bottom: 0;
     text-align: center;
     display: flex;
+    
 }
 
 #earthdiv {

@@ -98,6 +98,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                     <Link to="/FAQs"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>FAQs</li></Link>
                 </ul>
             </div>
+            
             <div id="Newacc">
                 WANT TO MAKE A NEW ACCOUNT?
                 <div></div><button id="regbtn"onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>REGISTER</button>

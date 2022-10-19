@@ -47,7 +47,7 @@
 	font-weight: 400;
 	font-size: 15px;
 	line-height:1rem;     /* or 17px */
-    justify-content: normal;
+    text-align: justify;
 
 	color: #FFFFFF;
 }
