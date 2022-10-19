@@ -45,8 +45,8 @@
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 20px;
-	line-height: 86%;     /* or 17px */
+	font-size: 15px;
+	line-height:1rem;     /* or 17px */
     justify-content: normal;
 
 	color: #FFFFFF;
