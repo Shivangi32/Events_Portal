@@ -90,7 +90,7 @@
    /* width: 66px;
    height: 28px; */
    /* left: 142px; */
-   top: 20px;
+   top: 45px;
    text-align: center;
    letter-spacing: -0.01em;
    font-family: 'Equinox';
@@ -106,21 +106,21 @@
    /* width: 89px;
    height: 17px; */
    left: 5px;
-   top: 20px;
+   top: 47px;
    /* margin-top: 10px; */
 
    font-family: 'Equinox';
    font-style: normal;
    font-weight: 400;
    font-size: 15px;
-   line-height: 17px;
+   /* line-height: 1.5rem; */
    text-align: center;
    letter-spacing: -0.02em;
 
-   color: #9747FF;
+   color:white;
 }
 
-.detail p {
+.detail-para {
    position: relative;
    /* width: 298px; */
    /* height: 172px; */
@@ -131,7 +131,7 @@
    font-style: normal;
    font-weight: 400;
    font-size: 14px;
-   line-height: 86%;
+   line-height: 1rem;
    /* or 13px */
 
    text-align: center;

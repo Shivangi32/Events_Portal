@@ -72,9 +72,12 @@
    flex-direction: column;
 }
 
-.detail p {
+.detail{
+   padding: 0 15px;
+}
+.ques-para {
    position: relative;
-   top: 50px;
+   /* top: 50px; */
 
    font-family: 'Montserrat';
    font-style: normal;
@@ -87,6 +90,17 @@
    color: #FFFFFF;
 }
 
+.ans-para{
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 400;
+   top: 90px;
+   font-size: 14px;
+   line-height: 0.8rem;
+   text-align: center;
+   color: white;
+   position: relative;
+}
 
 .flip {
    display: flex;

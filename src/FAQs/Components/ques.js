@@ -1,23 +1,23 @@
 const ques = [
     {
       index: 1,
-      ques: "Lorem Ipsum",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+      ques: "Which society should I join?",
+      ans: "It depends on your personal interests however you shouldn't be afraid to try out something new.Start exploring what each society is about and accordingly decide."
     },
     {
       index: 2,
-      ques: "Lorem Ipsum",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+      ques: "How can I join a society?",
+      ans: "There are recruitments every year,you can apply then."
     },
     {
       index: 3,
-      ques: "Lorem Ipsum",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+      ques: "How to not miss out on important sessions?",
+      ans: "Make sure to check out our portal regularly and register then itself."
     },
     {
       index: 4,
-      ques: "Lorem Ipsum",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+      ques: "Why are society sessions or events important?",
+      ans: "There are many scholarship, mentorship programs which you will get to know about from our seniors through these societies"
     },
     {
       index: 5,
