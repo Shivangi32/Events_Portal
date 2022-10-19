@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
+
+.contact-us {
+    font-family: 'Play', sans-serif;
+    color: white;
+    align-content: center;
+    text-align: center;
+    margin-top: 6vh;
+}
+
+.contact-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+}
+
+.contact-item {
+    padding: 1vw 3vw;
+    background-color: transparent;
+    color: white;
+    font-size: 10vh;
+}
+
+.contact-item a{
+    background: transparent;
+    color: white;
+}
+
+.contact-item:hover {
+    transform: scale(1.2);
+}
+
