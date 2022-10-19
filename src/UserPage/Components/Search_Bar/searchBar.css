@@ -14,13 +14,15 @@
   object-fit: contain;
   margin-left: 62px;
   padding: 4px 8px;
-  color:white;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  width: 50vh;
 }
 ::placeholder{
-  color:white;
+  color:black;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
-
 }
 
 .searchIcon {
@@ -28,7 +30,7 @@
 padding-right: 8px;
   border-radius: 0vw 0.5vw 0.5vw 0vw;
   background: rgba(255, 255, 255, 0.5);
-  color: white;
+  color: black;
   display: grid;
   place-items: center;
 }
@@ -95,7 +97,9 @@ a:hover {
     padding:5px 13px;
     margin: 0 10px;
     border-radius: 5px;
-    color:white;
+    /* color:white; */
+    color: black;
+    font-weight: bolder;
     
 }
 option{

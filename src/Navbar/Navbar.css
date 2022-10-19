@@ -71,16 +71,24 @@ span{
   font-size: 0.9rem;
 
 }
+
+.login:hover {
+  transform: scale(1.1)
+}
+
+.register:hover {
+  transform: scale(1.1)
+}
+
 .register{
   font-family: 'Play', sans-serif;
   background: #9747FF;
   color: white;
-font-size: 0.9rem;
+  font-size: 0.9rem;
   padding: 5px 30px;
   border-radius: 5px;
-
-
 }
+
 #profilePic {
   height: 3vw;
   width: 3vw;

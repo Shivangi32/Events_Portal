@@ -102,9 +102,9 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
             </div>
             <div>
                 <ul id="LoginNavbar">
-                    <Link to="/"><li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}>HOME</li></Link>
-                    <Link to="/About"><li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}>ABOUT</li></Link>
-                    <Link to="/FAQs"><li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}>FAQs</li></Link>
+                <li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}><Link to="/" style={{background: "transparent"}}>HOME</Link></li>
+                <li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
+                <li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
                 </ul>
             </div>
             <div id="Newacc">

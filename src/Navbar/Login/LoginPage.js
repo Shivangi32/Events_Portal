@@ -93,12 +93,12 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             
             <div>
                 <ul id="LoginNavbar">
-                    <Link to="/"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>HOME</li></Link>
-                    <Link to="/About"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>ABOUT</li></Link>
-                    <Link to="/FAQs"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>FAQs</li></Link>
+                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/" style={{background: "transparent"}}>HOME</Link></li>
+                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
+                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
                 </ul>
             </div>
-            
+
             <div id="Newacc">
                 WANT TO MAKE A NEW ACCOUNT?
                 <div></div><button id="regbtn"onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>REGISTER</button>
@@ -126,7 +126,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                         </div>
                         <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
-                        <div id="forgot">Don't remember your password? Forgot password</div>
+                        <div id="forgot">Don't remember your password? <a href='/' style={{color: "#9747FF"}}>Forgot Password</a></div>
                     </form>
 
                 </div>
