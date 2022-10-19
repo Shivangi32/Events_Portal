@@ -73,12 +73,12 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
             return;
         }
         if (email.includes("cbigdtuw.in") == false) {
-            alert("Invalid Credentials!!");
+            alert("Invalid Credentials!");
             return;
         }
 
         if (password != confirmpassword) {
-            alert("Password mismatch!!");
+            alert("Password mismatch!");
             return;
         }
 
@@ -94,7 +94,7 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                 authProvider: "cbigdtuw",
                 email: user.email,
             });
-            alert("registered successfully!!");
+            alert("Registered successfully!");
         }
         else {
             alert("Already registered");
@@ -146,9 +146,9 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                             <input type={confirmPasswordType} placeholder='Confirm Password' value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }} required></input>
 
                             <div className="input-group-btn">
-                                <button onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
+                                <a onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
                                     {confirmPasswordType === "password" ? <AiFillEyeInvisible /> : <AiFillEye />}
-                                </button>
+                                </a>
                             </div>
                         </div>
                             <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>

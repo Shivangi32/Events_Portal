@@ -14,7 +14,6 @@ import logo from './logo.png'
 
 export default function Navbar({ user, email, showNav }) {
 
-
     const [isLoggedin, setIsLoggedin] = useState((user === "undefined" || user===null) ? false : true);
     const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
 
@@ -73,21 +72,22 @@ export default function Navbar({ user, email, showNav }) {
                 ) : (
                     <>
                         <button onClick={logOut}>
-                            <Link to="/">Log Out</Link></button>
-                        {
+                            <Link to="/">Log Out</Link>
+                        </button>
+                        {   
                             (localStorage.getItem("profilePic") == "null") ?
-                                <span >   <AiOutlineUser /></span>
+                                <span ><AiOutlineUser /></span>
                                 :
                                 <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
-
                         }
-
-
+                        
+                        
                     </>
                 )}
 
             </div>);
     }
+
     return (
 
         <div>
@@ -111,17 +111,20 @@ export default function Navbar({ user, email, showNav }) {
 
                         </>
                     ) : (
-                        <>
+                        <div className='nav-logout'>
                             <button className="login" onClick={logOut}>
-                                <Link to="/" style={{background: "transparent"}}>LOG OUT</Link></button>
+                                <Link to="/" style={{background: "transparent"}}>LOG OUT</Link>
+                            </button>
+
+                            {/* <h6>{socName.toUpperCase()}</h6> */}
                             {
                                 (localStorage.getItem("profilePic") == "null") ?
-                                    <span >   <AiOutlineUser /></span>
+                                    <span>   <AiOutlineUser /></span>
                                     :
                                     <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
 
                             }
-                        </>
+                        </div>
                     )}
                 </div>
 

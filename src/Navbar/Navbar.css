@@ -103,3 +103,25 @@ span{
 .navbar-nav{
   margin-top: 1vw;
 }
+
+.nav-logout {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Play', sans-serif;
+}
+
+.nav-logout h6 {
+  margin: auto;
+  text-align: center;
+  padding: 0.5vw;
+  font-size: 20px;
+}
+
+.nav-logout span {
+  margin: auto;
+  justify-content: center;
+  padding: 0.5vw;
+  font-size: 3vh;
+}

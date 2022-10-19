@@ -139,9 +139,9 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                             <input type={passwordType} placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
 
                             <div className="input-group-btn">
-                                <button onClick={togglePassword} style={{background: "transparent", border: "none"}}>
+                                <a onClick={togglePassword} style={{background: "transparent", border: "none"}}>
                                 { passwordType==="password"? <AiFillEyeInvisible /> : <AiFillEye /> }
-                            </button>
+                            </a>
                             </div>
 
                         </div>
