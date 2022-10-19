@@ -17,11 +17,25 @@ import {
     where,
 } from "firebase/firestore";
 
+import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai"
+import { border } from '@mui/system';
+
 export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLoggedinVal, setisSocLogin }) {
 
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const [passwordType, setPasswordType] = useState("password")
+
+    const togglePassword = () => {
+        if(passwordType === "password") {
+            setPasswordType("text");
+        } else {
+            setPasswordType("password");
+        }
+    }
+
     const [name, setName] = useState("");
 
     const setItems = (name, email, profilePic) => {
@@ -122,7 +136,14 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                         </div>
                         <div className="textbox">
                             <FaLock />
-                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
+                            <input type={passwordType} placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
+
+                            <div className="input-group-btn">
+                                <button onClick={togglePassword} style={{background: "transparent", border: "none"}}>
+                                { passwordType==="password"? <AiFillEyeInvisible /> : <AiFillEye /> }
+                            </button>
+                            </div>
+
                         </div>
                         <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>

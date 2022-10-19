@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./register.css";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { app, auth, provider } from "../../firebaseConfig";
-import { FaUserAlt,FaLock } from "react-icons/fa";
+import { FaUserAlt, FaLock } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import earth from "../../Mask\ group.png"
@@ -17,11 +17,23 @@ import {
     addDoc,
 } from "firebase/firestore";
 
-export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIsLoggedinVal }) {
+import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai"
+
+export default function Register({ setLoginModalFunc, setRegisterModalFunc, setIsLoggedinVal }) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+
+    const [confirmPasswordType, setConfirmPasswordType] = useState("password")
+
+    const togglePassword = () => {
+        if (confirmPasswordType === "password") {
+            setConfirmPasswordType("text");
+        } else {
+            setConfirmPasswordType("password");
+        }
+    }
+
     const [confirmpassword, setConfirmPassword] = useState("");
     const [name, setName] = useState("");
 
@@ -65,14 +77,13 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
             return;
         }
 
-        if(password != confirmpassword)
-        {
+        if (password != confirmpassword) {
             alert("Password mismatch!!");
             return;
         }
 
         event.preventDefault();
-    
+
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
         const q = query(collection(db, "SocietyMembers"), where("uid", "==", user.uid));
@@ -85,8 +96,7 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
             });
             alert("registered successfully!!");
         }
-        else
-        {
+        else {
             alert("Already registered");
         }
         setRegisterModalFunc(false);
@@ -98,19 +108,19 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
         <div id="simpleModal" className="Modal">
             <img className="logo" src={logo} />
             <div id="earthdiv" >
-            <img src={earth} id="earth"></img>
+                <img src={earth} id="earth"></img>
             </div>
             <div>
                 <ul id="LoginNavbar">
-                <li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}><Link to="/" style={{background: "transparent"}}>HOME</Link></li>
-                <li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
-                <li class="loginnav-item" onClick={()=>{setRegisterModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
+                    <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
+                    <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>
+                    <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/FAQs" style={{ background: "transparent" }}>FAQs</Link></li>
                 </ul>
             </div>
             <div id="Newacc">
                 ALREADY HAVE AN ACCOUNT?
                 <div></div>
-                <button id="regbtn"onClick={() => { setRegisterModalFunc(false); setLoginModalFunc(true) }}>LOGIN</button>
+                <button id="regbtn" onClick={() => { setRegisterModalFunc(false); setLoginModalFunc(true) }}>LOGIN</button>
             </div>
             <div className='modal-content' id="modalContent">
                 <div className='modal-header' id="ModalHeader">
@@ -119,7 +129,7 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
                 </div>
                 <div className="modal-body" id="ModalBody">
                     <form id="LRform" action="">
-                    <   div className="textbox" >
+                        <   div className="textbox" >
                             <FaUserAlt />
                             <input placeholder="Name" type="text" value={name} onChange={(e) => { setName(e.target.value) }} required></input>
                         </div>
@@ -133,10 +143,16 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
                         </div>
                         <div className="textbox">
                             <FaLock />
-                            <input type="password" placeholder='Confirm Password' value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }} required></input>
+                            <input type={confirmPasswordType} placeholder='Confirm Password' value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }} required></input>
+
+                            <div className="input-group-btn">
+                                <button onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
+                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible /> : <AiFillEye />}
+                                </button>
+                            </div>
                         </div>
-                        <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
-                        <button id="submitbtn" onClick={createUser}>REGISTER</button>
+                            <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
+                            <button id="submitbtn" onClick={createUser}>REGISTER</button>
                     </form>
 
                 </div>
