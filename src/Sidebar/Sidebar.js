@@ -6,7 +6,8 @@ import "./Sidebar.css"
 export default function Sidebar() {
 
     const email = localStorage.getItem("email");
-    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
+    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in") && email !== "admin@cbigdtuw.in") ? true : false);
+    const [AdminLogin, setAdminLogin] = useState((email != null && email == "admin@cbigdtuw.in") ? true : false)
 
     return (
         <nav className="usernav">
@@ -23,9 +24,9 @@ export default function Sidebar() {
 
                 <li className='usernav-item'>
                     <NavLink to="/About" style={({ isActive }) => ({
-                         background: isActive ? '#9747FF' : 'transparent',
-                         padding: "6px 12px",
-                         borderRadius: "5px"
+                        background: isActive ? '#9747FF' : 'transparent',
+                        padding: "6px 12px",
+                        borderRadius: "5px"
                     })}>
                         ABOUT
                     </NavLink>
@@ -35,18 +36,28 @@ export default function Sidebar() {
                 {SocLogin ? (
                     <li className='usernav-item'>
                         <NavLink to="/Society" style={({ isActive }) => ({
-                             background: isActive ? '#9747FF' : 'transparent',
-                             padding: "6px 12px",
-                             borderRadius: "5px"
+                            background: isActive ? '#9747FF' : 'transparent',
+                            padding: "6px 12px",
+                            borderRadius: "5px"
                         })}>SOCIETY</NavLink>
+                    </li>
+                ) : (<></>)}
+
+                {AdminLogin ? (
+                    <li className='usernav-item'>
+                        <NavLink to="/Admin" style={({ isActive }) => ({
+                            background: isActive ? '#9747FF' : 'transparent',
+                            padding: "6px 12px",
+                            borderRadius: "5px"
+                        })}>ADMIN</NavLink>
                     </li>
                 ) : (<></>)}
 
                 <li className='usernav-item'>
                     <NavLink to="/FAQs" style={({ isActive }) => ({
-                         background: isActive ? '#9747FF' : 'transparent',
-                         padding: "6px 12px",
-                         borderRadius: "5px"
+                        background: isActive ? '#9747FF' : 'transparent',
+                        padding: "6px 12px",
+                        borderRadius: "5px"
                     })}>
                         FAQs
                     </NavLink>

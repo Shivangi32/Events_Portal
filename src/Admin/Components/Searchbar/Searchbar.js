@@ -2,7 +2,7 @@ import React from "react";
 import './Searchbar.css'
 import SearchIcon from '@mui/icons-material/Search';
 
-function Searchbar(){
+function SearchBar(){
     return(
         <div className="admin-search">
             <div className="search">
@@ -16,4 +16,4 @@ function Searchbar(){
     );
 }
 
-export default Searchbar;
+export default SearchBar;
