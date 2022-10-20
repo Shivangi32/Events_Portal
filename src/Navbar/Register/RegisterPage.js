@@ -94,7 +94,6 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                 authProvider: "cbigdtuw",
                 email: user.email,
             });
-            console.log(user.email.split("@")[0])
             await addDoc(collection(db, "Societies"), {
                 soc:user.email.split("@")[0]
             });

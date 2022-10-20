@@ -85,12 +85,10 @@ function SearchBar() {
     if (Tag == "None" || Tag == "Event") {
 
       const newFilter = events.filter((value) => {
-        console.log("value " + value);
         return value.toLowerCase().includes(searchWord.toLowerCase())
       });
 
       const tempfilter = InitialEvents.filter((e) => {
-        console.log(e);
         return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
       })
 
@@ -102,12 +100,10 @@ function SearchBar() {
     else if (Tag == "Society") {
 
       const newFilter = allsoc.filter((value) => {
-        console.log("value " + value);
         return value.toLowerCase().includes(searchWord.toLowerCase())
       });
 
       const tempfilter = InitialEvents.filter((e) => {
-        console.log(e);
         return e.soc.toLowerCase().includes(searchWord.toLowerCase())
       })
 

@@ -1,15 +1,27 @@
 import React from "react";
 import Modal from "react-modal";
-
-import {MdClose} from "react-icons/md"
+import { db } from "../../firebaseConfig";
+import { MdClose } from "react-icons/md"
 import { useState, useEffect } from "react";
+import {
+  query,
+  getDocs,
+  collection,
+  where, deleteDoc,updateDoc,
+  addDoc,
+  setDoc, doc
+} from "firebase/firestore";
 
 export const EditEvent = (props) => {
-  let [EventLink, setEventLink] = useState();
-  let [societyName, setSocietyName] = useState();
-  let [eventName, setEventName] = useState();
+
+  const values = localStorage.getItem("email").split("@");
+  const curr_soc = values[0];
+  const soc_Name = curr_soc.toLowerCase();
+  let [EventLink, setEventLink] = useState(props.info.link);
+  let [societyName, setSocietyName] = useState(props.info.soc);
+  let [eventName, setEventName] = useState(props.info.EventName);
   let [date, setDate] = useState();
-  let [time, setTime] = useState();
+  let [time, setTime] = useState(props.info.time);
 
 
   function editmodalIsOpen() {
@@ -19,9 +31,45 @@ export const EditEvent = (props) => {
     props.openmodalFunc(false);
   }
 
-  console.log(props.info)
+  const handleSubmit = async (e) => {
 
-  
+    e.preventDefault();
+    if (societyName === undefined || eventName === undefined || date === undefined || time === undefined || EventLink === undefined
+      || societyName === "" || eventName === "" || date === "" || time === "" || EventLink === "") { return; }
+
+    /*Check Date*/
+    const todaydate = new Date();
+    let currentyear = todaydate.getFullYear();
+    let datevalues = date.split("-");
+    if (datevalues[0] < currentyear || datevalues[0] > currentyear + 1) {
+      alert("Wrong Date");
+      return;
+    }
+
+    const temp = societyName.toLowerCase();
+    if (soc_Name !== temp) {
+      alert("You can add events only of your society!!");
+      closeeditModal();
+      return;
+    }
+    setSocietyName(temp);
+
+    let info = {
+      soc: societyName,
+      key: props.info.cnt,
+      EventName: eventName,
+      date: date,
+      link: EventLink,
+      approved: "false",
+      time: time,
+    };
+
+    const docref = doc(db, `Events/soc_events/${soc_Name}`, props.info.id);
+    closeeditModal();
+    await updateDoc(docref, info)
+    window.location.reload();
+  }
+
   return (
     <div className="modal-container">
       <Modal
@@ -32,7 +80,9 @@ export const EditEvent = (props) => {
       >
         <div className="modal-header">
           <h2>EDIT EVENT</h2>
-          <MdClose  onClick={closeeditModal}/>
+          <div className="modal-close">
+            <MdClose onClick={closeeditModal} />
+          </div>
         </div>
         <div className="line"></div>
         <div className="modal-body">
@@ -46,7 +96,7 @@ export const EditEvent = (props) => {
                   type="text"
                   id="EventName"
                   placeholder="Add Society Name"
-                  value={props.info.soc}
+                  value={societyName}
                   onChange={(e) => setSocietyName(e.target.value)}
                   required
                 ></input>
@@ -58,7 +108,7 @@ export const EditEvent = (props) => {
                 <input
                   type="text"
                   id="EventName"
-                  value={props.info.EventName}
+                  value={eventName}
                   onChange={(e) => setEventName(e.target.value)}
                   placeholder="Add Event Name"
                   required
@@ -72,7 +122,7 @@ export const EditEvent = (props) => {
                   type="text"
                   id="EventLink"
                   placeholder="Add Event Link"
-                  value={props.info.link}
+                  value={EventLink}
                   onChange={(e) => setEventLink(e.target.value)}
                   required
                 ></input>
@@ -87,33 +137,33 @@ export const EditEvent = (props) => {
                   <input
                     type="date"
                     id="date"
-                  onChange={(e) => setDate(e.target.value)}
-                  placeholder="DD/MM/YY"
-                  required
+                    onChange={(e) => setDate(e.target.value)}
+                    placeholder="DD/MM/YY"
+                    required
                   ></input>
+                </div>
+              </div>
+              <div className="field-colums">
+                <div>
+                  <label htmlFor="time">Time</label>
+                </div>
+                <div className="small-ip">
+                  <input
+                    type="time"
+                    id="time"
+                    placeholder="Add Event Time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    required
+                  ></input>
+                </div>
               </div>
             </div>
-            <div className="field-colums">
-              <div>
-                <label htmlFor="time">Time</label>
-              </div>
-              <div className="small-ip">
-                <input
-                  type="time"
-                  id="time"
-                  placeholder="Add Event Time"
-                  value={props.info.time}
-                  onChange={(e) => setTime(e.target.value)}
-                  required
-                ></input>
-              </div>
+            <div className="modal-btn">
+              <button onClick={handleSubmit}>Save</button>
             </div>
+          </form>
         </div>
-        <div className="modal-btn">
-          <button onClick={handleSubmit}>Save</button>
-        </div>
-      </form>
-    </div>
       </Modal >
     </div >
   );

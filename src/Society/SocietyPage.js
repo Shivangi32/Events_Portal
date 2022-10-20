@@ -87,7 +87,6 @@ function SocietyPage({ email, setShowNavFunc }) {
     const todaydate = new Date();
     let currentyear = todaydate.getFullYear();
     let datevalues = date.split("-");
-    console.log(datevalues[0]);
     if (datevalues[0] < currentyear || datevalues[0] > currentyear + 1) {
       alert("Wrong Date");
       return;
@@ -127,7 +126,7 @@ function SocietyPage({ email, setShowNavFunc }) {
   /*adds cards to site*/
   cards.forEach((c) => {
     const temp = c.soc.toUpperCase();
-    let ca = <Card openModal={openModal} soc={temp} EventName={c.EventName} date={c.date} time={c.time} link={c.link} approved={c.approved} id={c.id} />;
+    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} link={c.link} approved={c.approved} id={c.id} cnt={c.key} />;
     eCards.push(ca);
   });
 
@@ -247,16 +246,11 @@ function SocietyPage({ email, setShowNavFunc }) {
 
 export const deleteEvent = async (e) => {
   const socName = e.soc.toLowerCase();
-  console.log(e);
   const docref = doc(db, `Events/soc_events/${socName}`, e.id);
-  console.log(docref);
   deleteDoc(docref);
   window.location.reload();
 
 }
 
-export const editEvent = async (e) => {
-
-}
 
 export default SocietyPage;

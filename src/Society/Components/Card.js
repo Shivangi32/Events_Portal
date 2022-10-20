@@ -10,7 +10,7 @@ function Card(props) {
   let info = {
     id: props.id,
     soc: props.soc,
-    key: props.key,
+    cnt: props.cnt,
     EventName: props.EventName,
     date: props.date,
     time: props.time,
