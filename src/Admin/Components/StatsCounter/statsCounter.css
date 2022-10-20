@@ -4,24 +4,45 @@
     height: auto;
     align-items: center;
     justify-content: center;
-    margin-left: 21vw;
-    margin-top: 10vh;
+    margin-left: 5vw;
+    margin-top: 3vh;
     border: 8px solid transparent;
-    border-image: url('/src/Society/images/event_CardBackground.jpeg') 20% round;
-    border-radius: 10px;
 }
 
 .column {
     color: white;
     display: block;
     margin-top: 40px;
-    margin-bottom: 40px;
-    margin-right: 150px;
     margin-left: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 25px;
+
+    width: 305px;
+    height: 100px;
+
+    background: #212121;
+    box-shadow: 4px 4px 10px rgba(24, 24, 40, 0.5);
+    border-radius: 10px;
 }
 
 .column h4 {
-    font-size: 50px;
+    align-items: center;
+    padding: 10px 15px;
+
+    width: 60px;
+    height: 45px;
+
+    background: #9747FF;
+    border-radius: 5px;
+}
+
+.column h6 {
+    text-transform: uppercase;
+    width: max-content;
 }
 
 .stats-bar {
