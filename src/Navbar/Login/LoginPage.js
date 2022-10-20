@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./login.css";
-import { signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, signOut, sendPasswordResetEmail  } from "firebase/auth";
 import { app, auth, provider } from "../../firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -83,24 +83,36 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
         }
     };
 
+    const triggerResetEmail = async () => {
+
+        if(email===null || email==="undefined" || email=="")
+        {
+            alert("Enter email first !!");
+            return;
+        }
+        await sendPasswordResetEmail(auth, email);
+        console.log("Password reset email sent")
+    }
+
+
     return (
 
         <div id="simpleModal" className="Modal" >
             <img className="logo" src={logo} />
             <div id="earthdiv" >
-            <img src={earth} id="earth"></img>
+                <img src={earth} id="earth"></img>
             </div>
-            
+
             <div>
                 <ul id="LoginNavbar">
-                    <Link to="/"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>HOME</li></Link>
-                    <Link to="/About"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>ABOUT</li></Link>
-                    <Link to="/FAQs"><li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}>FAQs</li></Link>
+                    <Link to="/"><li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}>HOME</li></Link>
+                    <Link to="/About"><li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}>ABOUT</li></Link>
+                    <Link to="/FAQs"><li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}>FAQs</li></Link>
                 </ul>
             </div>
             <div id="Newacc">
                 WANT TO MAKE A NEW ACCOUNT?
-                <div></div><button id="regbtn"onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>REGISTER</button>
+                <div></div><button id="regbtn" onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>REGISTER</button>
             </div>
 
             <div className='modal-content' id="modalContent">
@@ -111,7 +123,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
 
                 <div className="modal-body" id="ModalBody">
                     <form id="LRform" action="">
-                    <div className="textbox" >
+                        <div className="textbox" >
                             <FaUserAlt />
                             <input placeholder="Name" type="text" value={name} onChange={(e) => { setName(e.target.value) }} required></input>
                         </div>
@@ -125,7 +137,9 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                         </div>
                         <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
-                        <div id="forgot">Don't remember your password? Forgot password</div>
+                        <div id="forgot">Don't remember your password?
+                            <button className="resetBtn" type="button" onClick={triggerResetEmail}>Forgot password</button>
+                        </div>
                     </form>
 
                 </div>

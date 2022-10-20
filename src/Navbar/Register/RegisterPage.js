@@ -83,6 +83,9 @@ export default function Register({ setLoginModalFunc,setRegisterModalFunc, setIs
                 authProvider: "cbigdtuw",
                 email: user.email,
             });
+            await addDoc(collection(db, "Societies"), {
+                soc:user.email.split("@")[0]
+            });
             alert("registered successfully!!");
         }
         else
