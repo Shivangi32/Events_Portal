@@ -14,12 +14,12 @@ export default function Card() {
                             <div className='faq-card-inner'>
                                 <div className="faq_content">
                                     <div className="detail">
-                                        <p>{item.ques}</p>
+                                        <p className='ques-para'>{item.ques}</p>
                                     </div>
                                 </div>
                                 <div className='flip'>
                                     <div className="detail">
-                                        <p>{item.ans}</p>
+                                        <p className='ans-para'>{item.ans}</p>
                                     </div>
                                 </div>
                             </div>

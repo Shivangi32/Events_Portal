@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
 
 .team_about {
-   margin: 60px 0;
+   margin: 7vh 0;
    display: flex;
    justify-content: center;
    flex-direction: column;
@@ -12,7 +12,7 @@
 
    width: 132px;
    height: 55px;
-   font-family: 'Equinox';
+   font-family: 'Play', sans-serif;
    font-style: normal;
    font-weight: 400;
    font-size: 48px;
@@ -90,12 +90,12 @@
    /* width: 66px;
    height: 28px; */
    /* left: 142px; */
-   top: 20px;
+   top: 45px;
    text-align: center;
    letter-spacing: -0.01em;
-   font-family: 'Equinox';
+   font-family: 'Montserrat';
    font-style: normal;
-   font-weight: 400;
+   font-weight: bolder;
    font-size: 24px;
    line-height: 20px;  
    color: #FFFFFF;
@@ -106,62 +106,33 @@
    /* width: 89px;
    height: 17px; */
    left: 5px;
-   top: 20px;
+   top: 47px;
    /* margin-top: 10px; */
 
-   font-family: 'Equinox';
+   font-family: 'Montserrat';
    font-style: normal;
-   font-weight: 400;
    font-size: 15px;
-   line-height: 17px;
+   /* line-height: 1.5rem; */
    text-align: center;
    letter-spacing: -0.02em;
+   font-weight: bolder;
 
-   color: #9747FF;
+   color: black;
 }
 
-.detail p {
+.detail-para {
    position: relative;
-   /* width: 298px; */
-   /* height: 172px; */
-   /* left: 26px; */
    top: 50px;
 
    font-family: 'Montserrat';
    font-style: normal;
    font-weight: 400;
    font-size: 14px;
-   line-height: 86%;
+   line-height: 1rem;
    /* or 13px */
 
    text-align: center;
    color: #FFFFFF;
-}
-
-.social {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   /* align-items: center; */
-   padding: 0px;
-   gap: 0px;
-   height: 2px;
-   background-color: none;
-   text-decoration: none;
-   /* overflow: hidden; */
-
-   position: absolute;
-   /* width: 218px;
-   height: 26px; */
-   left: 0px;
-   /* top: 319px; */
-} 
-
-.social img {
-   /* width: 80px; */
-   color: #9747FF;
-   size: 5px;
-   /* background-color: #9747FF; */
 }
 
 .flip {

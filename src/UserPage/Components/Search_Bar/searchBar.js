@@ -169,7 +169,7 @@ function SearchBar() {
           </div>
           <div>
             <select name="options" id="options" onChange={setTagfunc}>
-              <option value="None">ALL Events</option>
+              <option value="None">All Events</option>
               <option value="Society">Society</option>
               <option value="Date">Date</option>
             </select>

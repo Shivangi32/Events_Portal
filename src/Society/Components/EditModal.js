@@ -1,42 +1,38 @@
 import React from "react";
 import Modal from "react-modal";
-import { useState, useEffect } from "react";
-import "../App.css";
 
-const Edit = (props) => {
-  const [editmodalIsOpen, setIsOpen] = useState(false);
+import {MdClose} from "react-icons/md"
+import { useState, useEffect } from "react";
+
+export const EditEvent = (props) => {
   let [EventLink, setEventLink] = useState();
   let [societyName, setSocietyName] = useState();
   let [eventName, setEventName] = useState();
   let [date, setDate] = useState();
   let [time, setTime] = useState();
 
-  function openeditModal() {
-    setIsOpen(true);
-  }
 
-  function afterOpeneditModal() {
-    //subtitle.style.color = "#f00";
+  function editmodalIsOpen() {
+    props.openmodalFunc(true);
   }
-
   function closeeditModal() {
-    setIsOpen(false);
+    props.openmodalFunc(false);
   }
 
+  console.log(props.info)
+
+  
   return (
     <div className="modal-container">
       <Modal
-        isOpen={editmodalIsOpen}
-        onAfterOpen={afterOpeneditModal}
+        isOpen={true}
         onRequestClose={closeeditModal}
         contentLabel="Modal"
         className="Modal"
       >
         <div className="modal-header">
-          <h2>ADD EVENT</h2>
-          <div className="material-icons" onClick={closeeditModal}>
-            cancel
-          </div>
+          <h2>EDIT EVENT</h2>
+          <MdClose  onClick={closeeditModal}/>
         </div>
         <div className="line"></div>
         <div className="modal-body">
@@ -50,6 +46,8 @@ const Edit = (props) => {
                   type="text"
                   id="EventName"
                   placeholder="Add Society Name"
+                  value={props.info.soc}
+                  onChange={(e) => setSocietyName(e.target.value)}
                   required
                 ></input>
               </div>
@@ -60,6 +58,8 @@ const Edit = (props) => {
                 <input
                   type="text"
                   id="EventName"
+                  value={props.info.EventName}
+                  onChange={(e) => setEventName(e.target.value)}
                   placeholder="Add Event Name"
                   required
                 ></input>
@@ -72,6 +72,8 @@ const Edit = (props) => {
                   type="text"
                   id="EventLink"
                   placeholder="Add Event Link"
+                  value={props.info.link}
+                  onChange={(e) => setEventLink(e.target.value)}
                   required
                 ></input>
               </div>
@@ -85,32 +87,34 @@ const Edit = (props) => {
                   <input
                     type="date"
                     id="date"
-                    placeholder="DD/MM/YY"
-                    required
+                  onChange={(e) => setDate(e.target.value)}
+                  placeholder="DD/MM/YY"
+                  required
                   ></input>
-                </div>
-              </div>
-              <div className="field-colums">
-                <div>
-                  <label htmlFor="time">Time</label>
-                </div>
-                <div className="small-ip">
-                  <input
-                    type="time"
-                    id="time"
-                    placeholder="Add Event Time"
-                    onChange={(e) => setTime(e.target.value)}
-                    required
-                  ></input>
-                </div>
               </div>
             </div>
-            <div className="modal-btn">
-              <button /*onClick={handleSubmit}*/>Save</button>
+            <div className="field-colums">
+              <div>
+                <label htmlFor="time">Time</label>
+              </div>
+              <div className="small-ip">
+                <input
+                  type="time"
+                  id="time"
+                  placeholder="Add Event Time"
+                  value={props.info.time}
+                  onChange={(e) => setTime(e.target.value)}
+                  required
+                ></input>
+              </div>
             </div>
-          </form>
         </div>
-      </Modal>
+        <div className="modal-btn">
+          <button onClick={handleSubmit}>Save</button>
+        </div>
+      </form>
     </div>
+      </Modal >
+    </div >
   );
 };

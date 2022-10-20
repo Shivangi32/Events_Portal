@@ -17,11 +17,25 @@ import {
     where,
 } from "firebase/firestore";
 
+import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai"
+import { border } from '@mui/system';
+
 export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLoggedinVal, setisSocLogin }) {
 
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const [passwordType, setPasswordType] = useState("password")
+
+    const togglePassword = () => {
+        if(passwordType === "password") {
+            setPasswordType("text");
+        } else {
+            setPasswordType("password");
+        }
+    }
+
     const [name, setName] = useState("");
 
     const setItems = (name, email, profilePic) => {
@@ -105,11 +119,12 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
 
             <div>
                 <ul id="LoginNavbar">
-                    <Link to="/"><li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}>HOME</li></Link>
-                    <Link to="/About"><li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}>ABOUT</li></Link>
-                    <Link to="/FAQs"><li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}>FAQs</li></Link>
+                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/" style={{background: "transparent"}}>HOME</Link></li>
+                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
+                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
                 </ul>
             </div>
+
             <div id="Newacc">
                 WANT TO MAKE A NEW ACCOUNT?
                 <div></div><button id="regbtn" onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>REGISTER</button>
@@ -133,13 +148,18 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                         </div>
                         <div className="textbox">
                             <FaLock />
-                            <input type="password" placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
+                            <input type={passwordType} placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
+
+                            <div className="input-group-btn">
+                                <a onClick={togglePassword} style={{background: "transparent", border: "none"}}>
+                                { passwordType==="password"? <AiFillEyeInvisible /> : <AiFillEye /> }
+                            </a>
+                            </div>
+
                         </div>
                         <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
-                        <div id="forgot">Don't remember your password?
-                            <button className="resetBtn" type="button" onClick={triggerResetEmail}>Forgot password</button>
-                        </div>
+                        <div id="forgot">Don't remember your password? <a href='/' style={{color: "#9747FF"}}>Forgot Password</a></div>
                     </form>
 
                 </div>

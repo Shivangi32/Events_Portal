@@ -21,7 +21,7 @@ export default function Member() {
                                     <div className="detail">
                                         <h4>{item.name}</h4>
                                         <h5>{item.position}</h5>
-                                        <p>{item.description}</p>
+                                        <p className='detail-para'>{item.description}</p>
                                     </div>
                                 </div>
                             </div>

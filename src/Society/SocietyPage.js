@@ -18,10 +18,8 @@ import {
 
 
 Modal.setAppElement("#root");
-var curr_soc = "";
 
 function SocietyPage({ email, setShowNavFunc }) {
-
 
   setShowNavFunc(true);
 
@@ -34,14 +32,12 @@ function SocietyPage({ email, setShowNavFunc }) {
   let [time, setTime] = useState();
   let eCards = [];
 
+  const values = localStorage.getItem("email").split("@");
+  const curr_soc = values[0];
+  const soc_Name = curr_soc.toLowerCase();
 
   function openModal() {
     setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-
-    //subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -50,20 +46,16 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   const onwindowLoad = async () => {
 
-
-    console.log("window loaded");
-    const values = localStorage.getItem("email").split("@");
-    const temp = values[0];
-    curr_soc = temp;
+    var found=false
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
 
-      const socName = socData.data().soc;
-      if (temp !== socName) {
+      const socName = socData.data().soc.toLowerCase();
+      if (soc_Name !== socName || found==true) {   //soc_Name = curr society socName = society name during loop
         return;
-
       }
+      found=true;
       const q = query(collection(db, `Events/soc_events/${socName}`));
 
       const curr_soc = await getDocs(q);
@@ -77,6 +69,7 @@ function SocietyPage({ email, setShowNavFunc }) {
           EventName: data.EventName,
           date: data.date,
           time: data.time,
+          link : data.link,
           approved: data.approved
         };
         setCards(current => [...current, info]);
@@ -102,10 +95,8 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     /*check Society*/
 
-    const values = localStorage.getItem("email").split("@");
-    const curr_soc = values[0];
     const temp = societyName.toLowerCase();
-    if (curr_soc !== temp) {
+    if (soc_Name !== temp) {
       alert("You can add events only of your society!!");
       closeModal();
       return;
@@ -117,6 +108,7 @@ function SocietyPage({ email, setShowNavFunc }) {
       key: cards.length,
       EventName: eventName,
       date: date,
+      link: EventLink,
       approved: "false",
       time: time,
     };
@@ -135,7 +127,7 @@ function SocietyPage({ email, setShowNavFunc }) {
   /*adds cards to site*/
   cards.forEach((c) => {
     const temp = c.soc.toUpperCase();
-    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} approved={c.approved} id={c.id} />;
+    let ca = <Card openModal={openModal} soc={temp} EventName={c.EventName} date={c.date} time={c.time} link={c.link} approved={c.approved} id={c.id} />;
     eCards.push(ca);
   });
 
@@ -144,7 +136,7 @@ function SocietyPage({ email, setShowNavFunc }) {
 
     <div className="societyPage ">
       <div className="societyName">
-        {curr_soc.toUpperCase()}
+        {soc_Name.toUpperCase()}
       </div>
       <div className="society-container">
       <div className="society-sub-heading">
@@ -157,7 +149,6 @@ function SocietyPage({ email, setShowNavFunc }) {
         <div className="modal-container">
           <Modal
             isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             contentLabel="Modal"
             className="Modal"
@@ -180,6 +171,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                       type="text"
                       id="EventName"
                       placeholder="Add Society Name"
+                      value={societyName}
                       onChange={(e) => setSocietyName(e.target.value)}
                       required
                     ></input>
@@ -191,6 +183,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     <input
                       type="text"
                       id="EventName"
+                      value={eventName}
                       placeholder="Add Event Name"
                       onChange={(e) => setEventName(e.target.value)}
                       required
@@ -262,29 +255,8 @@ export const deleteEvent = async (e) => {
 
 }
 
-export const updateEvent = async (e) => {
+export const editEvent = async (e) => {
 
 }
-/*
-//DELETE FUNCTION
-export function deleteEvent(event) {
- ref
-   .doc(event.key)
-   .delete()
-   .catch((err) => {
-     console.error(err);
-   });
-}
 
-// EDIT FUNCTION
-export function editEvent(updatedEvent) {
- setLoading();
- ref
-   .doc(updatedEvent.key)
-   .update(updatedEvent)
-   .catch((err) => {
-     console.error(err);
-   });
-}
-*/
 export default SocietyPage;

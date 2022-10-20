@@ -20,7 +20,15 @@
 }
 
 .loginnav-item {
-    padding: 1vw;
+    padding: 0.5vw 2vw;
+    background: transparent;
+    display: list-item;
+    margin: 0 1.5vw;
+    border-radius: 5px;
+}
+
+.loginnav-item:hover {
+    background: #9747FF;
 }
 
 #LoginNavbar {
@@ -32,6 +40,7 @@
     margin-bottom: 0;
     text-align: center;
     display: flex;
+    justify-content: center;
 }
 
 #earthdiv {
@@ -166,11 +175,26 @@ input ::placeholder {
 }
 
 #regbtn {
-
     background-color: #9747FF;
     border-radius: 0.5vw;
     color: white;
     margin: 2vw 0vw;
     padding: 0.5vw 1.8vw;
     font-size: 1.5vw;
+}
+
+#submitbtn:hover {
+    background-color: #9747FF;
+    border-radius: 0.5vw;
+    color: white;
+}
+
+#forgot a {
+    margin: 0;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+#forgot a:hover {
+    color: #9747FF;
 }
