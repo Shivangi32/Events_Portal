@@ -1,9 +1,10 @@
 import React from 'react';
-import SideBar from "./Components/SideBar"
 import Name from "./Components/Name/Name"
+import Title from "./Components/Title/Title"
+import ReviewPosts from "./Components/ReviewPosts/Posts"
 import StatsCard from "./Components/Stats/StatsCard"
 import Searchbar from './Components/Searchbar/Searchbar';
-// import 'C:/Users/DELL/Documents/Events_Portal/src/App.css'
+// import './src/App.css'
 // import Home from './pages/Home';
 // import Events from './pages/Events'
 
@@ -15,11 +16,12 @@ const App = ({setShowNavFunc}) => {
   return (
   <>
 
-    <SideBar/>
     <Searchbar />
     <Name admin={admin}/>
     <Statistics />
-    <StatsCard/>
+    <Title/>
+    {/* <StatsCard/> */}
+    <ReviewPosts />
   </>   
   );
 }
