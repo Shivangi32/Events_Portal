@@ -1,10 +1,10 @@
-.intro{
+.title_intro{
     margin-left: 8vw;
     margin-top: 50px;
 }
 
-.welcome{
-    width: 124px;
+.title_overview{
+    width: 300px;
     height: 29px;
 
     font-family: 'Montserrat';
@@ -17,8 +17,8 @@
     color: #FFFFFF;
 }
 
-.hello {
-    width: 338px;
+.title_soc {
+    width: 738px;
     height: 48px;
 
     font-family: 'Play', sans-serif;

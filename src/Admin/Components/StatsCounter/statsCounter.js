@@ -16,19 +16,19 @@ const Statistics = () => {
             <div className="stats">
                 <div className="stats-bar">
                     <div className="column post1">
-                        <MdEditCalendar size={'4em'}/>
-                        <h4>100</h4>
-                        <h6>Total Posts</h6>
+                        {/* <MdEditCalendar size={'4em'}/> */}
+                        <h6>New Posts</h6>
+                        <h4>50</h4>
                     </div>
                     <div className="column post1">
-                        <BsPatchCheck size={'4em'}/>
+                        {/* <BsPatchCheck size={'4em'}/> */}
+                        <h6>Visits per day</h6>
                         <h4>100</h4>
-                        <h6>Active Posts</h6>
                     </div>
                     <div className="column post1">
-                        <BsEye size={'4em'}/>
-                        <h4>100</h4>
-                        <h6>Total Views</h6>
+                        {/* <BsEye size={'4em'}/> */}
+                        <h6>Login per Day</h6>
+                        <h4>5</h4>
                     </div>
                 </div>
             </div>   
