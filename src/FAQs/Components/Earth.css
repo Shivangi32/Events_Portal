@@ -1,0 +1,39 @@
+#planet_div {
+    position: absolute;
+    width: 40vw;
+    height: 15vh;
+    right: 0vw;
+   top: 0vw;
+    background-repeat: none !important;
+    mix-blend-mode: normal;
+   z-index: -10;
+ }
+ #planet{
+    width: 100%;
+ }
+
+ @media screen and (max-width: 700px) {
+   body {
+      overflow-x: hidden;
+   }
+   
+   #planet_div {
+      height: 30vh;
+      width: 40vw;
+      margin-right: 0;
+      margin-top: 0;
+   }
+}
+
+@media screen and (max-width: 550px) {
+   body {
+      overflow-x: hidden;
+   }
+   
+   #planet_div {
+      height: 30vh;
+      width: 40vw;
+      margin-right: 0;
+      margin-top: 0;
+   }
+}
