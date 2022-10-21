@@ -1,5 +1,5 @@
 import React from 'react'
-import planet from "./earth_img.png"
+import planet from "./earth_image.png"
 import "./Earth.css"
 
 export default function Earth() {
