@@ -3,24 +3,24 @@ import plus from "./images/plus.png";
 import Modal from "react-modal";
 import { db } from "../firebaseConfig";
 import { useState, useEffect } from "react";
-import "./Society.css"
-import {MdClose} from "react-icons/md"
+import "./Society.css";
+import { MdClose } from "react-icons/md";
 import Card from "./Components/Card.js";
 //import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
 import {
   query,
   getDocs,
   collection,
-  where, deleteDoc,
+  where,
+  deleteDoc,
   addDoc,
-  setDoc, doc
+  setDoc,
+  doc,
 } from "firebase/firestore";
-
 
 Modal.setAppElement("#root");
 
 function SocietyPage({ email, setShowNavFunc }) {
-
   setShowNavFunc(true);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -45,22 +45,20 @@ function SocietyPage({ email, setShowNavFunc }) {
   }
 
   const onwindowLoad = async () => {
-
-    var found=false
+    var found = false;
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
-
       const socName = socData.data().soc.toLowerCase();
-      if (soc_Name !== socName || found==true) {   //soc_Name = curr society socName = society name during loop
+      if (soc_Name !== socName || found == true) {
+        //soc_Name = curr society socName = society name during loop
         return;
       }
-      found=true;
+      found = true;
       const q = query(collection(db, `Events/soc_events/${socName}`));
 
       const curr_soc = await getDocs(q);
       const events_list = curr_soc.docs.map((doc) => {
-
         const data = doc.data();
         let info = {
           id: doc.id,
@@ -69,19 +67,30 @@ function SocietyPage({ email, setShowNavFunc }) {
           EventName: data.EventName,
           date: data.date,
           time: data.time,
-          link : data.link,
-          approved: data.approved
+          link: data.link,
+          approved: data.approved,
         };
-        setCards(current => [...current, info]);
-      })
-    })
-  }
+        setCards((current) => [...current, info]);
+      });
+    });
+  };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
-    if (societyName === undefined || eventName === undefined || date === undefined || time === undefined || EventLink === undefined
-      || societyName === "" || eventName === "" || date === "" || time === "" || EventLink === "") { return; }
+    if (
+      societyName === undefined ||
+      eventName === undefined ||
+      date === undefined ||
+      time === undefined ||
+      EventLink === undefined ||
+      societyName === "" ||
+      eventName === "" ||
+      date === "" ||
+      time === "" ||
+      EventLink === ""
+    ) {
+      return;
+    }
 
     /*Check Date*/
     const todaydate = new Date();
@@ -113,37 +122,43 @@ function SocietyPage({ email, setShowNavFunc }) {
     };
 
     await addDoc(collection(db, `Events/soc_events/${temp}`), info);
-    setCards(current => [...current, info]);
+    setCards((current) => [...current, info]);
     closeModal();
     window.location.reload();
-  }
+  };
 
   useEffect(() => {
     onwindowLoad();
-  }, [])
-
+  }, []);
 
   /*adds cards to site*/
   cards.forEach((c) => {
     const temp = c.soc.toUpperCase();
-    let ca = <Card soc={temp} EventName={c.EventName} date={c.date} time={c.time} link={c.link} approved={c.approved} id={c.id} cnt={c.key} />;
+    let ca = (
+      <Card
+        soc={temp}
+        EventName={c.EventName}
+        date={c.date}
+        time={c.time}
+        link={c.link}
+        approved={c.approved}
+        id={c.id}
+        cnt={c.key}
+      />
+    );
     eCards.push(ca);
   });
 
-
   return (
-
     <div className="societyPage ">
-      <div className="societyName">
-        {soc_Name.toUpperCase()}
-      </div>
+      <div className="societyName">{soc_Name.toUpperCase()}</div>
       <div className="society-container">
-      <div className="society-sub-heading">
-        Society overview
+        <div className="society-sub-heading">Society overview</div>
+        <button className="addevent" onClick={openModal}>
+          +
+        </button>
       </div>
-      <button className="addevent" onClick={openModal}>+</button>
-      </div>
-      
+
       <div className="cards">
         <div className="modal-container">
           <Modal
@@ -155,7 +170,7 @@ function SocietyPage({ email, setShowNavFunc }) {
             <div className="modal-header">
               <h2>ADD EVENT</h2>
               <div className="modal-close">
-              <MdClose  onClick={closeModal}/>
+                <MdClose onClick={closeModal} />
               </div>
             </div>
             <div className="line"></div>
@@ -249,8 +264,6 @@ export const deleteEvent = async (e) => {
   const docref = doc(db, `Events/soc_events/${socName}`, e.id);
   deleteDoc(docref);
   window.location.reload();
-
-}
-
+};
 
 export default SocietyPage;
