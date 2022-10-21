@@ -21,17 +21,20 @@ function App() {
   const setShowNavFunc = (value) => {
     setShowNav(value);
   };
+
+  const [AdminLogin, setAdminLogin] = useState((email != null && email == "admin@cbigdtuw.in") ? true : false)
+
   return (
     <Router>
       <div className="mainpage">
         <div className="item">
           <Navbar user={user} email={email} showNav={showNav} />
         </div>
-
         <div className="container-user">
           <div className="item 1">
             <Sidebar />
           </div>
+
           <div className="item 2">
             <Routes>
               <Route
@@ -48,8 +51,8 @@ function App() {
                 path="Society"
                 element={
                   email !== null &&
-                  email.includes("cbigdtuw.in") &&
-                  email !== "admin@cbigdtuw.in" ? (
+                    email.includes("cbigdtuw.in") &&
+                    email !== "admin@cbigdtuw.in" ? (
                     <SocietyPage setShowNavFunc={setShowNavFunc} />
                   ) : (
                     <Navigate replace to="/" />
