@@ -8,8 +8,8 @@ function About() {
     <div>
       <Earth />
       <Paragraph />
-      <Contact />
       <Page />
+      <Contact />
     </div>
   );
 }
