@@ -28,7 +28,7 @@ export const Event = ({ event: { soc, EventName, date, time } }) => {
             <span>{EventName.toUpperCase()}</span>
           </div>
           <div className="event_society">
-            <span className="society_name">{soc}</span>
+            <span className="society_name">{soc.toUpperCase()}</span>
           </div>
 
           <div className="event_date">

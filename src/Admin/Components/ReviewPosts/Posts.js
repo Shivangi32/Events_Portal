@@ -1,49 +1,68 @@
 import "./Posts.css"
 import imageReview from "./imageReview.PNG";
-import {MdThumbDown,MdThumbUp} from 'react-icons/md';
+import { useState, useEffect } from "react";
+import { MdThumbDown, MdThumbUp} from 'react-icons/md';
+import { Event } from '../../../UserPage/Components/Event_Card/Card'
+
+import { db } from "../../../firebaseConfig";
+
+import {
+  query,
+  getDocs,
+  collection,
+} from "firebase/firestore";
+
+
 function ReviewPosts() {
+    const [InitialEvents, setInitialEvents] = useState([]);
 
-//   let info = {
-//     id: props.id,
-//     soc: props.soc,
-//     key: props.key,
-//     EventName: props.EventName,
-//     date: props.date,
-//     time: props.time,
-//     approved: props.approved,
-//   }
+    const eCards = [];
 
-  return (
-    <div className="review">
-        <div className="review_wrapper">
-            <img className="review-img" src={imageReview} />
-            <div className="review_info">
-                <div className="review_name">
-                    <span>Big Bang</span>
-                </div>
-                <div className="review_society">
-                    <span className="review_society_name">Celestial Biscuit</span>
-                </div>
-                
-                <div className="review_date">
-                    <span className="dateReview">26 October 2022, 10:00 AM</span>
-                </div>
-            </div>
-                
-            <div className="review-action">
-                <div className="review_register">
-                    <button><span className='registerReview' >REGISTER</span></button>
-                </div>
-                <div className="icon review_approve">
-                    <MdThumbUp/>
-                </div>
-                <div className="icon review_delete">
-                    <MdThumbDown/>
-                </div>
-            </div>
-        </div>
-    </div>
-  );
+    const getData = async () => {
+        const socCollection = query(collection(db, "Societies"));
+        const socDocs = await getDocs(socCollection);
+        const socList = socDocs.docs.map(async (socData) => {
+    
+          const socName = socData.data().soc;
+
+          const socEvents = query(collection(db, `Events/soc_events/${socName}`));
+          const events = await getDocs(socEvents);
+    
+          const eventsList = events.docs.map((event) => {
+    
+            const data = event.data();
+            let info = {
+              soc: socName,
+              key: events.length,
+              EventName: data.EventName,
+              date: data.date,
+              time: data.time,
+            };
+    
+            if (data.approved == "false") {
+              setInitialEvents(current => [...current, info]);   
+            }
+          })
+        })
+      }
+    
+      useEffect(() => {
+        getData();
+      }, [])
+
+      InitialEvents.forEach((e) => {
+        let ca = <Event event={e} key={e.id} />
+        eCards.push(ca);
+      })
+
+      return (
+        <>
+        <div className="events">
+        {eCards}
+      </div>
+        </>
+      )
+
 }
 
 export default ReviewPosts;

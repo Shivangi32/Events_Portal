@@ -5,6 +5,7 @@ import img from "./img.PNG"
 import {EditEvent} from "./EditModal"
 import { useState, useEffect } from "react";
 import {MdDelete,MdModeEdit} from 'react-icons/md';
+
 function Card(props) {
 
   let info = {

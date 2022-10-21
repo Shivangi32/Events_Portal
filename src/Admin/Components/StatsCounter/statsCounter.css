@@ -1,6 +1,6 @@
 .stats {
     /* background-color: rgba(255, 255, 255, 0.233); */
-    width: 72vw;
+    width: 80%;
     height: auto;
     align-items: center;
     justify-content: center;
@@ -9,29 +9,28 @@
     border: 8px solid transparent;
 }
 
-.column {
+.stats-bar .column {
     color: white;
-    display: block;
     margin-top: 40px;
-    margin-left: 80px;
+    margin-left: 10vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 15px;
-    gap: 25px;
+    gap: 3.5vw;
 
-    width: 305px;
-    height: 100px;
+    width: 80%;
+    height: 100%;
 
     background: #212121;
     box-shadow: 4px 4px 10px rgba(24, 24, 40, 0.5);
     border-radius: 10px;
 }
 
-.column h4 {
+.stats-bar .column h4 {
     align-items: center;
-    padding: 10px 15px;
+    padding: 10px 0;
 
     width: 60px;
     height: 45px;
@@ -40,7 +39,7 @@
     border-radius: 5px;
 }
 
-.column h6 {
+.stats-bar .column h6 {
     text-transform: uppercase;
     width: max-content;
 }
@@ -49,5 +48,6 @@
     display: flex;
     text-align: center;
     justify-content: center;
+    font-family: 'Montserrat';
     /* background-color: rgba(255, 255, 255, 0.233) ; */
 }

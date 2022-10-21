@@ -4,18 +4,15 @@ import Title from "./Components/Title/Title";
 import ReviewPosts from "./Components/ReviewPosts/Posts";
 import StatsCard from "./Components/Stats/StatsCard";
 import SearchBar from "./Components/Searchbar/Searchbar";
-// import './src/App.css'
-// import Home from './pages/Home';
-// import Events from './pages/Events'
 
 import Statistics from "./Components/StatsCounter/statsCounter";
 
-const admin = "admin";
+const admin = "Admin";
 const AdminPage = ({ setShowNavFunc }) => {
   setShowNavFunc(true);
   return (
     <>
-      <Searchbar />
+      {/* <SearchBar /> */}
       <Name admin={admin} />
       <Statistics />
       <Title />
