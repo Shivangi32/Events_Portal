@@ -46,6 +46,7 @@ function SearchBar() {
           EventName: data.EventName,
           date: data.date,
           time: data.time,
+          link: data.link
         };
 
         if (data.approved == "true") {

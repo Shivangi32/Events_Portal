@@ -4,7 +4,7 @@ import img from "./img.PNG";
 import { query, getDocs, collection, where, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
-export const Event = ({ event: { soc, EventName, date, time } }) => {
+export const Event = ({ event: { soc, EventName, date, time, link } }) => {
   const months = [
     "January",
     "February",
@@ -38,7 +38,7 @@ export const Event = ({ event: { soc, EventName, date, time } }) => {
             </span>
           </div>
           <div className="event_register">
-            <button>
+            <button href={link}>
               <span className="register">REGISTER</span>
             </button>
           </div>
@@ -47,57 +47,3 @@ export const Event = ({ event: { soc, EventName, date, time } }) => {
     </div>
   );
 };
-
-/*const Card = () => {
-
-    const [events, setEvents] = useState([]);
-
-    const eCards = [];
-
-    const onwindowLoad = async () => {
-        const soc_collection = query(collection(db, "Societies"));
-        const socdocs = await getDocs(soc_collection);
-        const soc_list = socdocs.docs.map(async (socData) => {
-
-            const socName = socData.data().soc;
-            const q = query(collection(db, `Events/soc_events/${socName}`));
-
-            const curr_soc = await getDocs(q);
-            const events_list = curr_soc.docs.map((doc) => {
-
-
-                const data = doc.data();
-
-                let info = {
-                    soc: socName,
-                    key: events.length,
-                    EventName: data.EventName,
-                    date: data.date,
-                    time: data.time,
-                };
-                if (data.approved == "true")
-                    setEvents(current => [...current, info]);
-            })
-        })
-        return events;
-    }
-
-    useEffect(() => {
-        onwindowLoad();
-    }, [])
-
-    events.forEach((e) => {
-        let ca = <Event event={e} key={e.id} />;
-        eCards.push(ca);
-    });
-
-
-    return (
-
-        <div className="events">
-            {eCards}
-        </div>
-    )
-}
-
-export default Card;*/
