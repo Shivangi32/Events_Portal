@@ -33,8 +33,8 @@ export const Event = ({ event: { soc, EventName, date, time } }) => {
 
           <div className="event_date">
             <span className="date">
-              {date.slice(0, 2)} {months[parseInt(date.slice(3, 5))]}{" "}
-              {date.slice(6, 10)}, {time}
+              {date.slice(8, 10)} {months[parseInt(date.slice(5, 7))]}{" "}
+              {date.slice(0, 4)}{","} {time}
             </span>
           </div>
           <div className="event_register">

@@ -30,10 +30,7 @@ function SocietyPage({ email, setShowNavFunc }) {
   let [eventName, setEventName] = useState();
   let [date, setDate] = useState();
   let [time, setTime] = useState();
-  let [approved, setApprove] = useState();
   let eCards = [];
-
-  approved = "false";
 
   const values = localStorage.getItem("email").split("@");
   const curr_soc = values[0];
@@ -45,10 +42,6 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   function closeModal() {
     setIsOpen(false);
-  }
-
-  function approveEvent() {
-    setApprove("true");
   }
 
   const onwindowLoad = async () => {

@@ -6,8 +6,8 @@ function About() {
   return (
     <div>
       <Paragraph />
-      <Contact />
       <Page />
+      <Contact />
     </div>
   );
 }

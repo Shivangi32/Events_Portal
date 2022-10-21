@@ -34,7 +34,10 @@
    transition: transform 0.8s;
    transform-style: preserve-3d;
    background: #2B2A2A;
-
+   /* background-image: url('https://i.ibb.co/fMnFbMh/imageedit-1-5602061535.png');
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 50%; */
 }
 
 .faq_card:hover .faq-card-inner {

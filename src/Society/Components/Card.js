@@ -18,14 +18,25 @@ function Card(props) {
     approved: props.approved,
   };
   const [openEditModal, setopenEditModal] = useState(false);
-  let [approved, setApprove] = useState();
-  function approveEvent() {
-    setApprove("true");
-  }
 
   function openmodalFunc(value) {
     setopenEditModal(value);
   }
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   return (
     <div className="card">
       <div className="event_wrapper">
