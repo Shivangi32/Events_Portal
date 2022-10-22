@@ -24,8 +24,6 @@ export const Event = (props) => {
     "December",
   ];
 
-  console.log(props.event.soc);
-
   const approveEvent = async () => {
     console.log("hi");
     let info = {
@@ -46,6 +44,28 @@ export const Event = (props) => {
     window.location.reload();
   };
 
+  
+  
+  function getMeridian(time) {
+    if(time >= "12:00") {
+      return "PM"
+    } else {
+      return "AM"
+    }
+  }
+
+  function getTime(time) {
+    let hh = parseInt(time.slice(0,2))
+    if(hh > 12) {
+      hh = hh % 12
+      if(hh < 10) {
+        return String("0" + hh + ":" + time.slice(3, 6))
+      }
+      return String(hh + ":" + time.slice(3, 6))
+    }
+    return time
+  }
+
   return (
     <div className="event">
       <div className="event_wrapper">
@@ -56,15 +76,16 @@ export const Event = (props) => {
           </div>
           <div className="event_society">
             <span className="society_name">
-              {props.event.soc.toUpperCase()}
+              {props.event.soc}
             </span>
           </div>
           <div className="event_date">
             <span className="date">
-              {props.event.date.slice(0, 2)}{" "}
-              {months[parseInt(props.event.date.slice(3, 5))]}{" "}
-              {props.event.date.slice(6, 10)}, {props.event.time}
+              {props.event.date.slice(8, 10)}{" "}
+              {months[parseInt(props.event.date.slice(5, 7))]}{" "}
+              {props.event.date.slice(0, 4)}{", "}
             </span>
+            <span className="time">{getTime(props.event.time)} {getMeridian(props.event.time)}{" IST"}</span>
           </div>
           <div
             className="event_register"

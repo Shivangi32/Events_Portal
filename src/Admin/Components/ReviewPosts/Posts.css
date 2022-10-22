@@ -78,9 +78,9 @@
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
-    margin: 20px 10px;
+    /* margin: 20px 10px;
     margin-left: 2vw;
-    margin-right: 2vw;
+    margin-right: 2vw; */
   }
   .review_approve , .review_delete{
     font-size: 1.3rem;

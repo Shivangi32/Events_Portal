@@ -41,6 +41,7 @@
 .event_society{
   display: flex;
   justify-content:center;
+
 }
 
 
@@ -50,11 +51,12 @@
   font-size: 1.0rem;
   text-align: center;
 }
-.society_name{
+.event_society .society_name{
 font-family: 'Montserrat', sans-serif;
 font-size: 0.9rem;
 margin: 5px 0;
-  
+text-transform: capitalize !important;
+
 }
 .event_date{
   font-family: 'Montserrat', sans-serif;

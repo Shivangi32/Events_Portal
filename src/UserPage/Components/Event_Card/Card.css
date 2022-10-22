@@ -53,6 +53,7 @@
 font-family: 'Montserrat', sans-serif;
 font-size: 0.9rem;
 margin: 5px 0;
+text-transform: capitalize;
   
 }
 .event_date{

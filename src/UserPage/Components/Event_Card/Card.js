@@ -19,6 +19,27 @@ export const Event = ({ event: { soc, EventName, date, time, link } }) => {
     "November",
     "December",
   ];
+
+  function getMeridian(time) {
+    if(time >= "12:00") {
+      return "PM"
+    } else {
+      return "AM"
+    }
+  }
+
+  function getTime(time) {
+    let hh = parseInt(time.slice(0,2))
+    if(hh > 12) {
+      hh = hh % 12
+      if(hh < 10) {
+        return String("0" + hh + ":" + time.slice(3, 6))
+      }
+      return String(hh + ":" + time.slice(3, 6))
+    }
+    return time
+  }
+
   return (
     <div className="event">
       <div className="event_wrapper">
@@ -28,19 +49,22 @@ export const Event = ({ event: { soc, EventName, date, time, link } }) => {
             <span>{EventName.toUpperCase()}</span>
           </div>
           <div className="event_society">
-            <span className="society_name">{soc.toUpperCase()}</span>
+            <span className="society_name">{soc}</span>
           </div>
 
           <div className="event_date">
             <span className="date">
               {date.slice(8, 10)} {months[parseInt(date.slice(5, 7))]}{" "}
-              {date.slice(0, 4)}{","} {time}
+              {date.slice(0, 4)}{", "}
             </span>
+            <span className="time">{getTime(time)} {getMeridian(time)}{" IST"}</span>
           </div>
           <div className="event_register">
-            <button href={link}>
+            <a href={link} target="_blank">
+            <button>
               <span className="register">REGISTER</span>
             </button>
+            </a>
           </div>
         </div>
       </div>
