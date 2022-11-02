@@ -1,19 +1,22 @@
 import React from "react";
 import Modal from "react-modal";
 import { db } from "../../firebaseConfig";
-import { MdClose } from "react-icons/md"
+import { MdClose } from "react-icons/md";
 import { useState, useEffect } from "react";
 import {
   query,
   getDocs,
   collection,
-  where, deleteDoc,updateDoc,
+  where,
+  deleteDoc,
+  updateDoc,
   addDoc,
-  setDoc, doc
+  setDoc,
+  doc,
 } from "firebase/firestore";
+import Example from "./Tags";
 
 export const EditEvent = (props) => {
-
   const values = localStorage.getItem("email").split("@");
   const curr_soc = values[0];
   const soc_Name = curr_soc.toLowerCase();
@@ -23,7 +26,6 @@ export const EditEvent = (props) => {
   let [date, setDate] = useState();
   let [time, setTime] = useState(props.info.time);
 
-
   function editmodalIsOpen() {
     props.openmodalFunc(true);
   }
@@ -32,10 +34,21 @@ export const EditEvent = (props) => {
   }
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
-    if (societyName === undefined || eventName === undefined || date === undefined || time === undefined || EventLink === undefined
-      || societyName === "" || eventName === "" || date === "" || time === "" || EventLink === "") { return; }
+    if (
+      societyName === undefined ||
+      eventName === undefined ||
+      date === undefined ||
+      time === undefined ||
+      EventLink === undefined ||
+      societyName === "" ||
+      eventName === "" ||
+      date === "" ||
+      time === "" ||
+      EventLink === ""
+    ) {
+      return;
+    }
 
     /*Check Date*/
     const todaydate = new Date();
@@ -66,9 +79,9 @@ export const EditEvent = (props) => {
 
     const docref = doc(db, `Events/soc_events/${soc_Name}`, props.info.id);
     closeeditModal();
-    await updateDoc(docref, info)
+    await updateDoc(docref, info);
     window.location.reload();
-  }
+  };
 
   return (
     <div className="modal-container">
@@ -127,6 +140,12 @@ export const EditEvent = (props) => {
                   required
                 ></input>
               </div>
+              <div>
+                <label>Event Category</label>
+              </div>
+              <div className="big-ip">
+                <Example />
+              </div>
             </div>
             <div className="fields">
               <div className="fields-colums">
@@ -164,7 +183,7 @@ export const EditEvent = (props) => {
             </div>
           </form>
         </div>
-      </Modal >
-    </div >
+      </Modal>
+    </div>
   );
 };
