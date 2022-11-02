@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import { db } from "../firebaseConfig";
 import { useState, useEffect } from "react";
 import "./Society.css";
+import Example from "./Components/Tags";
 import { MdClose } from "react-icons/md";
 import Card from "./Components/Card.js";
 //import { BrowserRouter as Router, Route, Navigate, Link } from "react-router-dom";
@@ -144,6 +145,7 @@ function SocietyPage({ email, setShowNavFunc }) {
         approved={c.approved}
         id={c.id}
         cnt={c.key}
+        tag={c.tag}
       />
     );
     eCards.push(ca);
@@ -214,6 +216,12 @@ function SocietyPage({ email, setShowNavFunc }) {
                       onChange={(e) => setEventLink(e.target.value)}
                       required
                     ></input>
+                  </div>
+                  <div>
+                    <label>EVENT CATEGORY</label>
+                  </div>
+                  <div className="big-ip">
+                    <Example />
                   </div>
                 </div>
                 <div className="fields">

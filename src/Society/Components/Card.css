@@ -1,110 +1,101 @@
-.cards{
+.cards {
   margin-left: 30px;
   align-items: flex-start;
   justify-content: flex-start;
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   flex-direction: row;
   flex: 1;
 }
 
-.card{
+.card {
   display: flex;
   margin: 3vw;
   width: auto;
   border-radius: 20px;
-  background: #1C1B1B;
-
+  background: #1c1b1b;
 }
 
-
-.event_wrapper{
+.event_wrapper {
   /* padding: 1.5vw; */
   font-family: 'Roboto';
-  width:22vw;
-  height:421px;
-  
+  width: 22vw;
+  height: 421px;
 }
 
-.event-img{
+.event-img {
   border-radius: 20px 20px 0 0;
   height: 40%;
   width: 100%;
   object-fit: cover;
-  
-  
 }
-.info{
-  margin:16px 20px;
+.info {
+  margin: 16px 20px;
   align-items: center;
 }
-.event_society{
+.event_society {
   display: flex;
-  justify-content:center;
-
+  justify-content: center;
 }
-
 
 /* font-family: 'Montserrat', sans-serif; */
-.event_name{
+.event_name {
   font-family: 'Play', sans-serif;
-  font-size: 1.0rem;
+  font-size: 1rem;
   text-align: center;
 }
-.event_society .society_name{
-font-family: 'Montserrat', sans-serif;
-font-size: 0.9rem;
-margin: 5px 0;
-text-transform: capitalize !important;
-
+.event_society .society_name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  margin: 5px 0;
+  text-transform: capitalize !important;
 }
-.event_date{
+.event_date {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   width: fit-content;
   height: fit-content;
- background: #2B2A2A;
-  margin:5px auto;
+  background: #2b2a2a;
+  margin: 5px auto;
   padding: 10px;
   border-radius: 10px;
-font-size: 0.9rem;
-  
+  font-size: 0.9rem;
 }
-.date{
-  margin:0;
+.date {
+  margin: 0;
 }
-.event-action{
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
+.event-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 0 8px;
   gap: 0.5vw;
 }
-.event_edit , .event_delete{
+.event_edit,
+.event_delete {
   font-size: 1.3rem;
-color: #9747FF;
-background-color: white;
-border-radius: 5px;
-padding: 5px 10px;
-cursor: pointer;
+  color: #9747ff;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.event_register{
-  
+.event_register {
   text-align: center;
   font-family: 'Play', sans-serif;
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
 
-.event_register button{
+.event_register button {
   border-radius: 7px;
-  background-color:#9747FF;
+  background-color: #9747ff;
   border: none;
-  margin:20px auto;
+  margin: 20px auto;
   padding: 8px 10px;
   border-radius: 5px;
 }
-.register{
+.register {
   margin: 0;
 }
