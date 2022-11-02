@@ -37,7 +37,7 @@ export default class Example extends Component {
   render() {
     return (
       <span
-        class="d-inline-block"
+        // class="d-inline-block"
         data-toggle="popover"
         data-trigger="focus"
         data-content="Please selecet account(s)"
