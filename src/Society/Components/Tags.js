@@ -9,12 +9,12 @@ const Option = (props) => {
   return (
     <div>
       <components.Option {...props}>
-        <input
+        {/* <input
           type="checkbox"
           checked={props.isSelected}
           onChange={() => null}
-        />{" "}
-        <label>{props.label}</label>
+        /> */}
+        <label style={{ color: "black" }}>{props.label}</label>
       </components.Option>
     </div>
   );
