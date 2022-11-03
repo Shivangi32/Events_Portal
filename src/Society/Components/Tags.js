@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { colourOptions } from "./tag_data.js";
-import { default as ReactSelect } from "react-select";
+import { default as ReactSelect, StylesConfig } from "react-select";
 // import "./styles.css";
 import { components } from "react-select";
 
@@ -35,6 +35,16 @@ export default class Example extends Component {
   };
 
   render() {
+    const colourStyles = {
+      control: (styles) => ({ ...styles, backgroundColor: "white" }),
+      option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+        return {
+          ...styles,
+          backgroundColor: isFocused ? "#9747ff" : "white",
+          cursor: isDisabled ? "not-allowed" : "default",
+        };
+      },
+    };
     return (
       <span
         // class="d-inline-block"
@@ -43,6 +53,7 @@ export default class Example extends Component {
         data-content="Please selecet account(s)"
       >
         <ReactSelect
+          styles={colourStyles}
           options={colourOptions}
           isMulti
           closeMenuOnSelect={false}
