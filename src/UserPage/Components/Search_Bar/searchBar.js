@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Event } from "../Event_Card/Card";
 import { db } from "../../../firebaseConfig";
-
+import DropDown from "../Tags"
 import {
   query,
   getDocs,
@@ -170,6 +170,9 @@ function SearchBar() {
               <option value="Society">Society</option>
               <option value="Date">Date</option>
             </select>
+          </div>
+          <div>
+            <DropDown/>
           </div>
         </div>
 
