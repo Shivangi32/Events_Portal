@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { colourOptions } from "./tag_data.js";
-import { default as ReactSelect, StylesConfig } from "react-select";
+import { default as ReactSelect } from "react-select";
 // import "./styles.css";
 import { components } from "react-select";
-
 const Option = (props) => {
   return (
     <div>
@@ -14,7 +13,7 @@ const Option = (props) => {
           checked={props.isSelected}
           onChange={() => null}
         /> */}
-        <label style={{ color: "black" }}>{props.label}</label>
+        <label>{props.label}</label>
       </components.Option>
     </div>
   );
@@ -36,15 +35,43 @@ export default class Example extends Component {
 
   render() {
     const colourStyles = {
-      control: (styles) => ({ ...styles, backgroundColor: "white" }),
+      control: (styles) => ({ 
+        ...styles, 
+        backgroundColor: "white",
+        fontSize:"0.8rem",
+        fontWeight:"bolder",
+        color:"black",
+        fontFamily:"Arial",
+        border:"black",
+        backgroundColor:"rgba(255, 255, 255, 0.5)"}),
+        placeholder: (styles) => ({ 
+          ...styles, 
+         
+          fontSize:"0.9rem",
+          color:"black",
+          fontFamily:"Montserrat",
+          }),
+          indicatorContainer: (styles) =>({
+            color:"black",
+          }
+
+          ),
+          menu: (styles) => ({ 
+            ...styles, 
+           
+            fontSize:"0.8rem",
+            color:"black",
+            fontFamily:"Montserrat",
+            }), 
       option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         return {
           ...styles,
-        
+          color:'black',
           backgroundColor: isFocused ? "#9747ff" : "white",
           cursor: isDisabled ? "not-allowed" : "default",
         };
       },
+      
     };
     return (
       <span
@@ -54,6 +81,7 @@ export default class Example extends Component {
         data-content="Please selecet account(s)"
       >
         <ReactSelect
+        placeholder= 'Filter'
           styles={colourStyles}
           options={colourOptions}
           isMulti
@@ -70,3 +98,4 @@ export default class Example extends Component {
     );
   }
 }
+
