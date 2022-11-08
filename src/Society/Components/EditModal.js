@@ -25,7 +25,11 @@ export const EditEvent = (props) => {
   let [eventName, setEventName] = useState(props.info.EventName);
   let [date, setDate] = useState();
   let [time, setTime] = useState(props.info.time);
+  const [cat_selected,setcat]=useState([]);
 
+  function category_set(val){
+    setcat(val);
+  }
   function editmodalIsOpen() {
     props.openmodalFunc(true);
   }
@@ -74,6 +78,7 @@ export const EditEvent = (props) => {
       date: date,
       link: EventLink,
       approved: "false",
+      category: cat_selected,
       time: time,
     };
 
@@ -144,7 +149,7 @@ export const EditEvent = (props) => {
                 <label>Event Category</label>
               </div>
               <div className="big-ip">
-                <Example />
+                <Example category_set={category_set} category={props.info.category}/>
               </div>
             </div>
             <div className="fields">

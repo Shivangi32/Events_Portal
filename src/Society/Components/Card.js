@@ -18,6 +18,7 @@ function Card(props) {
     time: props.time,
     link: props.link,
     approved: props.approved,
+    category: props.category
   };
   const [openEditModal, setopenEditModal] = useState(false);
 

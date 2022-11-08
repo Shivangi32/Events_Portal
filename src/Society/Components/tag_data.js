@@ -2,7 +2,7 @@ export const colourOptions = [
   { value: "tech", label: "Technical" },
   { value: "non-tech", label: "Non-Technical" },
   { value: "coding", label: "Coding" },
-  { value: "hackthon", label: "Hackthon" },
+  { value: "hackathon", label: "Hackathon" },
   { value: "hands-on", label: "Hands-On" },
   { value: "speaker", label: "Speaker" },
   { value: "conference", label: "Conference" },

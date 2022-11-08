@@ -26,6 +26,7 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
+  const [cat_selected,setcat]=useState([]);
   let [EventLink, setEventLink] = useState();
   let [societyName, setSocietyName] = useState();
   let [eventName, setEventName] = useState();
@@ -37,6 +38,10 @@ function SocietyPage({ email, setShowNavFunc }) {
   const curr_soc = values[0];
   const soc_Name = curr_soc.toLowerCase();
 
+
+  function category_set(val){
+    setcat(val);
+  }
   function openModal() {
     setIsOpen(true);
   }
@@ -52,7 +57,6 @@ function SocietyPage({ email, setShowNavFunc }) {
     const soc_list = socdocs.docs.map(async (socData) => {
       const socName = socData.data().soc.toLowerCase();
       if (soc_Name !== socName || found == true) {
-        //soc_Name = curr society socName = society name during loop
         return;
       }
       found = true;
@@ -66,6 +70,7 @@ function SocietyPage({ email, setShowNavFunc }) {
           soc: socName,
           key: cards.length,
           EventName: data.EventName,
+          category: data.category,
           date: data.date,
           time: data.time,
           link: data.link,
@@ -118,6 +123,7 @@ function SocietyPage({ email, setShowNavFunc }) {
       EventName: eventName,
       date: date,
       link: EventLink,
+      category: cat_selected,
       approved: "false",
       time: time,
     };
@@ -125,6 +131,7 @@ function SocietyPage({ email, setShowNavFunc }) {
     await addDoc(collection(db, `Events/soc_events/${temp}`), info);
     setCards((current) => [...current, info]);
     closeModal();
+
     window.location.reload();
   };
 
@@ -145,7 +152,7 @@ function SocietyPage({ email, setShowNavFunc }) {
         approved={c.approved}
         id={c.id}
         cnt={c.key}
-        tag={c.tag}
+        category={c.category}
       />
     );
     eCards.push(ca);
@@ -221,7 +228,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     <label>EVENT CATEGORY</label>
                   </div>
                   <div className="big-ip">
-                    <Example />
+                    <Example category_set={category_set}/>
                   </div>
                 </div>
                 <div className="fields">

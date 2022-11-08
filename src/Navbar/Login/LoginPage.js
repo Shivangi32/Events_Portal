@@ -126,7 +126,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             </div>
 
             <div id="Newacc">
-                WANT TO MAKE A NEW ACCOUNT?
+                WANT TO CREATE A NEW ACCOUNT?
                 <div></div><button id="regbtn" onClick={() => { setRegisterModalFunc(true); setLoginModalFunc(false) }}>REGISTER</button>
             </div>
 

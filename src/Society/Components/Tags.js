@@ -22,16 +22,30 @@ const Option = (props) => {
 
 export default class Example extends Component {
   constructor(props) {
+
     super(props);
-    this.state = {
-      optionSelected: null,
-    };
+    let list=[]
+    if(this.props.category!= null){
+      this.props.category.forEach((item)=>{
+        list.push({value:item,label:item})
+      })
+    }
+    
+    this.state ={optionSelected:list}
   }
 
   handleChange = (selected) => {
+
+    
     this.setState({
       optionSelected: selected,
     });
+    const list=[]
+    selected.forEach((item)=>{
+      console.log(item)
+      list.push(item.label)
+    })
+    this.props.category_set(list);
   };
 
   render() {
