@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 import ReactDOM from "react-dom";
 import { colourOptions } from "./tag_data.js";
 import { default as ReactSelect } from "react-select";
 // import "./styles.css";
 import { components } from "react-select";
+import { CatchingPokemonRounded } from "@mui/icons-material";
 const Option = (props) => {
   return (
     <div>
@@ -27,10 +28,12 @@ export default class Example extends Component {
     };
   }
 
-  handleChange = (selected) => {
+  handleChange = async (selected) => {
     this.setState({
       optionSelected: selected,
     });
+    await this.props.sel_categories(selected);
+    this.props.handleCategory();
   };
 
   render() {

@@ -30,8 +30,8 @@ export default class Example extends Component {
         list.push({value:item,label:item})
       })
     }
-    
     this.state ={optionSelected:list}
+    
   }
 
   handleChange = (selected) => {

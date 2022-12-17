@@ -23,6 +23,7 @@ function SearchBar() {
   const [AllEvents, setAllEvents] = useState([]);
   const [events, setEvents] = useState([]);
   const [showInitialEvents, setshowInitialEvents] = useState(true);
+  const [sel_cat, setselCat] = useState([]);
 
   const eCards = [];
 
@@ -46,7 +47,8 @@ function SearchBar() {
           EventName: data.EventName,
           date: data.date,
           time: data.time,
-          link: data.link
+          link: data.link,
+          category: data.category
         };
 
         if (data.approved == "true") {
@@ -64,14 +66,44 @@ function SearchBar() {
     getData();
   }, [])
 
-
-
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
+  function sel_categories(selected) {
+
+    setselCat([]);
+    selected.forEach((cat)=>{
+      setselCat((current)=>[...current,cat.label])
+    })    
+  }
+  console.log(InitialEvents)
+
+  const handleCategory = () => {
+
+    setshowInitialEvents(false);
+    setFilteredEvents([]);
+    if (sel_cat.length === 0) {
+      setshowInitialEvents(true);
+      return;
+    }
+
+    InitialEvents.forEach((event)=>{
+
+      let flag=1;
+      sel_cat.forEach((cat)=>{
+        if(event.category.includes(cat)==false)
+          flag=0;
+      })
+      if(flag==1)
+        setFilteredEvents((current)=>[...current,event])
+    })
+  }
+
+
   const handleFilter = (event) => {
 
+    setselCat([]);
     setshowInitialEvents(false);
     const searchWord = event.target.value;
     setWordEntered(searchWord);
@@ -112,8 +144,7 @@ function SearchBar() {
       //setFilteredData(newFilter);
     }
 
-    else if(Tag=="Date")
-    {
+    else if (Tag == "Date") {
       const tempfilter = InitialEvents.filter((e) => {
         return e.date.toLowerCase().includes(searchWord.toLowerCase())
       })
@@ -144,7 +175,7 @@ function SearchBar() {
     return;
   };
 
-  const setTagfunc =(event)=>{
+  const setTagfunc = (event) => {
     setTag(event.target.value)
   }
   return (
@@ -172,7 +203,7 @@ function SearchBar() {
             </select>
           </div>
           <div>
-            <DropDown/>
+            <DropDown sel_categories={sel_categories} handleCategory={handleCategory} />
           </div>
         </div>
 
@@ -180,7 +211,7 @@ function SearchBar() {
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {
               return (
-                  <p>{value}</p>
+                <p>{value}</p>
               );
             })}
           </div>

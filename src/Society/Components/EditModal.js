@@ -10,13 +10,13 @@ import {
   where,
   deleteDoc,
   updateDoc,
-  addDoc,
   setDoc,
   doc,
 } from "firebase/firestore";
 import Example from "./Tags";
 
 export const EditEvent = (props) => {
+  console.log(props)
   const values = localStorage.getItem("email").split("@");
   const curr_soc = values[0];
   const soc_Name = curr_soc.toLowerCase();
@@ -25,7 +25,7 @@ export const EditEvent = (props) => {
   let [eventName, setEventName] = useState(props.info.EventName);
   let [date, setDate] = useState();
   let [time, setTime] = useState(props.info.time);
-  const [cat_selected,setcat]=useState([]);
+  const [cat_selected,setcat]=useState(props.info.category);
 
   function category_set(val){
     setcat(val);
