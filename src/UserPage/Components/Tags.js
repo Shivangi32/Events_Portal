@@ -45,6 +45,7 @@ export default class Example extends Component {
         fontWeight:"bolder",
         color:"black",
         fontFamily:"Arial",
+        marginLeft:"1vw",
         border:"black",
         backgroundColor:"rgba(255, 255, 255, 0.5)"}),
         placeholder: (styles) => ({ 
