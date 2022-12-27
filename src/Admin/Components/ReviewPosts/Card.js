@@ -10,6 +10,7 @@ import { updateDoc } from "firebase/firestore";
 
 export const Event = (props) => {
   const months = [
+    "",
     "January",
     "February",
     "March",

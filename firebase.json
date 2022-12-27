@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "Events_Portal",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
