@@ -6,6 +6,7 @@ import { db } from "../../../firebaseConfig";
 
 export const Event = ({ event: { soc, EventName, date, time, link } }) => {
   const months = [
+    "",
     "January",
     "February",
     "March",

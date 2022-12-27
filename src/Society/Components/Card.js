@@ -27,6 +27,7 @@ function Card(props) {
   }
 
   const months = [
+    "",
     "January",
     "February",
     "March",

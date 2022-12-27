@@ -19,11 +19,11 @@ const ques = [
       ques: "Why are society sessions or events important?",
       ans: "There are many scholarship, mentorship programs which you will get to know about from our seniors through these societies"
     },
-    {
-      index: 5,
-      ques: "Lorem Ipsum",
-      ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
-    },
+    // {
+    //   index: 5,
+    //   ques: "Lorem Ipsum",
+    //   ans: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aut, repellat ipsum facere voluptate dicta obcaecati deserunt nobis suscipit eaque?"
+    // },
     // {
     //   index: 6,
     //   ques: "Lorem Ipsum",
