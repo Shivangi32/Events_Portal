@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "Events_Portal",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
