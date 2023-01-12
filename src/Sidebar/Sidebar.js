@@ -10,8 +10,7 @@ export default function Sidebar() {
     const [AdminLogin, setAdminLogin] = useState((email != null && email == "admin@cbigdtuw.in") ? true : false)
 
     return (
-        <nav className="navbar navbar-expand-lg usernav">
-            <div className="container-fluid navbar-brand">
+        <nav className="navbar-expand-md sidebarNav">
 
                 <button className="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -22,6 +21,7 @@ export default function Sidebar() {
                             <NavLink to="/" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
                                 padding: "6px 12px",
+                                fontSize:"1.5vw",
                                 borderRadius: "5px"
                             })}>
                                 HOME
@@ -32,7 +32,9 @@ export default function Sidebar() {
                             <NavLink to="/About" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
                                 padding: "6px 12px",
+                                fontSize:"1.5vw",
                                 borderRadius: "5px"
+
                             })}>
                                 ABOUT
                             </NavLink>
@@ -44,6 +46,7 @@ export default function Sidebar() {
                                 <NavLink to="/Society" style={({ isActive }) => ({
                                     background: isActive ? '#9747FF' : 'transparent',
                                     padding: "6px 12px",
+                                    fontSize:"1.5vw",
                                     borderRadius: "5px"
                                 })}>SOCIETY</NavLink>
                             </li>
@@ -70,7 +73,6 @@ export default function Sidebar() {
                         </li>
                     </ul>
                 </div>
-            </div>
         </nav>
     );
 }

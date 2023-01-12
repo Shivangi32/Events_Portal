@@ -118,8 +118,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             </div>
 
             <div>
-            <nav className="navbar navbar-expand-lg usernav">
-            <div className="container-fluid navbar-brand">
+            <nav className="navbar-expand-sm loginNav">
 
                 <button className="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -130,7 +129,6 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                     <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
                     <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
                 </ul>
-                </div>
                 </div></nav>
             </div>
 

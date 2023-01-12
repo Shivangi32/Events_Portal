@@ -8,9 +8,15 @@
     background-image: url("../../background.jpg");
 }
 
+.loginNav{
+    position: absolute;
+    width: 33vw;
+    top: 6vh;
+    right: 8vw;
+}
 #modalContent {
     position: absolute;
-    height: 40vw;
+    height: 35vw;
     width: 30vw;
     top: 17vh;
     right: 8vw;
@@ -25,6 +31,7 @@
     padding: 0.5vw 2vw;
     background: transparent;
     display: list-item;
+    font-size:1.5vw;
     margin: 0 1.5vw;
     border-radius: 5px;
 }
@@ -34,12 +41,9 @@
 }
 
 #LoginNavbar {
-    position: absolute;
-    width: 33vw;
-    top: 6vh;
-    right: 8vw;
     list-style: none;
     margin-bottom: 0;
+    padding-left: 0vw;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -64,11 +68,10 @@
 
     font-weight: 200;
     line-height: 41px;
-
     color: #FFFFFF;
     padding-left: 1vw;
     margin: 0 auto;
-    font-size: 2vw;
+    font-size: 1.6vw;
 
 }
 
@@ -155,7 +158,7 @@ input ::placeholder {
 #forgot{
     color: white;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
 }
 #Google svg {
     height: 2vw;
