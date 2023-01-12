@@ -9,16 +9,18 @@
 }
 
 #modalContent {
-    width: 28%;
     position: absolute;
+    height: 40vw;
     width: 30vw;
     top: 17vh;
     right: 8vw;
     background: #2B2A2A;
     border-radius: 1vw;
-    height: 68vh;
 }
 
+#ModalBody{
+    padding:0vw;
+}
 .loginnav-item {
     padding: 0.5vw 2vw;
     background: transparent;
@@ -46,13 +48,13 @@
 #earthdiv {
     position: absolute;
     width: 19.5vw;
-    height: 100%;
+    height: 60vw;
     left: 0vw;
     background-repeat: none !important;
     mix-blend-mode: normal;
 }
 #earth{
-    height:100%;
+    height:60vw;
 }
 #LRform svg {
     margin: 0.5vw;
@@ -107,6 +109,7 @@ input ::placeholder {
     width: 20vw;
     border: green;
     outline: none;
+    font-size:1vw;
     border-radius: 0.3vw;
 }
 
@@ -129,18 +132,20 @@ input ::placeholder {
 
 #LRform {
     display: flex;
+    font-size: 2vw;
     flex-direction: column;
-    height: 98%;
+    height: 95%;
     align-items: center;
     justify-content: space-evenly;
 }
 
 #submitbtn {
     vertical-align: middle;
-    font-size: 1.2vw !important;
+    font-size: 1.2vw ;
     text-align: center;
     padding: 0.2vw 2vw 0.2vw 2vw;
     height: 2.6vw;
+    width: 9vw;
     background-color: #FFFFFF;
     border-radius: 8px;
     cursor: pointer;
@@ -149,7 +154,8 @@ input ::placeholder {
 
 #forgot{
     color: white;
-
+    text-align: center;
+    font-size: 1.5vw;
 }
 #Google svg {
     height: 2vw;
@@ -198,3 +204,68 @@ input ::placeholder {
 #forgot a:hover {
     color: #9747FF;
 }
+
+@media screen and (max-width: 500px) {
+    #earthdiv,#LoginNavbar{
+        display: none;
+    }
+    #Newacc{
+        display: none
+    }
+
+    #modalContent{
+        margin: auto;
+        position: relative;
+        width:70%;
+        height: 70%;
+        top: 0vw;
+        right: 0vw;
+        padding:0vw;
+
+    }
+
+    #simpleModal .logo {
+        margin: 5px;
+        height: 20.5vw;
+        margin-left: 2vw;
+        width: 30vw;
+        margin-top: 1.5vw;
+    }
+
+    #LRform svg{
+        height:4vw;
+        width:6vw;
+    }
+    #LRform input {
+        height: 6vw;
+        padding: 0.5vw;
+        width: 80%;
+        border-radius: 0.3vw;
+    }
+    .textbox{
+        width: 80%;
+        height: 7.6vw;
+    }
+
+    #login_heading,#register_head{
+        font-size: 5vw;
+    }
+
+    #Google,#forgot{
+        font-size:4vw;
+    }
+
+    #submitbtn{
+        height: 12%;
+        width: 26%;
+        font-size: 4vw
+    }
+    #ModalHeader {
+        margin-right: 1vw;
+        padding: 2vw 0.6vw 0 0;
+    }
+
+    .closebtn{
+        font-size:9vw;
+    }
+  }

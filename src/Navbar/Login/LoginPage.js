@@ -118,11 +118,20 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             </div>
 
             <div>
+            <nav className="navbar navbar-expand-lg usernav">
+            <div className="container-fluid navbar-brand">
+
+                <button className="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
                 <ul id="LoginNavbar">
                     <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/" style={{background: "transparent"}}>HOME</Link></li>
                     <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
                     <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
                 </ul>
+                </div>
+                </div></nav>
             </div>
 
             <div id="Newacc">
@@ -152,7 +161,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
 
                             <div className="input-group-btn">
                                 <a onClick={togglePassword} style={{background: "transparent", border: "none"}}>
-                                { passwordType==="password"? <AiFillEyeInvisible /> : <AiFillEye /> }
+                                { passwordType==="password"? <AiFillEyeInvisible style={{marginLeft: "-2vw"}} /> : <AiFillEye style={{marginLeft: "-2vw"}}/> }
                             </a>
                             </div>
 

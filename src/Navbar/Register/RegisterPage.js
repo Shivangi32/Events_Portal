@@ -150,7 +150,7 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
 
                             <div className="input-group-btn">
                                 <a onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
-                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible /> : <AiFillEye />}
+                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible style={{marginLeft: "-2vw"}} /> : <AiFillEye style={{marginLeft: "-2vw"}}/>}
                                 </a>
                             </div>
                         </div>

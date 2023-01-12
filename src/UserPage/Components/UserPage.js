@@ -4,8 +4,7 @@ import SearchBar from "./Search_Bar/searchBar";
 import Sidebar from "../../Sidebar/Sidebar";
 import "./UserPage.css"
 
-export default function Header({ setShowNavFunc }) {
-  setShowNavFunc(true);
+export default function Header() {
 
   return (
     <div >
