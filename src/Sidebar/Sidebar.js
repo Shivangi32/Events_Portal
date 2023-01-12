@@ -21,7 +21,6 @@ export default function Sidebar() {
                             <NavLink to="/" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
                                 padding: "6px 12px",
-                                fontSize:"1.5vw",
                                 borderRadius: "5px"
                             })}>
                                 HOME
@@ -32,7 +31,6 @@ export default function Sidebar() {
                             <NavLink to="/About" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
                                 padding: "6px 12px",
-                                fontSize:"1.5vw",
                                 borderRadius: "5px"
 
                             })}>
@@ -46,7 +44,7 @@ export default function Sidebar() {
                                 <NavLink to="/Society" style={({ isActive }) => ({
                                     background: isActive ? '#9747FF' : 'transparent',
                                     padding: "6px 12px",
-                                    fontSize:"1.5vw",
+                                    
                                     borderRadius: "5px"
                                 })}>SOCIETY</NavLink>
                             </li>
