@@ -85,7 +85,7 @@ export default class Example extends Component {
         data-content="Please selecet account(s)"
       >
         <ReactSelect
-        placeholder= 'Filter'
+        placeholder= 'Filter by Category'
           styles={colourStyles}
           options={colourOptions}
           isMulti
