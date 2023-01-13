@@ -1,7 +1,7 @@
 .events {
-  margin-left: 100px;
+  /* margin-left: 100px; */
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

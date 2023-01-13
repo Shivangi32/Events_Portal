@@ -4,12 +4,12 @@
 .heading{
     
     font-family: 'Play', sans-serif;
-font-size: 2.1rem;
+font-size: 150%;
 font-weight: 400;
-width:88%;
+/* width:88%; */
 color:white;
 text-align: left;
-margin: 0 auto 0 auto;
+margin: 2vw 0 0 5vw;
 
 }
 
@@ -18,8 +18,9 @@ margin: 0 auto 0 auto;
 font-size: 1.2rem;
 
 font-weight: 400;
-width:88%;
+/* width:88%; */
 color:white;
 text-align: left;
-margin: auto;
+margin: 0 0 2vw 5vw;
+
 }
