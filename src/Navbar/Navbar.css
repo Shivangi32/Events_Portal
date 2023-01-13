@@ -5,11 +5,12 @@ body {
 
 .logo{
   margin: 5px;
-  height:4.5vw;
+  width:12vw;
   margin-left: 2vw;
-  width: 10vw;
+  /* width: 10vw; */
   margin-top:1.5vw;
 }
+
 .navbar {
   margin-top: 10px;
   padding: 4vh 1vh 0vh 1vh;
@@ -124,4 +125,9 @@ span{
   justify-content: center;
   padding: 0.5vw;
   font-size: 3vh;
+}
+@media (max-width:824px) {
+  /* #navside{
+    display: none;
+  } */
 }

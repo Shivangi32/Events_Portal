@@ -191,7 +191,8 @@ function SearchBar() {
             />
           </div>
         </div>
-
+            
+            
         {filteredData.length !== 0 && (
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {
@@ -199,7 +200,8 @@ function SearchBar() {
             })}
           </div>
         )}
-      </div>
+        </div>
+      
       <div className="events">{eCards}</div>
     </>
   );
