@@ -22,27 +22,27 @@ export const Event = ({ event: { soc, EventName, date, time, link } }) => {
   ];
 
   function getMeridian(time) {
-    if(time >= "12:00") {
-      return "PM"
+    if (time >= "12:00") {
+      return "PM";
     } else {
-      return "AM"
+      return "AM";
     }
   }
 
   function getTime(time) {
-    let hh = parseInt(time.slice(0,2))
-    if(hh > 12) {
-      hh = hh % 12
-      if(hh < 10) {
-        return String("0" + hh + ":" + time.slice(3, 6))
+    let hh = parseInt(time.slice(0, 2));
+    if (hh > 12) {
+      hh = hh % 12;
+      if (hh < 10) {
+        return String("0" + hh + ":" + time.slice(3, 6));
       }
-      return String(hh + ":" + time.slice(3, 6))
+      return String(hh + ":" + time.slice(3, 6));
     }
-    return time
+    return time;
   }
 
   return (
-    <div className="event">
+    <div className="event col-3 col-md-5">
       <div className="event_wrapper">
         <img className="event-img" src={img} />
         <div className="info">
@@ -56,15 +56,19 @@ export const Event = ({ event: { soc, EventName, date, time, link } }) => {
           <div className="event_date">
             <span className="date">
               {date.slice(8, 10)} {months[parseInt(date.slice(5, 7))]}{" "}
-              {date.slice(0, 4)}{", "}
+              {date.slice(0, 4)}
+              {", "}
             </span>
-            <span className="time">{getTime(time)} {getMeridian(time)}{" IST"}</span>
+            <span className="time">
+              {getTime(time)} {getMeridian(time)}
+              {" IST"}
+            </span>
           </div>
           <div className="event_register">
             <a href={link} target="_blank">
-            <button>
-              <span className="register">REGISTER</span>
-            </button>
+              <button>
+                <span className="register">REGISTER</span>
+              </button>
             </a>
           </div>
         </div>

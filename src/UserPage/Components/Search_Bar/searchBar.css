@@ -7,10 +7,10 @@
 
 .search input {
   background: rgba(255, 255, 255, 0.5);
-  border:none;
+  border: none;
   border: 0;
   /* height:30px; */
-  border-radius:5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
   object-fit: contain;
   margin-left: 62px;
   padding: 4px 8px;
@@ -19,15 +19,15 @@
   font-weight: bolder;
   width: 50vh;
 }
-::placeholder{
-  color:black;
+::placeholder {
+  color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
 }
 
 .searchIcon {
-  height:39px;
-padding-right: 8px;
+  height: 39px;
+  padding-right: 8px;
   border-radius: 0vw 0.5vw 0.5vw 0vw;
   background: rgba(255, 255, 255, 0.5);
   color: black;
@@ -87,23 +87,22 @@ a:hover {
   cursor: pointer;
 }
 
-#options{
+#options {
   height: 39px;
-    border:none;
-    background: rgba(255, 255, 255, 0.5);
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    object-fit: contain;
-    padding:5px 13px;
-    margin: 0 10px;
-    border-radius: 5px;
-    /* color:white; */
-    color: black;
-    font-weight: bolder;
-    
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  object-fit: contain;
+  padding: 5px 13px;
+  margin: 0 10px;
+  border-radius: 5px;
+  /* color:white; */
+  color: black;
+  font-weight: bolder;
 }
-option{
- background-color:grey;
- text-align: center;
+option {
+  background-color: grey;
+  text-align: center;
 }

@@ -5,16 +5,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Event } from "../Event_Card/Card";
 import { db } from "../../../firebaseConfig";
-import DropDown from "../Tags"
-import {
-  query,
-  getDocs,
-  collection,
-} from "firebase/firestore";
-
+import DropDown from "../Tags";
+import { query, getDocs, collection } from "firebase/firestore";
 
 function SearchBar() {
-
   const optionsList = [];
 
   const [allsoc, setallsoc] = useState([]);
@@ -31,15 +25,13 @@ function SearchBar() {
     const socCollection = query(collection(db, "Societies"));
     const socDocs = await getDocs(socCollection);
     const socList = socDocs.docs.map(async (socData) => {
-
       const socName = socData.data().soc;
 
-      setallsoc(current => [...current, socName]);
+      setallsoc((current) => [...current, socName]);
       const socEvents = query(collection(db, `Events/soc_events/${socName}`));
       const events = await getDocs(socEvents);
 
       const eventsList = events.docs.map((event) => {
-
         const data = event.data();
         let info = {
           soc: socName,
@@ -48,38 +40,35 @@ function SearchBar() {
           date: data.date,
           time: data.time,
           link: data.link,
-          category: data.category
+          category: data.category,
         };
 
         if (data.approved == "true") {
-          setAllEvents(current => [...current, info]);
-          setInitialEvents(current => [...current, info]);
+          setAllEvents((current) => [...current, info]);
+          setInitialEvents((current) => [...current, info]);
           const eventName = data.EventName;
-          setEvents(events => [...events, eventName]);
-
+          setEvents((events) => [...events, eventName]);
         }
-      })
-    })
-  }
+      });
+    });
+  };
 
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
 
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
   function sel_categories(selected) {
-
     setselCat([]);
     selected.forEach((cat) => {
-      setselCat((current) => [...current, cat.label])
-    })
+      setselCat((current) => [...current, cat.label]);
+    });
   }
 
   const HandleCategory = () => {
-
     setshowInitialEvents(false);
     setFilteredEvents([]);
     if (sel_cat.length === 0) {
@@ -88,52 +77,39 @@ function SearchBar() {
     }
 
     InitialEvents.forEach((event) => {
-
       let flag = 1;
       sel_cat.forEach((cat) => {
-        if (event.category.includes(cat) == false)
-          flag = 0;
-      })
+        if (event.category.includes(cat) == false) flag = 0;
+      });
       if (flag == 1) {
-        setFilteredEvents((current) => [...current, event])
+        setFilteredEvents((current) => [...current, event]);
       }
-    })
-
-  }
-
+    });
+  };
 
   const HandleSocFilter = async (tag) => {
-
-    if (tag == "None" || tag == "Event")
-      setInitialEvents(AllEvents);
-
+    if (tag == "None" || tag == "Event") setInitialEvents(AllEvents);
     else {
       setInitialEvents([]);
       const tempfilter = AllEvents.filter((e) => {
-        return e.soc.toLowerCase().includes(tag.toLowerCase())
-      })
+        return e.soc.toLowerCase().includes(tag.toLowerCase());
+      });
       setInitialEvents(tempfilter);
     }
-
-  }
-
+  };
 
   useEffect(() => {
     HandleCategory();
-  }, [InitialEvents])
-
+  }, [InitialEvents]);
 
   const handleFilter = (event) => {
-
     setshowInitialEvents(false);
     const searchWord = event.target.value;
     setWordEntered(searchWord);
 
     if (searchWord === "") {
-
       setFilteredEvents([]);
-      if (sel_cat.length === 0)
-        setshowInitialEvents(true);
+      if (sel_cat.length === 0) setshowInitialEvents(true);
       else {
         HandleCategory();
         setshowInitialEvents(false);
@@ -142,21 +118,19 @@ function SearchBar() {
     }
 
     if (filteredEvents.length === 0) {
-      console.log(filteredEvents)
+      console.log(filteredEvents);
       const tempfilter = InitialEvents.filter((e) => {
-        return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
-      })
+        return e.EventName.toLowerCase().includes(searchWord.toLowerCase());
+      });
       setFilteredEvents(tempfilter);
-    }
-    else {
+    } else {
       const tempfilter = filteredEvents.filter((e) => {
-        return e.EventName.toLowerCase().includes(searchWord.toLowerCase())
-      })
-      console.log(tempfilter)
+        return e.EventName.toLowerCase().includes(searchWord.toLowerCase());
+      });
+      console.log(tempfilter);
       setFilteredEvents(tempfilter);
     }
-
-  };  //handelfilter  close
+  }; //handelfilter  close
 
   if (showInitialEvents) {
     InitialEvents.forEach((e) => {
@@ -168,16 +142,15 @@ function SearchBar() {
   filteredEvents.forEach((e) => {
     let ca = <Event event={e} key={e.id} />;
     eCards.push(ca);
-  })
+  });
 
-
-  const returnOptions=()=>{
-    let options=[<option value="None">All Events</option>];
-    allsoc.forEach((item)=>{
-      options.push(<option value={item}>{item}</option>)
-    })
+  const returnOptions = () => {
+    let options = [<option value="None">All Events</option>];
+    allsoc.forEach((item) => {
+      options.push(<option value={item}>{item}</option>);
+    });
     return options;
-  }
+  };
   const clearInput = () => {
     setshowInitialEvents(true);
     setFilteredData([]);
@@ -186,9 +159,9 @@ function SearchBar() {
   };
 
   const setTagfunc = async (event) => {
-    setTag(event.target.value)
-    HandleSocFilter(event.target.value)
-  }
+    setTag(event.target.value);
+    HandleSocFilter(event.target.value);
+  };
   return (
     <>
       <div className="search">
@@ -212,25 +185,24 @@ function SearchBar() {
             </select>
           </div>
           <div>
-            <DropDown sel_categories={sel_categories} handleCategory={HandleCategory} />
+            <DropDown
+              sel_categories={sel_categories}
+              handleCategory={HandleCategory}
+            />
           </div>
         </div>
 
         {filteredData.length !== 0 && (
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {
-              return (
-                <p>{value}</p>
-              );
+              return <p>{value}</p>;
             })}
           </div>
         )}
       </div>
-      <div className="events">
-        {eCards}
-      </div>
+      <div className="events">{eCards}</div>
     </>
-  )
+  );
 }
 
 export default SearchBar;
