@@ -1,5 +1,5 @@
 .cards {
-  margin-left: 30px;
+  margin-left: 100px;
   align-items: flex-start;
   justify-content: flex-start;
   display: flex;
@@ -16,14 +16,14 @@
   background: #1c1b1b;
 }
 
-.event_wrapper {
+.card_wrapper {
   /* padding: 1.5vw; */
   font-family: 'Roboto';
-  width: 22vw;
-  height: 421px;
+  /* width: 22vw;
+  height: 421px; */
 }
 
-.event-img {
+.card-img {
   border-radius: 20px 20px 0 0;
   height: 40%;
   width: 100%;
