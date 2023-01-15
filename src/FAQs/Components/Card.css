@@ -75,9 +75,14 @@
    flex-direction: column;
 }
 
-.detail{
+.detail_ques{
    padding: 0 10px;
 }
+
+.detail_ans{
+   margin-top: -45px;
+}
+
 .ques-para {
    position: relative;
    /* top: 50px; */
@@ -98,7 +103,7 @@
    font-family: 'Montserrat';
    font-style: normal;
    top: 35%;
-   font-size: 14px;
+   font-size: 18px;
    line-height: 0.8rem;
    text-align: center;
    color: white;
@@ -117,3 +122,63 @@
    background-color: #9747FF;
    border-radius: 10px;
 }
+
+@media screen and (max-width: 550px) {
+
+   .FAQ_Header {
+		margin-top: 4vh;
+      margin-bottom: 4vh;
+      margin-left: 10vw;
+	}
+
+   .container .faq_card {
+      width: 35vw;
+      height: 20vh;
+      padding: 0px 0px;
+      margin: 1vh 0vw;
+      margin-right: 10px;
+      border-radius: 20vw;
+      position: relative;
+   }
+
+   .detail_ques{
+      padding: -5px 10px;
+   }
+
+   .detail_ans{
+      margin-top: -50px;
+      margin-left: -2px;
+      margin-right: -2px;
+   }
+
+   .ques-para {
+      position: relative;
+      /* top: 50px; */
+   
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 86%;
+      /* or 13px */
+      line-height: 1.3;
+   
+      text-align: center;
+      color: #FFFFFF;
+   }
+   
+   .ans-para{
+      font-family: 'Montserrat';
+      font-style: normal;
+      top: 35%;
+      font-size: 1.5vh;
+      line-height: 0.8rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      line-height: 1.2;
+      align-content: center;
+      justify-content: center;
+      padding: 0 2vw;
+   }
+ }
