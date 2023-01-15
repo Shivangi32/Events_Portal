@@ -14,12 +14,10 @@
 }
 
 .img_rocket {
-
     width: 405px;
     height: 397px;
     left: 350px;
     top: 100px;
-
     background: url('/src/Society/images/rocket.png'), #D9D9D9;
 }
 
@@ -30,7 +28,7 @@
 	font-family: 'Play', sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 48px;
+	font-size: 20vh;
 	line-height: 86%;
 	/* or 41px */
 
@@ -39,9 +37,9 @@
 
 .para {
 
-	width: 484px;
+	width: 35vw;
 	padding: 1vw;
-	left: 800px;
+	left: 10vw;
 
 	font-family: 'Play', sans-serif;
 	font-style: normal;
@@ -53,3 +51,53 @@
 
 	color: #FFFFFF;
 }
+
+@media screen and (max-width: 550px) {
+	.img_rocket {
+	   display: none;
+	}
+
+	.about_info{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color:white;
+		padding: 0 1vw;
+		padding-bottom: 0;
+		margin-top: 4vh;
+		margin-left: 0;
+	}
+
+	.about_Heading{
+		display: flex;
+		justify-content:center;
+	
+		font-family: 'Play', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20vh;
+		line-height: 86%;
+		/* or 41px */
+		padding-right: 20vw;
+		padding-bottom: 3vh;
+		color: #FFFFFF;
+	}
+
+	.para {
+
+		width: 100vw;
+		padding-right: 25vw;
+		padding-left: -20vw;
+		left: 0vw;
+	
+		font-family: 'Play', sans-serif;
+		font-style: normal;
+		/* font-weight: 400; */
+		font-size: 16px;
+		line-height:1rem;     /* or 17px */
+		text-align: center;
+		line-height: 1.2rem;
+	
+		color: #FFFFFF;
+	}
+ }

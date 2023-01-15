@@ -11,3 +11,13 @@
  #planet{
     width: 100%;
  }
+
+/* @media screen and (max-width: 700px) {
+   
+} */
+
+@media screen and (max-width: 550px) {
+   #planet_div, #planet {
+      display: none;
+   }
+}
