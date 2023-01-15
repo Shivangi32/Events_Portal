@@ -5,20 +5,19 @@
         display: block;
     }
 
-    .sidebarNav{
-        /* font-size:1.5vw; */
-        margin:100% 0 100% 1vw;
-        background-color: #2B2A2A;
-        margin-left:15%;
-        padding:20px 20px;
-        text-align: center;
-        background: #2B2A2A;
-        color:white;
-        /* height:fit-content; */
-        width: fit-content;
-        border-radius: 10px;
+    .sidebarNav {
+        FONT-VARIANT: JIS04;
+    margin: 164% 0 207% 1vw;
+    background-color: #2B2A2A;
+    padding: 0.5vw;
+    text-align: center;
+    background: #2B2A2A;
+    color: white;
+    top: 37%;
+    position: sticky;
+    width: fit-content;
+    border-radius: 1vw;
     }
-
     .usernav-items{
         padding: 0;
     }

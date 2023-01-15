@@ -17,7 +17,7 @@ import {
     addDoc,
 } from "firebase/firestore";
 
-import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai"
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 
 export default function Register({ setLoginModalFunc, setRegisterModalFunc, setIsLoggedinVal }) {
 
@@ -95,7 +95,7 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                 email: user.email,
             });
             await addDoc(collection(db, "Societies"), {
-                soc:user.email.split("@")[0]
+                soc: user.email.split("@")[0]
             });
             alert("registered successfully!!");
         }
@@ -114,11 +114,18 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                 <img src={earth} id="earth"></img>
             </div>
             <div>
-                <ul id="LoginNavbar">
-                    <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
-                    <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>
-                    <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/FAQs" style={{ background: "transparent" }}>FAQs</Link></li>
-                </ul>
+                <nav className="navbar-expand-sm loginNav">
+
+                    <button className="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
+                        <ul id="LoginNavbar">
+                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
+                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>
+                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/FAQs" style={{ background: "transparent" }}>FAQs</Link></li>
+                        </ul>
+                    </div></nav>
             </div>
             <div id="Newacc">
                 ALREADY HAVE AN ACCOUNT?
@@ -150,12 +157,12 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
 
                             <div className="input-group-btn">
                                 <a onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
-                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible style={{marginLeft: "-2vw"}} /> : <AiFillEye style={{marginLeft: "-2vw"}}/>}
+                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible style={{ marginLeft: "-2vw" }} /> : <AiFillEye style={{ marginLeft: "-2vw" }} />}
                                 </a>
                             </div>
                         </div>
-                            <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
-                            <button id="submitbtn" onClick={createUser}>REGISTER</button>
+                        <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign Up with Google</span>
+                        <button id="submitbtn" onClick={createUser}>REGISTER</button>
                     </form>
 
                 </div>
