@@ -13,12 +13,12 @@ export default function Card() {
                         <div key={index} className="faq_card">
                             <div className='faq-card-inner'>
                                 <div className="faq_content">
-                                    <div className="detail">
+                                    <div className="detail_ques">
                                         <p className='ques-para'>{item.ques}</p>
                                     </div>
                                 </div>
                                 <div className='flip'>
-                                    <div className="detail">
+                                    <div className="detail_ans">
                                         <p className='ans-para'>{item.ans}</p>
                                     </div>
                                 </div>
