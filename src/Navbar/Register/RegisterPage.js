@@ -121,9 +121,9 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                     </button>
                     <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
                         <ul id="LoginNavbar">
-                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
-                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>
-                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/FAQs" style={{ background: "transparent" }}>FAQs</Link></li>
+                            <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
+                            <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>
+                            <li class="loginnav-item" onClick={() => { setRegisterModalFunc(false) }}><Link to="/FAQs" style={{ background: "transparent" }}>FAQs</Link></li>
                         </ul>
                     </div></nav>
             </div>

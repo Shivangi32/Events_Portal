@@ -2,18 +2,17 @@
 @import url(https://allfont.net/allfont.css?fonts=star-jedi);
 
 #simpleModal {
-    /*background-image: url("https://thumbs.dreamstime.com/b/hundreds-white-rain-drops-window-black-background-glass-108001374.jpg");
-    /* opacity: 0.9 !important; */
     font-family: 'Play', sans-serif;
     background-image: url("../../background.jpg");
 }
 
-.loginNav{
+.loginNav {
     position: absolute;
     width: 33vw;
     top: 6vh;
     right: 8vw;
 }
+
 #modalContent {
     position: absolute;
     height: 35vw;
@@ -24,14 +23,15 @@
     border-radius: 1vw;
 }
 
-#ModalBody{
-    padding:0vw;
+#ModalBody {
+    padding: 0vw;
 }
+
 .loginnav-item {
     padding: 0.5vw 2vw;
     background: transparent;
     display: list-item;
-    font-size:1.5vw;
+    font-size: 1.5vw;
     margin: 0 1.5vw;
     border-radius: 5px;
 }
@@ -57,9 +57,11 @@
     background-repeat: none !important;
     mix-blend-mode: normal;
 }
-#earth{
-    height:60vw;
+
+#earth {
+    height: 60vw;
 }
+
 #LRform svg {
     margin: 0.5vw;
 }
@@ -112,7 +114,7 @@ input ::placeholder {
     width: 20vw;
     border: green;
     outline: none;
-    font-size:1vw;
+    font-size: 1vw;
     border-radius: 0.3vw;
 }
 
@@ -144,7 +146,7 @@ input ::placeholder {
 
 #submitbtn {
     vertical-align: middle;
-    font-size: 1.2vw ;
+    font-size: 1.2vw;
     text-align: center;
     padding: 0.2vw 2vw 0.2vw 2vw;
     height: 2.6vw;
@@ -155,11 +157,12 @@ input ::placeholder {
     box-shadow: 3px 5px 15px #201F1F;
 }
 
-#forgot{
+#forgot {
     color: white;
     text-align: center;
     font-size: 1.4vw;
 }
+
 #Google svg {
     height: 2vw;
     width: 2vw;
@@ -210,25 +213,39 @@ input ::placeholder {
 
 @media screen and (max-width: 650px) {
 
-    #LoginNavbar{
-        margin-top: 7vw !important;
-    }
-    #earthdiv{
-        display: none;
-    }
-    #Newacc{
-        display: none
+    #filterCatDiv {
+        width: 50vw;
     }
 
-    #modalContent{
+    .login {
+        font-size: 2.5vw;
+        margin: 1vw;
+    }
+
+    .register {
+        font-size: 2.5vw;
+    }
+
+    #LoginNavbar {
+        margin-top: 7vw !important;
+    }
+
+    #earthdiv {
+        display: none;
+    }
+
+    #Newacc {
+        display: none;
+    }
+
+    #modalContent {
         margin: auto;
         position: relative;
-        width:70%;
+        width: 70%;
         height: 70%;
         top: 0vw;
         right: 0vw;
-        padding:0vw;
-
+        padding: 0vw;
     }
 
     #simpleModal .logo {
@@ -239,10 +256,11 @@ input ::placeholder {
         margin-top: 1.5vw;
     }
 
-    #LRform svg{
+    #LRform svg {
         height: 3vw;
-    width: 4vw;
+        width: 4vw;
     }
+
     #LRform input {
         height: 4vw;
         padding: 0.5vw;
@@ -250,46 +268,54 @@ input ::placeholder {
         font-size: 3vw;
         border-radius: 0.3vw;
     }
-    .textbox{
+
+    .textbox {
         width: 74%;
-    height: 4.6vw;
+        height: 4.6vw;
     }
 
-    #login_heading,#register_head{
+    #login_heading,
+    #register_head {
         font-size: 5vw;
     }
+
     .navbar-toggler {
         padding: 0vw;
         height: 4.8vw;
         width: 5.3vw;
     }
-    .togglelogin{
+
+    .togglelogin {
         position: absolute;
         right: 1vw;
     }
+
     .loginnav-item {
         padding: 0.5vw 2vw;
         background: transparent;
         display: list-item;
-        font-size:3vw;
+        font-size: 3vw;
         margin: 0 1.5vw;
         border-radius: 5px;
     }
-    #Google,#forgot{
-        font-size:4vw;
+
+    #Google,
+    #forgot {
+        font-size: 4vw;
     }
 
-    #submitbtn{
+    #submitbtn {
         height: 10%;
-    width: 29%;
-    font-size: 3vw;
+        width: 29%;
+        font-size: 3vw;
     }
+
     #ModalHeader {
         margin-right: 1vw;
         padding: 2vw 0.6vw 0 0;
     }
 
-    .closebtn{
-        font-size:9vw;
+    .closebtn {
+        font-size: 9vw;
     }
-  }
+}

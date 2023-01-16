@@ -165,34 +165,37 @@ function SearchBar() {
   return (
     <>
       <div className="search">
-        <div className="searchInputs">
-          <input
-            type="text"
-            value={wordEntered}
-            placeholder="Search event"
-            onChange={handleFilter}
-          />
-          <div className="searchIcon">
-            {wordEntered.length === 0 ? (
-              <SearchIcon />
-            ) : (
-              <CancelIcon id="clearBtn" onClick={clearInput} />
-            )}
+        <div className="searchInputs" style={{display:"flex", margin: "1vw", flexDirection: "column"}}>
+          <div style={{display: "flex", margin: "1vw"}}>
+            <input
+              type="text"
+              value={wordEntered}
+              placeholder="Search event"
+              onChange={handleFilter}
+            />
+            <div className="searchIcon">
+              {wordEntered.length === 0 ? (
+                <SearchIcon />
+              ) : (
+                <CancelIcon id="clearBtn" onClick={clearInput} />
+              )}
+            </div>
+            <div>
+              <select name="options" id="options" onChange={setTagfunc}>
+                {returnOptions()}
+              </select>
+            </div>
           </div>
-          <div>
-            <select name="options" id="options" onChange={setTagfunc}>
-              {returnOptions()}
-            </select>
-          </div>
-          <div>
+
+          <div id="filterCatDiv" style={{ marginLeft: "3vw", width:"40vw"}}>
             <DropDown
               sel_categories={sel_categories}
               handleCategory={HandleCategory}
             />
           </div>
         </div>
-            
-            
+
+
         {filteredData.length !== 0 && (
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value) => {
@@ -200,8 +203,8 @@ function SearchBar() {
             })}
           </div>
         )}
-        </div>
-      
+      </div>
+
       <div className="events">{eCards}</div>
     </>
   );
