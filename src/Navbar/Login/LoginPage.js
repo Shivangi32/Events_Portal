@@ -159,7 +159,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
 
                             <div className="input-group-btn">
                                 <a onClick={togglePassword} style={{background: "transparent", border: "none"}}>
-                                { passwordType==="password"? <AiFillEyeInvisible style={{marginLeft: "-2vw"}} /> : <AiFillEye style={{marginLeft: "-2vw"}}/> }
+                                { passwordType==="password"? <AiFillEyeInvisible style={{ marginLeft: "2vw" , height: "5.5vw",display: "block"}} /> : <AiFillEye style={{marginLeft: "-2vw"}}/> }
                             </a>
                             </div>
 

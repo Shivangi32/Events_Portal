@@ -213,6 +213,13 @@ input ::placeholder {
 
 @media screen and (max-width: 650px) {
 
+    .event_wrapper{
+        height: 100vw;
+    }
+
+    .event{
+        width: 84%;
+    }
     #filterCatDiv {
         width: 50vw;
     }
@@ -227,7 +234,7 @@ input ::placeholder {
     }
 
     #LoginNavbar {
-        margin-top: 7vw !important;
+        margin-top: 12vw !important;
     }
 
     #earthdiv {
@@ -242,8 +249,8 @@ input ::placeholder {
         margin: auto;
         position: relative;
         width: 70%;
-        height: 70%;
-        top: 0vw;
+        height: 63%;
+        top: -4vw;
         right: 0vw;
         padding: 0vw;
     }
@@ -255,23 +262,27 @@ input ::placeholder {
         width: 30vw;
         margin-top: 1.5vw;
     }
+    .logo{
+        height: 14.5vw;
+        width: 25vw;
+    }
 
     #LRform svg {
-        height: 3vw;
+        height: 3.5vw;
         width: 4vw;
     }
 
     #LRform input {
-        height: 4vw;
+        height: 7vw;
         padding: 0.5vw;
         width: 75%;
-        font-size: 3vw;
+        font-size: 3.5vw;
         border-radius: 0.3vw;
     }
 
     .textbox {
-        width: 74%;
-        height: 4.6vw;
+        width: 77%;
+    height: 7.6vw;
     }
 
     #login_heading,
@@ -305,7 +316,7 @@ input ::placeholder {
     }
 
     #submitbtn {
-        height: 10%;
+        height: 8%;
         width: 29%;
         font-size: 3vw;
     }
