@@ -7,13 +7,13 @@
 
     .sidebarNav {
         FONT-VARIANT: JIS04;
-    margin: 164% 0 207% 1vw;
+        margin: 0 auto 50% auto;
     background-color: #2B2A2A;
     padding: 0.5vw;
     text-align: center;
     background: #2B2A2A;
     color: white;
-    top: 37%;
+    top: 34%;
     position: sticky;
     width: fit-content;
     border-radius: 1vw;
@@ -22,9 +22,14 @@
         padding: 0;
     }
 
+    .item1{
+        width: fit-content;
+        margin-left: 1vw;
+    }
+
     .usernav-item{
         list-style: none;
-        margin:25px 10px;
+        margin: 23px 2px;
         font-family: 'Play', sans-serif;
         border-radius: 5px;
         font-size: 0.9rem;

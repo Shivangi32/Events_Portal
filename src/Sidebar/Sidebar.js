@@ -20,7 +20,7 @@ export default function Sidebar() {
                         <li className='usernav-item'>
                             <NavLink to="/" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
-                                padding: "6px 12px",
+                                padding: "6px 9px",
                                 borderRadius: "5px"
                             })}>
                                 HOME
@@ -30,7 +30,7 @@ export default function Sidebar() {
                         <li className='usernav-item'>
                             <NavLink to="/About" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
-                                padding: "6px 12px",
+                                padding: "6px 9px",
                                 borderRadius: "5px"
 
                             })}>
@@ -43,7 +43,7 @@ export default function Sidebar() {
                             <li className='usernav-item'>
                                 <NavLink to="/Society" style={({ isActive }) => ({
                                     background: isActive ? '#9747FF' : 'transparent',
-                                    padding: "6px 12px",
+                                    padding: "6px 9px",
                                     
                                     borderRadius: "5px"
                                 })}>SOCIETY</NavLink>
@@ -54,7 +54,7 @@ export default function Sidebar() {
                             <li className='usernav-item'>
                                 <NavLink to="/Admin" style={({ isActive }) => ({
                                     background: isActive ? '#9747FF' : 'transparent',
-                                    padding: "6px 12px",
+                                    padding: "6px 9px",
                                     borderRadius: "5px"
                                 })}>ADMIN</NavLink>
                             </li>
@@ -63,7 +63,7 @@ export default function Sidebar() {
                         <li className='usernav-item'>
                             <NavLink to="/FAQs" style={({ isActive }) => ({
                                 background: isActive ? '#9747FF' : 'transparent',
-                                padding: "6px 12px",
+                                padding: "6px 9px",
                                 borderRadius: "5px"
                             })}>
                                 FAQs

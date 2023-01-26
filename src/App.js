@@ -31,11 +31,11 @@ function App() {
           <Navbar user={user} email={email} showNav={showNav} />
         </div>
         <div className="container-user">
-          <div className="item 1">
+          <div className="item1">
             <Sidebar />
           </div>
 
-          <div className="item 2">
+          <div className="item2">
             <Routes>
               <Route
                 index
