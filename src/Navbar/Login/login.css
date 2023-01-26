@@ -211,17 +211,14 @@ input ::placeholder {
     color: #9747FF;
 }
 
-@media screen and (max-width: 400px){
-
-    #filterCatDiv{
-        width: 66vw;
-    }
-
-}
 @media screen and (max-width: 650px) {
 
     .event_wrapper{
         height: 100vw;
+    }
+
+    #filterCatDiv{
+        width: 66vw !important;
     }
 
     .item2{
