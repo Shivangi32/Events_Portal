@@ -229,6 +229,12 @@ hr{
   border-radius: 3%;
 }
 
+@media (max-width: 824px) {
+  .Modal {
+    width: 72%;
+  }
+}
+
 .Modal .modal-header h2 {
   font-size: 1.5rem;
   font-family: 'Play', sans-serif;
