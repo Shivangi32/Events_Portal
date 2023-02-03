@@ -213,6 +213,11 @@ input ::placeholder {
 
 @media screen and (max-width: 650px) {
 
+    #profilePic{
+        height: 7vw;
+        width: 7vw;
+        margin: 1vw 1vw 0vw 0.5vw;
+    }
     .event_wrapper{
         height: 100vw;
     }

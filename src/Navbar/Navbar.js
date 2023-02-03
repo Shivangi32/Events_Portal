@@ -98,7 +98,7 @@ export default function Navbar({ user, email, showNav }) {
                         <span className="navbar-toggler-icon"></span>
                     </button> 
                     <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">*/}
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-auto">
                 <img className="logo" src={logo} />
                 <div id="navside">
                     {!isLoggedin ? (
