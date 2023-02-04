@@ -55,6 +55,16 @@ const teams = [
     instagram: "https://www.instagram.com/shre_yaya/",
     linkedin: "https://www.linkedin.com/in/shreyam-2810 "
   },
+  {
+    index: 6,
+    img: Sanskriti,
+    name: "Sanskriti Agarwal",
+    position: "Web Developer",
+    description: "Sansriti is a 3rd year CSE undergraduate, who exhibits amazing leadership and technical skills.",
+    twitter: "https://twitter.com/codereyaaa",
+    instagram: "https://www.instagram.com/shre_yaya/",
+    linkedin: "https://www.linkedin.com/in/shreyam-2810 "
+  }
 ];
 
 export default teams;
