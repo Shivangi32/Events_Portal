@@ -131,6 +131,9 @@
       margin-left: 10vw;
 	}
 
+   .container {
+      margin-left: 3vw;
+   }
    .container .faq_card {
       width: 35vw;
       height: 20vh;
