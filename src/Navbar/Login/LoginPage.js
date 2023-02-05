@@ -89,7 +89,6 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             window.location.reload();
 
         } catch (err) {
-            console.error(err);
             alert("Invalid Credentials")
             setIsLoggedinVal(false);
             setisSocLogin(false);
@@ -97,15 +96,16 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
         }
     };
 
-    const triggerResetEmail = async () => {
+    const triggerResetEmail = async (event) => {
 
+        event.preventDefault();
         if(email===null || email==="undefined" || email=="")
         {
             alert("Enter email first !!");
-            return;
         }
         await sendPasswordResetEmail(auth, email);
-        console.log("Password reset email sent")
+        alert("Password reset email sent !!");
+        setLoginModalFunc(false);
     }
 
 
@@ -166,7 +166,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                         </div>
                         <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
-                        <div id="forgot">Don't remember your password? <a href='/' style={{color: "#9747FF"}}>Forgot Password</a></div>
+                        <div id="forgot">Don't remember your password? <a href='/' style={{color: "#9747FF"}} onClick={triggerResetEmail}>Forgot Password</a></div>
                     </form>
 
                 </div>

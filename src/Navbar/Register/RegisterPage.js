@@ -82,6 +82,10 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
             return;
         }
 
+        if (password.length <6) {
+            alert("Password should be at least 6 characters long !!");
+        }
+
         event.preventDefault();
 
         const res = await createUserWithEmailAndPassword(auth, email, password);
