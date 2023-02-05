@@ -4,10 +4,67 @@ import Nishtha from "../assets/Nishtha.jpg";
 import Rishika from "../assets/Rishika.jpg";
 import Shreya from "../assets/Shreya.jpg";
 import Sanskriti from "../assets/Sanskriti.jpg";
+import Pooja from "../assets/Pooja.JPG"
+import NishthaG from "../assets/NishthaG.jpeg"
+import Gaurisha from "../assets/Gaurisha.jpg"
+import Abhigya from "../assets/Abhigya.jpeg"
+
+
 
 const teams = [
   {
     index: 1,
+    img: Pooja,
+    name: "Pooja Gera",
+    position: "Founder",
+    description: "Pooja is a final year IT undergraduate,who believes in building technical products for the greater good.",
+    twitter: "",
+    instagram: "",
+    linkedin: ""
+  },
+  {
+    index: 2,
+    img: NishthaG,
+    name: "Nishtha Goyal",
+    position: "Founder",
+    description: "Nishtha is a final year IT undergraduate,who is always open to the new challenges and willing to go to an extra mile. ",
+    twitter: "",
+    instagram: "",
+    linkedin: ""
+  },
+  {
+    index: 3,
+    img: Gaurisha,
+    name: "Gaurisha R Srivastava",
+    position: "Founder",
+    description: "Gaurisha is a final year IT undergraduate, who has worked in fields of machine learning AI and Flutter Development.",
+    twitter: "",
+    instagram: "",
+    linkedin: ""
+  },
+  {
+    index: 4,
+    img: Abhigya,
+    name: "Abhigya Verma",
+    position: "Founder",
+    description: "Abhigya is a final year IT undergraduate, who believes in effective solutions that produce immediate impact and contribute to the success of the society .",
+    twitter: "",
+    instagram: "",
+    linkedin: ""
+  },
+  {
+    index: 5,
+    img: Sanskriti,
+    name: "Sanskriti Agarwal",
+    position: "UI/UX Designer",
+    description: "Sansriti is a 3rd year ECE undergraduate, who exhibits amazing designing and front end development skills.",
+    twitter: "",
+    instagram: "",
+    linkedin: " "
+    
+  },
+  {
+    index: 6,
     img: Shivangi,
     name: "Shivangi Aggarwal",
     position: "Web Developer",
@@ -17,7 +74,7 @@ const teams = [
     linkedin: "https://www.linkedin.com/in/shivangi-agg/"
   },
   {
-    index: 2,
+    index: 7,
     img: Mahima,
     name: "Mahima Pasricha",
     position: "Web Developer",
@@ -27,7 +84,7 @@ const teams = [
     linkedin: "https://www.linkedin.com/mwlite/in/mahima-pasricha"
   },
   {
-    index: 3,
+    index: 8,
     img: Nishtha,
     name: "Nishtha Agarwal",
     position: "Web Developer",
@@ -37,7 +94,7 @@ const teams = [
     linkedin: "https://www.linkedin.com/in/nishtha002"
   },
   {
-    index: 4,
+    index: 9,
     img: Rishika,
     name: "Rishika Kant",
     position: "Web Developer",
@@ -47,7 +104,7 @@ const teams = [
     linkedin: "https://www.linkedin.com/in/rishikakant"
   },
   {
-    index: 5,
+    index: 10,
     img: Shreya,
     name: "Shreya Mittal",
     position: "Web Developer",
@@ -56,16 +113,7 @@ const teams = [
     instagram: "https://www.instagram.com/shre_yaya/",
     linkedin: "https://www.linkedin.com/in/shreyam-2810 "
   },
-  {
-    index: 6,
-    img: Sanskriti,
-    name: "Sanskriti Agarwal",
-    position: "UI/UX Designer",
-    description: "Sansriti is a 3rd year ECE undergraduate, who exhibits amazing designing and front end development skills.",
-    twitter: "https://twitter.com/codereyaaa",
-    instagram: "https://www.instagram.com/shre_yaya/",
-    linkedin: "https://www.linkedin.com/in/sanskritiaga/?originalSubdomain=in "
-  }
+  
 ];
 
 export default teams;

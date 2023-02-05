@@ -146,10 +146,14 @@
    transform: rotateY(180deg);
    background-color: #2B2A2A;
    border-radius: 10px;
+<<<<<<< Updated upstream
 }
 
 @media screen and (max-width: 550px) {
    .team_Header {
       padding-right: 45vw;
    }
+=======
+   padding: 0 10px;
+>>>>>>> Stashed changes
 }
