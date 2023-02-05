@@ -9,7 +9,6 @@
 }
 
 .team_Header{
-   width: 132px;
    height: 55px;
    font-family: 'Play', sans-serif;
    font-style: normal;
@@ -52,8 +51,8 @@
 }
 
 .container .mem_card {
-   width: 197px;
-   height: 275px;
+   width: 18vw;
+    height: 20vw;
    padding: 0px 0px;
    margin: 20px 10px;
    /* border-radius: 10px; */
@@ -85,56 +84,39 @@
 }
 
 .detail h4 {
-   position: relative;
-   /* width: 66px;
-   height: 28px; */
-   /* left: 142px; */
-   top: 45px;
    text-align: center;
    letter-spacing: -0.01em;
    font-family: 'Montserrat';
    font-style: normal;
    font-weight: bolder;
-   font-size: 24px;
+   font-size: 1.6vw;
    line-height: 20px;  
    color: #FFFFFF;
    padding-right: 1vw;
    padding-left: 1vw;
+   margin-bottom: 1vw;
 }
 
 .detail h5 {
-   position: relative;
-   /* width: 89px;
-   height: 17px; */
-   left: 5px;
-   top: 47px;
-   /* margin-top: 10px; */
 
    font-family: 'Montserrat';
    font-style: normal;
-   font-size: 15px;
-   /* line-height: 1.5rem; */
+   font-size: 1.4vw;
    text-align: center;
    letter-spacing: -0.02em;
    font-weight: bolder;
-
+   margin-bottom: 1vw;
    color: black;
 }
 
 .detail-para {
-   position: relative;
-   top: 50px;
 
    font-family: 'Montserrat';
    font-style: normal;
    font-weight: 400;
-   font-size: 14px;
+   font-size: 1.2vw;
    line-height: 1rem;
-   /* or 13px */
-   /* padding-left: 2vw;
-   padding-right: 2vw; */
-   margin-left: 2vw;
-   margin-right: 2vw;
+   margin: 0vw 1vw 0.6vw 1vw;
    text-align: center;
    color: #FFFFFF;
 }
@@ -144,12 +126,49 @@
    flex-wrap: wrap;
    justify-content: space-between;
    transform: rotateY(180deg);
-   background-color: #2B2A2A;
+   background-color: #9747FF;
    border-radius: 10px;
 }
 
-@media screen and (max-width: 550px) {
-   .team_Header {
-      padding-right: 45vw;
+#member_icons_list{
+   display: flex;
+   list-style: none;
+   justify-content: space-evenly;
+   margin: 0vw;
+   padding-left: 0vw;
+}
+.member_icon{
+   font-size: 2.2vw;
+   color: white;
+}
+.detail{
+   display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 650px) {
+
+   .member_icon{
+      font-size: 8vw;
+      color: white;
+   }
+   .container .mem_card {
+      width: 60vw;
+       height: 60vw;
+   }
+   .detail-para {
+
+      font-size: 4vw;
+   }
+
+   .detail h4 {
+
+      font-size: 4.4vw;
+      margin-bottom: 2vw;
+   }
+   .detail h5 {
+
+      font-size: 4.1vw;
    }
 }

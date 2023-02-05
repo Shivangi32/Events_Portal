@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Member.css"
 import Team from "./Team"
+import { AiFillTwitterCircle, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai'
+
 
 export default function Member() {
     return (
@@ -22,6 +24,12 @@ export default function Member() {
                                         <h4>{item.name}</h4>
                                         <h5>{item.position}</h5>
                                         <p className='detail-para'>{item.description}</p>
+                                        <ul id="member_icons_list">
+                                            <li className="member_icon"><a href={item.twitter} target={"_blank"}><AiFillTwitterCircle style={{color:"white"}} /></a></li>
+                                            <li className="member_icon"><a href={item.instagram} target={"_blank"}><AiFillInstagram style={{color:"white"}}/></a></li>
+                                            <li className="member_icon"><a href={item.linkedin} target={"_blank"}><AiFillLinkedin style={{color:"white"}}/></a></li>
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

@@ -9,7 +9,7 @@
 .loginNav {
     position: absolute;
     width: 33vw;
-    top: 6vh;
+    top: 4vh;
     right: 8vw;
 }
 
@@ -270,11 +270,9 @@ input ::placeholder {
     }
 
     #simpleModal .logo {
-        margin: 5px;
-        height: 20.5vw;
-        margin-left: 2vw;
-        width: 30vw;
-        margin-top: 1.5vw;
+        height: 14.5vw;
+        margin: 4vw 0vw 0vw 4vw;
+        width: 25vw;
     }
     .logo{
         height: 14.5vw;
