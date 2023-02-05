@@ -63,9 +63,10 @@
 		align-items: center;
 		color:white;
 		padding: 0 1vw;
+		padding-right: 1vw;;
 		padding-bottom: 0;
 		margin-top: 4vh;
-		margin-left: 0;
+		margin-left: -15vw;
 	}
 
 	.about_Heading{
@@ -78,15 +79,15 @@
 		font-size: 20vh;
 		line-height: 86%;
 		/* or 41px */
-		padding-right: 20vw;
+		padding-right: 8vw;
 		padding-bottom: 3vh;
 		color: #FFFFFF;
 	}
 
 	.para {
 
-		width: 100vw;
-		padding-right: 25vw;
+		width: 90vw;
+		padding-right: -40vw;
 		padding-left: -20vw;
 		left: 0vw;
 	
