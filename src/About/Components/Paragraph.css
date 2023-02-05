@@ -2,7 +2,7 @@
 
 .about_info{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color:white;
     padding: 0 10vw;
@@ -59,7 +59,7 @@
 
 	.about_info{
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 		color:white;
 		padding: 0 1vw;
@@ -86,9 +86,15 @@
 
 	.para {
 
+<<<<<<< Updated upstream
 		width: 90vw;
 		padding-right: -40vw;
 		padding-left: -20vw;
+=======
+		width: 100vw;
+		/* padding-right: 25vw;
+		padding-left: -20vw; */
+>>>>>>> Stashed changes
 		left: 0vw;
 	
 		font-family: 'Play', sans-serif;
