@@ -3,6 +3,7 @@ import Shivangi from "../assets/Shivangi.jpg";
 import Nishtha from "../assets/Nishtha.jpg";
 import Rishika from "../assets/Rishika.jpg";
 import Shreya from "../assets/Shreya.jpg";
+import Sanskriti from "../assets/Sanskriti.jpg";
 
 const teams = [
   {
@@ -59,11 +60,11 @@ const teams = [
     index: 6,
     img: Sanskriti,
     name: "Sanskriti Agarwal",
-    position: "Web Developer",
-    description: "Sansriti is a 3rd year CSE undergraduate, who exhibits amazing leadership and technical skills.",
+    position: "UI/UX Designer",
+    description: "Sansriti is a 3rd year ECE undergraduate, who exhibits amazing designing and front end development skills.",
     twitter: "https://twitter.com/codereyaaa",
     instagram: "https://www.instagram.com/shre_yaya/",
-    linkedin: "https://www.linkedin.com/in/shreyam-2810 "
+    linkedin: "https://www.linkedin.com/in/sanskritiaga/?originalSubdomain=in "
   }
 ];
 
