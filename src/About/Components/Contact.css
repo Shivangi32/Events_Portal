@@ -30,3 +30,16 @@
     transform: scale(1.2);
 }
 
+@media screen and (max-width: 550px){
+    .contact-list {
+        margin-left: -20vw;
+    }
+
+    .contact-item {
+        font-size: 7vh;
+    }
+
+    .contact-header{
+        padding-right: 8vw;
+    }
+}
