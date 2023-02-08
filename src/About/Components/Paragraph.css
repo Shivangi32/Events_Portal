@@ -2,7 +2,7 @@
 
 .about_info{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color:white;
     padding: 0 10vw;
@@ -59,7 +59,7 @@
 
 	.about_info{
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 		color:white;
 		padding: 0 1vw;

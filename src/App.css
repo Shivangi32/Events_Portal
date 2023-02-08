@@ -51,6 +51,19 @@ body {
   height: 40vmin;
   pointer-events: none;
 }
+@media screen and (max-width: 650px){
+  .container-user{
+    display: flex;
+  }
+  .item1{
+
+  }
+.item2 {
+    margin-left: 12vw !important; 
+    width: -moz-fit-content;
+    width: fit-content;
+}
+}
 /*
 .societyPage-background{
   background-image: url("./Society/images/event_pageBackground.jpeg");
