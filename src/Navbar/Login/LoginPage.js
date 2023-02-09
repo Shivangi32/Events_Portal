@@ -38,24 +38,24 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
 
     const [name, setName] = useState("");
 
-    const setItems = (name, email, profilePic,SocLogin) => {
+    const setItems = (name, email, profilePic, SocLogin) => {
         localStorage.setItem("name", name);
         localStorage.setItem("email", email);
         localStorage.setItem("profilePic", profilePic);
-        
+        console.log("Setitems called")
 
-        if(SocLogin)
-          localStorage.setItem("SocLogin","true")
+        console.log(SocLogin)
+        if (SocLogin==="true")
+            localStorage.setItem("SocLogin", "true")
         else
-          localStorage.setItem("SocLogin","false")
-        if(email==="admin@cbigdtuw.in")
-        {  
+            localStorage.setItem("SocLogin", "false")
+        if (email === "admin@cbigdtuw.in") {
             console.log("AdminLogin")
-            localStorage.setItem("AdminLogin",true)
-            localStorage.setItem("SocLogin","false")
+            localStorage.setItem("AdminLogin", true)
+            localStorage.setItem("SocLogin", "false")
         }
         else
-           localStorage.setItem("AdminLogin",false)
+            localStorage.setItem("AdminLogin", false)
     }
 
     const db = getFirestore(app);
@@ -71,7 +71,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                 alert("Not registered");
             }
             else {
-                setItems(user.displayName, user.email, user.photoURL,"false");
+                setItems(user.displayName, user.email, user.photoURL, "false");
                 setIsLoggedinVal(true);
                 setLoginModalFunc(false);
                 setisSocLogin(false);
@@ -101,21 +101,23 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                 return;
             }
             const docs_list = docs.docs.map(async (data) => {
-
-
                 if (data.data().approved == false) {
                     alert("Not approved yet!!")
                     setIsLoggedinVal(false);
                     setisSocLogin(false);
-                    setLoginModalFunc(false);
                     return;
+                }
+                else {
+                    setItems(user.soc, user.email, user.photoURL, "true");
+                    setIsLoggedinVal(true);
+                    setisSocLogin(true);
+                    window.location.reload();
+
                 }
             })
             setLoginModalFunc(false);
-            setItems(user.soc, user.email, user.photoURL,"true");
-            setIsLoggedinVal(true);
-            setisSocLogin(true);
             window.location.reload();
+
 
         } catch (err) {
             alert("Invalid Credentials")

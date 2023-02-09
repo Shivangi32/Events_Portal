@@ -17,6 +17,19 @@ import Sidebar from "./Sidebar/Sidebar";
 
 function App() {
 
+  if(localStorage.getItem("SocLogin")===null)
+    localStorage.setItem("SocLogin","false")
+  if(localStorage.getItem("AdminLogin")===null)
+    localStorage.setItem("AdminLogin","false")
+  if(localStorage.getItem("email")===null)
+    localStorage.setItem("email","null")
+
+  if(localStorage.getItem("soc")===null)
+  {
+    console.log("null");
+    localStorage.setItem("soc","false")
+  }
+
   const user = localStorage.getItem("name");
   const email = localStorage.getItem("email");
   const SocLogin=localStorage.getItem("SocLogin");

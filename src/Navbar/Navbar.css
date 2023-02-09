@@ -93,7 +93,7 @@ span{
 #profilePic {
   height: 3vw;
   width: 3vw;
-  margin: 0vw 1vw 0vw 0.5vw;
+  margin: 10px;
   border-radius: 50%;
 }
 
