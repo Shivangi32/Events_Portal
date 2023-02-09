@@ -8,8 +8,7 @@ import SearchBar from "./Components/Searchbar/Searchbar";
 import Statistics from "./Components/StatsCounter/statsCounter";
 
 const admin = "Admin";
-const AdminPage = ({ setShowNavFunc }) => {
-  setShowNavFunc(true);
+const AdminPage = () => {
   return (
     <>
       {/* <SearchBar /> */}

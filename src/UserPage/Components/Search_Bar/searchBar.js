@@ -25,7 +25,7 @@ function SearchBar() {
     const socCollection = query(collection(db, "Societies"));
     const socDocs = await getDocs(socCollection);
     const socList = socDocs.docs.map(async (socData) => {
-      const socName = socData.data().soc;
+      const socName = socData.data().soc.toLowerCase();
 
       setallsoc((current) => [...current, socName]);
       const socEvents = query(collection(db, `Events/soc_events/${socName}`));
@@ -118,7 +118,6 @@ function SearchBar() {
     }
 
     if (filteredEvents.length === 0) {
-      console.log(filteredEvents);
       const tempfilter = InitialEvents.filter((e) => {
         return e.EventName.toLowerCase().includes(searchWord.toLowerCase());
       });
@@ -127,7 +126,6 @@ function SearchBar() {
       const tempfilter = filteredEvents.filter((e) => {
         return e.EventName.toLowerCase().includes(searchWord.toLowerCase());
       });
-      console.log(tempfilter);
       setFilteredEvents(tempfilter);
     }
   }; //handelfilter  close

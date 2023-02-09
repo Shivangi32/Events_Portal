@@ -5,9 +5,8 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-do
 import "./Sidebar.css"
 export default function RightNav() {
 
-    const email = localStorage.getItem("email");
-    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in") && email !== "admin@cbigdtuw.in") ? true : false);
-    const [AdminLogin, setAdminLogin] = useState((email != null && email == "admin@cbigdtuw.in") ? true : false)
+  const SocLogin=localStorage.getItem("SocLogin");
+  const AdminLogin=localStorage.getItem("AdminLogin");
 
     return (
         <nav className="usernav">

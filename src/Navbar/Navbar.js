@@ -11,11 +11,10 @@ import Login from "./Login/LoginPage.js";
 import logo from './logo.png'
 
 
-
 export default function Navbar({ user, email, showNav }) {
 
-    const [isLoggedin, setIsLoggedin] = useState((user === "undefined" || user===null) ? false : true);
-    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in")) ? true : false);
+    const [isLoggedin, setIsLoggedin] = useState((email != null && email!="null") ? true : false);
+    const [SocLogin, setSocLogin] = useState(localStorage.getItem("SocLogin"));
 
     const setIsLoggedinVal = (value) => {
 
@@ -26,12 +25,15 @@ export default function Navbar({ user, email, showNav }) {
         setSocLogin(value);
     }
 
+    
     const logOut = () => {
 
         signOut(auth);
         window.location.reload();
         localStorage.setItem("name", undefined);
-        localStorage.removeItem("email");
+        localStorage.setItem("email",null);
+        localStorage.setItem("AdminLogin", "false");
+        localStorage.setItem("SocLogin", "false");
         localStorage.removeItem("profilePic");
         setIsLoggedin(false);
         setisSocLogin(false);
@@ -54,39 +56,6 @@ export default function Navbar({ user, email, showNav }) {
         setOpenRegisterModal(false);
 
     });
-
-    if (!showNav) {
-        return (
-            <div id="navside" class="admin">
-
-
-                {!isLoggedin ? (
-                    <>
-                        <span ><BsFillPersonPlusFill /></span>
-                        <button onClick={() => { setOpenLoginModal(true) }}>Login</button>
-                        <span ><FaPlus /></span>
-                        <button onClick={() => { setOpenRegisterModal(true) }}>Register</button>
-                        <i className="fa fa-sign-in" aria-hidden="true"></i>
-
-                    </>
-                ) : (
-                    <>
-                        <button onClick={logOut}>
-                            <Link to="/">Log Out</Link>
-                        </button>
-                        {   
-                            (localStorage.getItem("profilePic") == "null") ?
-                                <span ><AiOutlineUser /></span>
-                                :
-                                <img id="profilePic" src={localStorage.getItem("profilePic")}></img>
-                        }
-                        
-                        
-                    </>
-                )}
-
-            </div>);
-    }
 
     return (
 

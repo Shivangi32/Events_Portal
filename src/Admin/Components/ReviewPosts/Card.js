@@ -3,9 +3,8 @@ import "../../../UserPage/Components/Event_Card/Card.css";
 import img from "../../../UserPage/Components/Event_Card/img.PNG";
 import { query, getDocs, collection, where, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
-import { MdThumbDown, MdThumbUp, MdDelete } from "react-icons/md";
+import { MdThumbUp, MdDelete } from "react-icons/md";
 import { deleteEvent } from "../../../Society/SocietyPage";
-import { approveEvent } from "../../../Society/SocietyPage";
 import { updateDoc } from "firebase/firestore";
 
 export const Event = (props) => {
@@ -26,7 +25,6 @@ export const Event = (props) => {
   ];
 
   const approveEvent = async () => {
-    console.log("hi");
     let info = {
       soc: props.event.soc,
       id: props.event.id,

@@ -16,10 +16,9 @@ import {
 import Example from "./Tags";
 
 export const EditEvent = (props) => {
-  console.log(props)
-  const values = localStorage.getItem("email").split("@");
-  const curr_soc = values[0];
-  const soc_Name = curr_soc.toLowerCase();
+
+  let [curr_soc, setCurr_soc] = useState("");
+  let soc_Name = "";
   let [EventLink, setEventLink] = useState(props.info.link);
   let [societyName, setSocietyName] = useState(props.info.soc);
   let [eventName, setEventName] = useState(props.info.EventName);
@@ -36,6 +35,25 @@ export const EditEvent = (props) => {
   function closeeditModal() {
     props.openmodalFunc(false);
   }
+
+  const onwindowLoad = async () => {
+    const q = query(collection(db, "SocietyMembers"), where("email", "==", localStorage.getItem("email")));
+    const docs = await getDocs(q);
+    const docs_list = docs.docs.map(async (data) => {
+
+      setCurr_soc(data.data().soc);
+      setSocietyName(data.data().soc);
+    })
+  };
+
+  useEffect(() => {
+    soc_Name=curr_soc.toLowerCase();
+    console.log(soc_Name)
+  }, [curr_soc]);
+
+  useEffect(() => {
+    onwindowLoad();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,16 +81,8 @@ export const EditEvent = (props) => {
       return;
     }
 
-    const temp = societyName.toLowerCase();
-    if (soc_Name !== temp) {
-      alert("You can add events only of your society!!");
-      closeeditModal();
-      return;
-    }
-    setSocietyName(temp);
-
     let info = {
-      soc: societyName,
+      soc: societyName.toLowerCase(),
       key: props.info.cnt,
       EventName: eventName,
       date: date,
@@ -82,7 +92,7 @@ export const EditEvent = (props) => {
       time: time,
     };
 
-    const docref = doc(db, `Events/soc_events/${soc_Name}`, props.info.id);
+    const docref = doc(db, `Events/soc_events/${societyName.toLowerCase()}`, props.info.id);
     closeeditModal();
     await updateDoc(docref, info);
     window.location.reload();
@@ -107,7 +117,7 @@ export const EditEvent = (props) => {
           <form className="field-rows">
             <div className="field-colums">
               <div>
-                <label htmlFor="EventName">Society Name</label>
+                <label htmlFor="SocietyName">Society Name</label>
               </div>
               <div className="big-ip">
                 <input
@@ -115,7 +125,7 @@ export const EditEvent = (props) => {
                   id="EventName"
                   placeholder="Add Society Name"
                   value={societyName}
-                  onChange={(e) => setSocietyName(e.target.value)}
+                  onChange={()=>{}}
                   required
                 ></input>
               </div>

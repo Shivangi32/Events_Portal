@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./login.css";
-import { signInWithEmailAndPassword, signInWithPopup, signOut, sendPasswordResetEmail  } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, signOut, sendPasswordResetEmail } from "firebase/auth";
 import { app, auth, provider } from "../../firebaseConfig";
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -17,7 +17,7 @@ import {
     where,
 } from "firebase/firestore";
 
-import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai"
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 import { border } from '@mui/system';
 
 export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLoggedinVal, setisSocLogin }) {
@@ -29,7 +29,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
     const [passwordType, setPasswordType] = useState("password")
 
     const togglePassword = () => {
-        if(passwordType === "password") {
+        if (passwordType === "password") {
             setPasswordType("text");
         } else {
             setPasswordType("password");
@@ -38,11 +38,24 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
 
     const [name, setName] = useState("");
 
-    const setItems = (name, email, profilePic) => {
+    const setItems = (name, email, profilePic,SocLogin) => {
         localStorage.setItem("name", name);
         localStorage.setItem("email", email);
         localStorage.setItem("profilePic", profilePic);
+        
 
+        if(SocLogin)
+          localStorage.setItem("SocLogin","true")
+        else
+          localStorage.setItem("SocLogin","false")
+        if(email==="admin@cbigdtuw.in")
+        {  
+            console.log("AdminLogin")
+            localStorage.setItem("AdminLogin",true)
+            localStorage.setItem("SocLogin","false")
+        }
+        else
+           localStorage.setItem("AdminLogin",false)
     }
 
     const db = getFirestore(app);
@@ -58,14 +71,13 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                 alert("Not registered");
             }
             else {
-                setItems(user.displayName, user.email, user.photoURL);
+                setItems(user.displayName, user.email, user.photoURL,"false");
                 setIsLoggedinVal(true);
                 setLoginModalFunc(false);
                 setisSocLogin(false);
             }
 
         } catch (err) {
-            console.error(err);
             setIsLoggedinVal(false);
             setisSocLogin(false);
             setLoginModalFunc(false);
@@ -82,8 +94,25 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
             const user = res.user;
+            const q = query(collection(db, "SocietyMembers"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
+                alert("Not registered!!");
+                return;
+            }
+            const docs_list = docs.docs.map(async (data) => {
+
+
+                if (data.data().approved == false) {
+                    alert("Not approved yet!!")
+                    setIsLoggedinVal(false);
+                    setisSocLogin(false);
+                    setLoginModalFunc(false);
+                    return;
+                }
+            })
             setLoginModalFunc(false);
-            setItems(user.displayName, user.email, user.photoURL);
+            setItems(user.soc, user.email, user.photoURL,"true");
             setIsLoggedinVal(true);
             setisSocLogin(true);
             window.location.reload();
@@ -99,8 +128,7 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
     const triggerResetEmail = async (event) => {
 
         event.preventDefault();
-        if(email===null || email==="undefined" || email=="")
-        {
+        if (email === null || email === "undefined" || email == "") {
             alert("Enter email first !!");
         }
         await sendPasswordResetEmail(auth, email);
@@ -118,18 +146,18 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             </div>
 
             <div>
-            <nav className="navbar-expand-sm loginNav">
+                <nav className="navbar-expand-sm loginNav">
 
-                <button className="navbar-toggler navbar-light bg-light togglelogin" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
-                <ul id="LoginNavbar">
-                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/" style={{background: "transparent"}}>HOME</Link></li>
-                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/About" style={{background:"transparent"}}>ABOUT</Link></li>
-                    <li class="loginnav-item" onClick={()=>{setLoginModalFunc(false)}}><Link to="/FAQs" style={{background:"transparent"}}>FAQs</Link></li>
-                </ul>
-                </div></nav>
+                    <button className="navbar-toggler navbar-light bg-light togglelogin" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
+                        <ul id="LoginNavbar">
+                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
+                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>
+                            <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/FAQs" style={{ background: "transparent" }}>FAQs</Link></li>
+                        </ul>
+                    </div></nav>
             </div>
 
             <div id="Newacc">
@@ -158,15 +186,15 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
                             <input type={passwordType} placeholder='Password' value={password} onChange={(e) => { setPassword(e.target.value) }} required></input>
 
                             <div className="input-group-btn">
-                                <a onClick={togglePassword} style={{background: "transparent", border: "none"}}>
-                                { passwordType==="password"? <AiFillEyeInvisible style={{ marginLeft: "2vw" , height: "5.5vw",display: "block"}} /> : <AiFillEye style={{marginLeft: "-2vw"}}/> }
-                            </a>
+                                <a onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
+                                    {passwordType === "password" ? <AiFillEyeInvisible style={{ marginLeft: "2vw", height: "5.5vw", display: "block" }} /> : <AiFillEye style={{ marginLeft: "-2vw" }} />}
+                                </a>
                             </div>
 
                         </div>
                         <span className="shadow-lg rounded" id="Google" onClick={signInWithGoogle}><FcGoogle /> Sign In with Google</span>
                         <button id="submitbtn" onClick={signInwithEmail}>LOGIN</button>
-                        <div id="forgot">Don't remember your password? <a href='/' style={{color: "#9747FF"}} onClick={triggerResetEmail}>Forgot Password</a></div>
+                        <div id="forgot">Don't remember your password? <a href='/' style={{ color: "#9747FF" }} onClick={triggerResetEmail}>Forgot Password</a></div>
                     </form>
 
                 </div>

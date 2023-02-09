@@ -21,25 +21,22 @@ import {
 
 Modal.setAppElement("#root");
 
-function SocietyPage({ email, setShowNavFunc }) {
-  setShowNavFunc(true);
+function SocietyPage({ email }) {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
-  const [cat_selected,setcat]=useState([]);
+  const [cat_selected, setcat] = useState([]);
   let [EventLink, setEventLink] = useState();
-  let [societyName, setSocietyName] = useState();
-  let [eventName, setEventName] = useState();
-  let [date, setDate] = useState();
-  let [time, setTime] = useState();
+  let [societyName, setSocietyName] = useState("");
+  let [eventName, setEventName] = useState("");
+  let [date, setDate] = useState("");
+  let [time, setTime] = useState("");
   let eCards = [];
-
-  const values = localStorage.getItem("email").split("@");
-  const curr_soc = values[0];
-  const soc_Name = curr_soc.toLowerCase();
+  let [curr_soc, setCurr_soc] = useState("");
+  let soc_Name = "";
 
 
-  function category_set(val){
+  function category_set(val) {
     setcat(val);
   }
   function openModal() {
@@ -50,8 +47,10 @@ function SocietyPage({ email, setShowNavFunc }) {
     setIsOpen(false);
   }
 
-  const onwindowLoad = async () => {
+  const setEvents = async () => {
+
     var found = false;
+    soc_Name=curr_soc.toLowerCase();
     const soc_collection = query(collection(db, "Societies"));
     const socdocs = await getDocs(soc_collection);
     const soc_list = socdocs.docs.map(async (socData) => {
@@ -79,7 +78,20 @@ function SocietyPage({ email, setShowNavFunc }) {
         setCards((current) => [...current, info]);
       });
     });
+  }
+  const onwindowLoad = async () => {
+    const q = query(collection(db, "SocietyMembers"), where("email", "==", localStorage.getItem("email")));
+    const docs = await getDocs(q);
+    const docs_list = docs.docs.map(async (data) => {
+
+      setCurr_soc(data.data().soc);
+      setSocietyName(data.data().soc);
+    })
   };
+
+  useEffect(() => {
+    setEvents();
+  }, [curr_soc]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -110,7 +122,9 @@ function SocietyPage({ email, setShowNavFunc }) {
     /*check Society*/
 
     const temp = societyName.toLowerCase();
-    if (soc_Name !== temp) {
+    if (curr_soc.toLowerCase() !== temp) {
+      console.log(curr_soc.toLowerCase())
+      console.log(societyName)
       alert("You can add events only of your society!!");
       closeModal();
       return;
@@ -160,7 +174,7 @@ function SocietyPage({ email, setShowNavFunc }) {
 
   return (
     <div className="societyPage ">
-      <div className="societyName">{soc_Name.toUpperCase()}</div>
+      <div className="societyName">{curr_soc.toUpperCase()}</div>
       <div className="society-container">
         <div className="society-sub-heading">Society overview</div>
         <button className="addevent" onClick={openModal}>
@@ -195,7 +209,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                       id="EventName"
                       placeholder="Add Society Name"
                       value={societyName}
-                      onChange={(e) => setSocietyName(e.target.value)}
+                      onChange={() => {}}
                       required
                     ></input>
                   </div>
@@ -228,7 +242,7 @@ function SocietyPage({ email, setShowNavFunc }) {
                     <label>EVENT CATEGORY</label>
                   </div>
                   <div className="big-ip">
-                    <Example category_set={category_set}/>
+                    <Example category_set={category_set} />
                   </div>
                 </div>
                 <div className="fields">

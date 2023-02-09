@@ -42,7 +42,6 @@ export default class Example extends Component {
     });
     const list=[]
     selected.forEach((item)=>{
-      console.log(item)
       list.push(item.label)
     })
     this.props.category_set(list);

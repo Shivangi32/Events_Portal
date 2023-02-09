@@ -5,10 +5,9 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-do
 import "./Sidebar.css"
 export default function Sidebar() {
 
-    const email = localStorage.getItem("email");
-    const [SocLogin, setSocLogin] = useState((email != null && email.includes("cbigdtuw.in") && email !== "admin@cbigdtuw.in") ? true : false);
-    const [AdminLogin, setAdminLogin] = useState((email != null && email == "admin@cbigdtuw.in") ? true : false)
-
+    
+  const SocLogin=localStorage.getItem("SocLogin");
+  const AdminLogin=localStorage.getItem("AdminLogin");
     return (
         <nav className="navbar-expand-md sidebarNav">
 
@@ -39,7 +38,7 @@ export default function Sidebar() {
                         </li>
 
 
-                        {SocLogin ? (
+                        {localStorage.getItem("SocLogin")==="true" ? (
                             <li className='usernav-item'>
                                 <NavLink to="/Society" style={({ isActive }) => ({
                                     background: isActive ? '#9747FF' : 'transparent',
@@ -50,7 +49,7 @@ export default function Sidebar() {
                             </li>
                         ) : (<></>)}
 
-                        {AdminLogin ? (
+                        {localStorage.getItem("AdminLogin")==="true" ? (
                             <li className='usernav-item'>
                                 <NavLink to="/Admin" style={({ isActive }) => ({
                                     background: isActive ? '#9747FF' : 'transparent',

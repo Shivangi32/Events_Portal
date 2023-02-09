@@ -23,7 +23,8 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [confirmpassword, setConfirmPassword] = useState("");
+    const [name, setName] = useState("");
     const [confirmPasswordType, setConfirmPasswordType] = useState("password")
 
     const togglePassword = () => {
@@ -33,9 +34,6 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
             setConfirmPasswordType("password");
         }
     }
-
-    const [confirmpassword, setConfirmPassword] = useState("");
-    const [name, setName] = useState("");
 
     const db = getFirestore(app);
 
@@ -61,7 +59,6 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
             }
             setRegisterModalFunc(false);
         } catch (err) {
-            console.error(err);
             setIsLoggedinVal(false);
             setRegisterModalFunc(false);
         }
@@ -69,42 +66,55 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
 
     const createUser = async (event) => {
 
-        if (email == "" || password == "") {
+        event.preventDefault();
+        if (email == "" || password == "" || name == "") {
+
+            alert("Fill the Details !!")
             return;
         }
+        /*
         if (email.includes("cbigdtuw.in") == false) {
             alert("Invalid Credentials!");
             return;
-        }
+        }*/
 
         if (password != confirmpassword) {
             alert("Password mismatch!");
             return;
         }
 
-        if (password.length <6) {
+        if (password.length < 6) {
             alert("Password should be at least 6 characters long !!");
+            return;
         }
 
-        event.preventDefault();
+        try {
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+            const user = res.user;
+            const q = query(collection(db, "SocietyMembers"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
+                await addDoc(collection(db, "SocietyMembers"), {
+                    uid: user.uid,
+                    email: user.email,
+                    approved: false,
+                    soc: name
+                });
+                /*await addDoc(collection(db, "Societies"), {
+                    soc: name
+                });*/
+                alert("You have been registered!! Kindly wait for the approval");
+            }
+            else {
 
-        const res = await createUserWithEmailAndPassword(auth, email, password);
-        const user = res.user;
-        const q = query(collection(db, "SocietyMembers"), where("uid", "==", user.uid));
-        const docs = await getDocs(q);
-        if (docs.docs.length === 0) {
-            await addDoc(collection(db, "SocietyMembers"), {
-                uid: user.uid,
-                authProvider: "cbigdtuw",
-                email: user.email,
-            });
-            await addDoc(collection(db, "Societies"), {
-                soc: user.email.split("@")[0]
-            });
-            alert("registered successfully!!");
-        }
-        else {
-            alert("Already registered");
+                if (user.approved == true)
+                    alert("Already registered !! Visit the login Page.");
+                else
+                    alert("You have been already registered!! Your request is pending for the approval");
+            }
+        } catch (err) {
+
+            alert("Email already in use!! Try with a different email")
         }
         setRegisterModalFunc(false);
     }
@@ -145,7 +155,7 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
                     <form id="LRform" action="">
                         <   div className="textbox" >
                             <FaUserAlt />
-                            <input placeholder="Name" type="text" value={name} onChange={(e) => { setName(e.target.value) }} required></input>
+                            <input placeholder="Society Name" type="text" value={name} onChange={(e) => { setName(e.target.value) }} required></input>
                         </div>
                         <div className="textbox" >
                             <MdAlternateEmail />
@@ -161,7 +171,7 @@ export default function Register({ setLoginModalFunc, setRegisterModalFunc, setI
 
                             <div className="input-group-btn">
                                 <a onClick={togglePassword} style={{ background: "transparent", border: "none" }}>
-                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible style={{ marginLeft: "2vw" , height: "5.5vw",display: "block"}}/> : <AiFillEye style={{ marginLeft: "-2vw" }} />}
+                                    {confirmPasswordType === "password" ? <AiFillEyeInvisible style={{ marginLeft: "2vw", height: "5.5vw", display: "block" }} /> : <AiFillEye style={{ marginLeft: "-2vw" }} />}
                                 </a>
                             </div>
                         </div>

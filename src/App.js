@@ -14,21 +14,18 @@ import {
   Link,
 } from "react-router-dom";
 import Sidebar from "./Sidebar/Sidebar";
+
 function App() {
+
   const user = localStorage.getItem("name");
   const email = localStorage.getItem("email");
-  const [showNav, setShowNav] = useState(true);
-  const setShowNavFunc = (value) => {
-    setShowNav(value);
-  };
-
-  const [AdminLogin, setAdminLogin] = useState((email != null && email == "admin@cbigdtuw.in") ? true : false)
-
+  const SocLogin=localStorage.getItem("SocLogin");
+  const AdminLogin=localStorage.getItem("AdminLogin");
   return (
     <Router>
       <div className="mainpage">
         <div className="item">
-          <Navbar user={user} email={email} showNav={showNav} />
+          <Navbar user={user} email={email}/>
         </div>
         <div className="container-user">
           <div className="item1">
@@ -39,21 +36,12 @@ function App() {
             <Routes>
               <Route
                 index
-                element={
-                  email == null || email !== "admin@cbigdtuw.in" ? (
-                    <UserPage setShowNavFunc={setShowNavFunc} />
-                  ) : (
-                    <Navigate replace to="/Admin" />
-                  )
-                }
+                element={ AdminLogin==="false" ? ( <UserPage/> ) : (<Navigate replace to="/Admin" />)}
               />
               <Route
                 path="Society"
-                element={
-                  email !== null &&
-                    email.includes("cbigdtuw.in") &&
-                    email !== "admin@cbigdtuw.in" ? (
-                    <SocietyPage setShowNavFunc={setShowNavFunc} />
+                element={(SocLogin==="true" && AdminLogin==="false") ? (
+                    <SocietyPage  />
                   ) : (
                     <Navigate replace to="/" />
                   )
@@ -62,8 +50,8 @@ function App() {
               <Route
                 path="Admin"
                 element={
-                  email !== null && email === "admin@cbigdtuw.in" ? (
-                    <AdminPage setShowNavFunc={setShowNavFunc} />
+                  AdminLogin ==="true" ? (
+                    <AdminPage />
                   ) : (
                     <Navigate replace to="/" />
                   )
@@ -73,8 +61,8 @@ function App() {
               <Route
                 path="About"
                 element={
-                  email == null || email !== "admin@cbigdtuw.in" ? (
-                    <AboutPage setShowNavFunc={setShowNavFunc} />
+                  email == null || AdminLogin==="false" ? (
+                    <AboutPage/>
                   ) : (
                     <Navigate replace to="/" />
                   )
@@ -83,8 +71,8 @@ function App() {
               <Route
                 path="FAQs"
                 element={
-                  email == null || email !== "admin@cbigdtuw.in" ? (
-                    <FAQs setShowNavFunc={setShowNavFunc} />
+                  email == null || AdminLogin=="false" ? (
+                    <FAQs />
                   ) : (
                     <Navigate replace to="/" />
                   )

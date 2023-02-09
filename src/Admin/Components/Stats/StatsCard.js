@@ -22,7 +22,6 @@ function StatsCard(fig, heading) {
         const soc_collection = query(collection(db, "Societies"));
         const socdocs = await getDocs(soc_collection);
         setsocCount(socdocs.size);
-        console.log("no of soc"+socdocs.size);
 
         const soc_list = socdocs.docs.map(async (socData) => {
 
@@ -30,7 +29,6 @@ function StatsCard(fig, heading) {
             const q = query(collection(db, `Events/soc_events/${socName}`));
       
             const curr_soc = await getDocs(q);
-            //console.log(curr_soc.size);
             const temp=eventsCount;
             seteventsCount((prev)=>prev+curr_soc.size);
             
