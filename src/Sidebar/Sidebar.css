@@ -8,12 +8,11 @@
     .sidebarNav {
         FONT-VARIANT: JIS04;
         margin: 0 auto 50% auto;
-    background-color: #2B2A2A;
     padding: 0.5vw;
     text-align: center;
-    background: #2B2A2A;
     color: white;
     top: 34%;
+    height: 100%;
     position: sticky;
     width: fit-content;
     border-radius: 1vw;

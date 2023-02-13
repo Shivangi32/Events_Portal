@@ -48,7 +48,6 @@ export const EditEvent = (props) => {
 
   useEffect(() => {
     soc_Name=curr_soc.toLowerCase();
-    console.log(soc_Name)
   }, [curr_soc]);
 
   useEffect(() => {

@@ -55,14 +55,6 @@ body {
   .container-user{
     display: flex;
   }
-  .item1{
-
-  }
-.item2 {
-    margin-left: 12vw !important; 
-    width: -moz-fit-content;
-    width: fit-content;
-}
 }
 /*
 .societyPage-background{

@@ -18,11 +18,6 @@ body {
   font-size: 1.2vw;
 }
 
-.navbar-toggler-icon {
-  color: white;
-  margin-left:0;
-}
-
 .navbar-brand {
   color: white;
   font-size: 2vw;
@@ -31,8 +26,9 @@ body {
 .navbar-toggler-icon {
   color: white;
   padding: 0;
-  height: 3vw;
-  width: 3vw;
+  height: 7vw;
+    width: 5vw;
+    margin-left:0;
 }
 
 .navbar-toggler {

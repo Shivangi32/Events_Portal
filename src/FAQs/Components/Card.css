@@ -66,6 +66,7 @@
    margin: 20px 10px;
    /* border-radius: 10px; */
    position: relative;
+   z-index: -1;
 }
 
 .container .faq_card .faq_content {
@@ -142,6 +143,7 @@
       margin-right: 10px;
       border-radius: 20vw;
       position: relative;
+      z-index: -1;
    }
 
    .detail_ques{

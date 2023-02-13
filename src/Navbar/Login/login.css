@@ -12,7 +12,6 @@
     top: 4vh;
     right: 8vw;
 }
-
 #modalContent {
     position: absolute;
     height: 35vw;
@@ -157,10 +156,18 @@ input ::placeholder {
     box-shadow: 3px 5px 15px #201F1F;
 }
 
+.usernav-items{
+    margin-top: 0vw;
+}
 #forgot {
     color: white;
     text-align: center;
     font-size: 1.4vw;
+}
+
+.line{
+
+    display:none;
 }
 
 #Google svg {
@@ -224,11 +231,7 @@ input ::placeholder {
 
     #filterCatDiv{
         width: 66vw !important;
-    }
-
-    .item2{
-        margin-left: 3vw;
-        width: fit-content;
+        z-index:-1;
     }
 
     .event{
@@ -243,6 +246,14 @@ input ::placeholder {
         margin: 1vw;
     }
 
+    .usernav-items{
+        padding-top: 6vw;
+    margin-top: -1vw !important;
+    height: 100%;
+    }
+    .usernav-item{
+        font-size: 4vw;
+    }
     .register {
         font-size: 2.5vw;
     }
@@ -306,7 +317,7 @@ input ::placeholder {
     .navbar-toggler {
         padding: 0vw;
         height: 4.8vw;
-        width: 5.3vw;
+        width: 7.3vw;
     }
 
     .togglelogin {
@@ -328,6 +339,30 @@ input ::placeholder {
         font-size: 4vw;
     }
 
+    .line{
+        display: inline;
+        width:40vw;
+    }
+    .item1{
+        position: fixed;
+        right: 0vw;
+    }
+    .sidebar-navbar-brand{
+
+        height:100%;
+        width: 100vw;
+        background-color: rgb(43, 42, 42)
+
+    }
+
+    .item2{
+        margin: 0 50% 0 50%;
+        margin-left:9vw;
+        width: fit-content;
+    }
+    .sidebarNav{
+        top:0% !important;
+    }
     #submitbtn {
         height: 8%;
         width: 29%;

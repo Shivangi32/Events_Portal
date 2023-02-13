@@ -42,15 +42,11 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
         localStorage.setItem("name", name);
         localStorage.setItem("email", email);
         localStorage.setItem("profilePic", profilePic);
-        console.log("Setitems called")
-
-        console.log(SocLogin)
         if (SocLogin==="true")
             localStorage.setItem("SocLogin", "true")
         else
             localStorage.setItem("SocLogin", "false")
         if (email === "admin@cbigdtuw.in") {
-            console.log("AdminLogin")
             localStorage.setItem("AdminLogin", true)
             localStorage.setItem("SocLogin", "false")
         }

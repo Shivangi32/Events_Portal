@@ -123,8 +123,6 @@ function SocietyPage({ email }) {
 
     const temp = societyName.toLowerCase();
     if (curr_soc.toLowerCase() !== temp) {
-      console.log(curr_soc.toLowerCase())
-      console.log(societyName)
       alert("You can add events only of your society!!");
       closeModal();
       return;

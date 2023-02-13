@@ -157,6 +157,7 @@
    .container .mem_card {
       width: 60vw;
        height: 60vw;
+       z-index: -1;
    }
    .detail-para {
 

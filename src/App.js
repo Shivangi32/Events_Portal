@@ -24,11 +24,6 @@ function App() {
   if(localStorage.getItem("email")===null)
     localStorage.setItem("email","null")
 
-  if(localStorage.getItem("soc")===null)
-  {
-    console.log("null");
-    localStorage.setItem("soc","false")
-  }
 
   const user = localStorage.getItem("name");
   const email = localStorage.getItem("email");
