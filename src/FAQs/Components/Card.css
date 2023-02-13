@@ -63,7 +63,7 @@
    width: 310px;
    height: 275px;
    padding: 0px 0px;
-   margin: 20px 10px;
+   margin: 10px 10px;
    /* border-radius: 10px; */
    position: relative;
    z-index: -1;
@@ -124,23 +124,25 @@
    border-radius: 10px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 800px) {
 
    .FAQ_Header {
 		margin-top: 4vh;
       margin-bottom: 4vh;
-      margin-left: 10vw;
+      margin-right: -10vw;
+      /* margin-left: 40vw; */
 	}
 
    .container {
-      margin-left: 3vw;
+      margin-left: -10vw;
+      width: 100vw;
    }
-   .container .faq_card {
-      width: 35vw;
-      height: 20vh;
+   .faq_card {
+      max-width: 40vw;
+      max-height: 25vh;
       padding: 0px 0px;
-      margin: 1vh 0vw;
-      margin-right: 10px;
+      /* margin: 1vh 0vw; */
+      margin-right: 1px;
       border-radius: 20vw;
       position: relative;
       z-index: -1;
