@@ -1,50 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap');
 @import url(https://allfont.net/allfont.css?fonts=star-jedi);
-    
-.usernav{
-        display: block;
-    }
 
-    .sidebarNav {
-        FONT-VARIANT: JIS04;
-        margin: 0 auto 50% auto;
+.usernav {
+    display: block;
+}
+
+.sidebarNav {
+    FONT-VARIANT: JIS04;
+    margin: 0 auto 50% auto;
     padding: 0.5vw;
-    text-align: center;
     color: white;
     top: 34%;
-    height: 100%;
+    background: rgb(43, 42, 42);
     position: sticky;
     width: fit-content;
     border-radius: 1vw;
-    }
-    .usernav-items{
-        padding: 0;
-    }
+}
 
-    .item1{
-        width: fit-content;
-        margin-left: 1vw;
-        height: 100vh;
-    }
+.sidebar_navside, .sidebar_logo{
+    display: none;
+}
 
-    .usernav-item{
-        list-style: none;
-        margin: 23px 2px;
-        font-family: 'Play', sans-serif;
-        border-radius: 5px;
-        font-size: 0.9rem;
-    }
+.usernav-items {
+    padding: 0;
+}
 
-    .navbar-brand {
-        padding: 0;
-        margin: 0;
-    }
+.item1 {
+    width: fit-content;
+    margin-left: 1vw;
+    height: 100vh;
+}
 
-    .navbar {
-        padding: 10px 10px !important;
-    }
+.usernav-item {
+    list-style: none;
+    margin: 23px 2px;
+    font-family: 'Play', sans-serif;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
 
-    .navbar-toggler {
-        height: fit-content !important;
-        border: 1px solid black;
-    }
+.navbar-brand {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    padding: 10px 10px !important;
+}
+
+.navbar-toggler {
+    height: fit-content !important;
+    border: 1px solid black;
+}

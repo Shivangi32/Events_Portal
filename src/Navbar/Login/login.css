@@ -63,6 +63,7 @@
 
 #LRform svg {
     margin: 0.5vw;
+    color:black;
 }
 
 #login_heading {
@@ -157,7 +158,7 @@ input ::placeholder {
 }
 
 .usernav-items{
-    margin-top: 0vw;
+    margin:  2vw 0vw 1vw 0vw;
 }
 #forgot {
     color: white;
@@ -246,13 +247,22 @@ input ::placeholder {
         margin: 1vw;
     }
 
+    .heading, .sub-heading{
+        margin: 2vw 0 0 8vw;
+    }
+    .search{
+        margin: 2vw 0 0 3vw;
+    }
     .usernav-items{
         padding-top: 6vw;
-    margin-top: -1vw !important;
+    margin-top: 20vw !important;
     height: 100%;
     }
     .usernav-item{
         font-size: 4vw;
+        background-color: rgb(43, 42, 42);
+        border:none;
+        color: white;
     }
     .register {
         font-size: 2.5vw;
@@ -289,6 +299,8 @@ input ::placeholder {
     .logo{
         height: 14.5vw;
         width: 25vw;
+        margin-top: 3.5vw;
+        margin-left: 6vw;
     }
 
     #LRform svg {
@@ -309,6 +321,9 @@ input ::placeholder {
     height: 7.6vw;
     }
 
+    .sidebarNav{
+        height: 100%;
+    }
     #login_heading,
     #register_head {
         font-size: 5vw;
@@ -318,11 +333,15 @@ input ::placeholder {
         padding: 0vw;
         height: 4.8vw;
         width: 7.3vw;
+        position: absolute;
+        top: 5.5vw;
+        right: 9vw;
     }
 
     .togglelogin {
         position: absolute;
         right: 1vw;
+        top:0vw;
     }
 
     .loginnav-item {
@@ -334,9 +353,20 @@ input ::placeholder {
         border-radius: 5px;
     }
 
-    #Google,
+    .sidebar_logo{
+        height: 14.5vw;
+        width: 25vw;
+        top: 3.5vw;
+        left: 6vw;
+        position: absolute;
+
+    }
+    #Google{
+        font-size: 4vw;
+    }
     #forgot {
         font-size: 4vw;
+        display: inline-grid;
     }
 
     .line{
@@ -346,22 +376,34 @@ input ::placeholder {
     .item1{
         position: fixed;
         right: 0vw;
+        top: 0vw;
     }
     .sidebar-navbar-brand{
 
+        text-align: center;
         height:100%;
         width: 100vw;
         background-color: rgb(43, 42, 42)
 
     }
 
+    .sidebar_navside, .sidebar_logo{
+        display: flex !important;
+    }
+
+    #navside{
+        display: none;
+    }
+
     .item2{
-        margin: 0 50% 0 50%;
-        margin-left:9vw;
-        width: fit-content;
+        width: 100vw;
     }
     .sidebarNav{
         top:0% !important;
+    }
+
+    .sidebar_navside{
+        align-items: center;
     }
     #submitbtn {
         height: 8%;

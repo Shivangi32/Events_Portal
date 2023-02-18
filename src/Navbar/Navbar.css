@@ -104,6 +104,7 @@ span{
 .nav-logout {
   display: flex;
   color: white;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   font-family: 'Play', sans-serif;

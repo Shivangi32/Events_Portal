@@ -8,7 +8,7 @@ export default function Member() {
     return (
         <div className='team_about'>
             <div className="team_Header"><h1>TEAM</h1></div>
-            <div className="container">
+            <div className="container team_container">
                 {Team.map((item, index) => {
                     return (
 

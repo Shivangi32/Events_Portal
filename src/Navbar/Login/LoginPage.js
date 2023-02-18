@@ -146,10 +146,10 @@ export default function Login({ setLoginModalFunc, setRegisterModalFunc, setIsLo
             <div>
                 <nav className="navbar-expand-sm loginNav">
 
-                    <button className="navbar-toggler navbar-light bg-light togglelogin" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler navbar-light bg-light togglelogin" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLoginToggle" aria-controls="navbarLoginToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
+                    <div className="collapse navbar-collapse navbar-brand" id="navbarLoginToggle">
                         <ul id="LoginNavbar">
                             <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/" style={{ background: "transparent" }}>HOME</Link></li>
                             <li class="loginnav-item" onClick={() => { setLoginModalFunc(false) }}><Link to="/About" style={{ background: "transparent" }}>ABOUT</Link></li>

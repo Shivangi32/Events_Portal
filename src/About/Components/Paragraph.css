@@ -62,39 +62,36 @@
 		justify-content: flex-start;
 		align-items: center;
 		color:white;
-		padding: 0 1vw;
-		padding-right: 1vw;;
-		padding-bottom: 0;
+		padding: 1vw;
 		margin-top: 4vh;
 	}
 
+	.about_content{
+		width: 100vw;
+	}
+	.team_container{
+		margin-left: 0vw !important;
+	}
 	.about_Heading{
 		display: flex;
-		justify-content:center;
-	
+		justify-content:center;	
 		font-family: 'Play', sans-serif;
 		font-style: normal;
 		font-weight: 400;
 		font-size: 20vh;
 		line-height: 86%;
-		/* or 41px */
-		padding-right: 8vw;
-		padding-bottom: 3vh;
 		color: #FFFFFF;
 	}
 
 	.para {
 
-		width: 90vw;
-		padding-right: -40vw;
-		padding-left: -20vw;
+		width: 100%;
+		padding: 3vw;
 		left: 0vw;
 	
 		font-family: 'Play', sans-serif;
 		font-style: normal;
-		/* font-weight: 400; */
 		font-size: 16px;
-		line-height:1rem;     /* or 17px */
 		text-align: center;
 		line-height: 1.2rem;
 	
