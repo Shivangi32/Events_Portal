@@ -353,6 +353,9 @@ input ::placeholder {
         border-radius: 5px;
     }
 
+    .faq_container{
+        margin-left: 0vw !important;
+    }
     .sidebar_logo{
         height: 14.5vw;
         width: 25vw;

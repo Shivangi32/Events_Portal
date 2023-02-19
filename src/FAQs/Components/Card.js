@@ -6,7 +6,7 @@ export default function Card() {
     return (
         <div className='FAQs'>
             <div className="FAQ_Header"><h1>FAQs</h1></div>
-            <div className="container">
+            <div className="container faq_container">
                 {Ques.map((item, index) => {
                     return (
 
