@@ -9,7 +9,6 @@
   background: rgba(255, 255, 255, 0.5);
   border: none;
   border: 0;
-  /* height:30px; */
   border-radius: 5px 0 0 5px;
   object-fit: contain;
   margin:0 0 0 3vw;
@@ -17,7 +16,7 @@
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
-  width: 24vw;
+  width: 30vw;
 }
 ::placeholder {
   color: black;
@@ -26,7 +25,6 @@
 }
 
 .searchIcon {
-  /* height: 39px; */
   padding-right: 8px;
   border-radius: 0vw 0.5vw 0.5vw 0vw;
   background: rgba(255, 255, 255, 0.5);
@@ -64,7 +62,6 @@ input:focus {
   height: 50px;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   color: black;
   padding-left: 10px;
 }
@@ -98,7 +95,6 @@ a:hover {
   padding: 5px 7px;
   margin: 0 10px;
   border-radius: 3px;
-  /* color:white; */
   color: black;
   font-weight: bolder;
 }

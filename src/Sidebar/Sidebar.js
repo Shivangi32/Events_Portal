@@ -23,7 +23,7 @@ export default function Sidebar() {
                 
             <div className="collapse navbar-collapse navbar-brand sidebar-navbar-brand" id="navbarSupportedContent">
             <img className="sidebar_logo" src={logo}/>
-                <ul className="usernav-items" style={{ marginTop: "8vw" }}>
+                <ul className="usernav-items" >
 
                     <img className="line" src={line} />
                     <li className='usernav-item'>

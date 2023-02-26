@@ -11,6 +11,8 @@
 .contact-list {
     display: flex;
     list-style-type: none;
+    margin-left: 0vw;
+    padding-left: 0vw;
     justify-content: center;
 }
 
@@ -30,16 +32,10 @@
     transform: scale(1.2);
 }
 
-@media screen and (max-width: 550px){
-    .contact-list {
-        margin-left: -20vw;
-    }
+@media screen and (max-width: 650px){
 
     .contact-item {
         font-size: 7vh;
     }
 
-    .contact-header{
-        padding-right: 8vw;
-    }
 }

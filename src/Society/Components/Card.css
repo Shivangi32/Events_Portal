@@ -11,6 +11,7 @@
 .card {
   display: flex;
   margin: 3vw;
+  z-index: -1;
   width: auto;
   border-radius: 20px;
   background: #1c1b1b;
@@ -88,14 +89,6 @@
   font-size: 1rem;
 }
 
-.event_register button {
-  border-radius: 7px;
-  background-color: #9747ff;
-  border: none;
-  margin: 20px auto;
-  padding: 8px 10px;
-  border-radius: 5px;
-}
 .register {
   margin: 0;
 }

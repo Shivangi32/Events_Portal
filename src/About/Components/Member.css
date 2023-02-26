@@ -51,8 +51,8 @@
 }
 
 .container .mem_card {
-   width: 18vw;
-    height: 20vw;
+   width: 19vw;
+    height: 21vw;
    padding: 0px 0px;
    margin: 20px 10px;
    /* border-radius: 10px; */
@@ -92,9 +92,6 @@
    font-size: 1.6vw;
    line-height: 20px;  
    color: #FFFFFF;
-   padding-right: 1vw;
-   padding-left: 1vw;
-   margin-bottom: 1vw;
 }
 
 .detail h5 {
@@ -115,8 +112,7 @@
    font-style: normal;
    font-weight: 400;
    font-size: 1.2vw;
-   line-height: 1rem;
-   margin: 0vw 1vw 0.6vw 1vw;
+   margin: 0vw 1vw 0vw 1vw;
    text-align: center;
    color: #FFFFFF;
 }
@@ -128,7 +124,7 @@
    transform: rotateY(180deg);
    background-color: #9747FF;
    border-radius: 10px;
-   padding: 0 10px;
+   padding: 0 2px;
 }
 
 #member_icons_list{
@@ -144,7 +140,7 @@
 }
 .detail{
    display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
 }
 
@@ -167,7 +163,7 @@
    .detail h4 {
 
       font-size: 4.4vw;
-      margin-bottom: 2vw;
+      margin-bottom: 0vw;
    }
    .detail h5 {
 

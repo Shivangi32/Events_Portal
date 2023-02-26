@@ -34,8 +34,7 @@ body {
 .navbar-toggler {
 
   padding: 0 0.5vw;
-  height: 3.8vw;
-  width: 4.3vw;
+  width: fit-content;
 }
 
 .nav-item{
@@ -104,7 +103,7 @@ span{
 .nav-logout {
   display: flex;
   color: white;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-content: center;
   font-family: 'Play', sans-serif;
@@ -122,9 +121,4 @@ span{
   justify-content: center;
   padding: 0.5vw;
   font-size: 3vh;
-}
-@media (max-width:824px) {
-  /* #navside{
-    display: none;
-  } */
 }
