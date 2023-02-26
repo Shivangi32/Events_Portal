@@ -64,9 +64,7 @@
    height: 275px;
    padding: 0px 0px;
    margin: 10px 10px;
-   /* border-radius: 10px; */
    position: relative;
-   z-index: -1;
 }
 
 .container .faq_card .faq_content {
@@ -141,11 +139,9 @@
       max-width: 40vw;
       max-height: 25vh;
       padding: 0px 0px;
-      /* margin: 1vh 0vw; */
       margin-right: 1px;
       border-radius: 20vw;
       position: relative;
-      z-index: -1;
    }
 
    .detail_ques{

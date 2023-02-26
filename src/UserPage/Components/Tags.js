@@ -38,44 +38,45 @@ export default class Example extends Component {
 
   render() {
     const colourStyles = {
-      control: (styles) => ({ 
-        ...styles, 
+      control: (styles) => ({
+        ...styles,
         backgroundColor: "white",
-        fontSize:"0.8rem",
-        fontWeight:"bolder",
-        color:"black",
-        fontFamily:"Arial",
-        marginLeft:"1vw",
-        border:"black",
-        backgroundColor:"rgba(255, 255, 255, 0.5)"}),
-        placeholder: (styles) => ({ 
-          ...styles, 
-         
-          fontSize:"0.9rem",
-          color:"black",
-          fontFamily:"Montserrat",
-          }),
-          indicatorContainer: (styles) =>({
-            color:"black",
-          }
+        fontSize: "0.8rem",
+        fontWeight: "bolder",
+        color: "black",
+        fontFamily: "Arial",
+        marginLeft: "1vw",
+        border: "black",
+        backgroundColor: "rgba(255, 255, 255, 0.5)"
+      }),
+      placeholder: (styles) => ({
+        ...styles,
 
-          ),
-          menu: (styles) => ({ 
-            ...styles, 
-           
-            fontSize:"0.8rem",
-            color:"black",
-            fontFamily:"Montserrat",
-            }), 
+        fontSize: "0.9rem",
+        color: "black",
+        fontFamily: "Montserrat",
+      }),
+      indicatorContainer: (styles) => ({
+        color: "black",
+      }
+
+      ),
+      menu: (styles) => ({
+        ...styles,
+
+        fontSize: "0.8rem",
+        color: "black",
+        fontFamily: "Montserrat",
+      }),
       option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         return {
           ...styles,
-          color:'black',
+          color: 'black',
           backgroundColor: isFocused ? "#9747ff" : "white",
           cursor: isDisabled ? "not-allowed" : "default",
         };
       },
-      
+
     };
     return (
       <span
@@ -85,7 +86,7 @@ export default class Example extends Component {
         data-content="Please selecet account(s)"
       >
         <ReactSelect
-        placeholder= 'Filter by Category'
+          placeholder='Filter by Category'
           styles={colourStyles}
           options={colourOptions}
           isMulti

@@ -224,6 +224,9 @@ input ::placeholder {
         margin: 1vw 1vw 0vw 0.5vw;
     }
 
+    .team_container{
+        margin-left: 0vw !important;
+    }
     .nav-logout {
         flex-direction: column;
     }
@@ -236,7 +239,6 @@ input ::placeholder {
     #filterCatDiv{
         width: 66vw !important;
         margin-top: 2vw;
-        z-index:-1;
     }
 
     #filterCatDiv {
@@ -381,6 +383,7 @@ input ::placeholder {
         width:40vw;
     }
     .item1{
+        z-index: 1000;
         position: fixed;
         right: 0vw;
         top: 0vw;

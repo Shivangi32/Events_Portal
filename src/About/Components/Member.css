@@ -146,14 +146,17 @@
 
 @media screen and (max-width: 650px) {
 
+   .mem_card:hover .card-inner {
+      transform: rotateY(180deg);
+   }
    .member_icon{
+
       font-size: 8vw;
       color: white;
    }
    .container .mem_card {
       width: 60vw;
        height: 60vw;
-       z-index: -1;
    }
    .detail-para {
 
