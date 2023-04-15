@@ -152,6 +152,8 @@ function SearchBar() {
   const clearInput = () => {
     setshowInitialEvents(true);
     setFilteredData([]);
+    setFilteredEvents([]);
+    HandleCategory();
     setWordEntered("");
     return;
   };

@@ -51,7 +51,7 @@
 #earthdiv {
     position: absolute;
     width: 19.5vw;
-    height: 60vw;
+    height: 100vh;
     left: 0vw;
     background-repeat: none !important;
     mix-blend-mode: normal;

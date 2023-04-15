@@ -92,12 +92,14 @@
    font-size: 1.6vw;
    line-height: 20px;  
    color: #FFFFFF;
+   margin-bottom: 0.5vw;
 }
 
 .detail h5 {
 
    font-family: 'Montserrat';
    font-style: normal;
+   margin-bottom: 0.5vw;
    font-size: 1.4vw;
    text-align: center;
    letter-spacing: -0.02em;
@@ -132,6 +134,7 @@
    list-style: none;
    justify-content: space-evenly;
    margin: 0vw;
+   margin-top: -0.5vw;
    padding-left: 0vw;
 }
 .member_icon{
@@ -140,6 +143,7 @@
 }
 .detail{
    display: flex;
+   margin:1vw;
     justify-content: space-evenly;
     flex-direction: column;
 }
@@ -156,17 +160,17 @@
    }
    .container .mem_card {
       width: 60vw;
-       height: 60vw;
+       height: 72vw;
    }
    .detail-para {
-
+      line-height: 23px;
       font-size: 4vw;
    }
 
    .detail h4 {
 
       font-size: 4.4vw;
-      margin-bottom: 0vw;
+      margin-bottom: 0.5vw;
    }
    .detail h5 {
 
